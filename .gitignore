@@ -1,0 +1,22 @@
+# Node
+node_modules/
+server/node_modules/
+
+# Uploads and exports
+uploads/
+properties-export.json
+.properties-export.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Log
+npm-debug.log
+
+# Env
+.env
+
+# IDE
+.vscode/
+.idea/
