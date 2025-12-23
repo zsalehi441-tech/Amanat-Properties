@@ -1706,6 +1706,10 @@ class RealEstateApp {
         // Only show indicator if server status was checked
         if (!this.serverStatusChecked) return;
 
+        // NEW: Hide for visitors (show only for logged in admins or on the admin page)
+        const isPageAdmin = window.location.pathname.includes('admin.html');
+        if (!this.isAdminLoggedIn && !isPageAdmin) return;
+
         const indicator = document.createElement('div');
         indicator.id = 'server-status-indicator';
         indicator.className = `fixed bottom-4 right-4 p-3 rounded-lg shadow-lg z-50 flex items-center gap-2 ${this.serverConnected ? 'bg-green-500' : 'bg-yellow-500'
