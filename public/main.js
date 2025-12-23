@@ -4,7 +4,8 @@
 class RealEstateApp {
     constructor() {
         this.properties = [];
-        this.currentLanguage = localStorage.getItem('language') || 'en';
+        // Default to 'fa' (Dari) if no preference saved
+        this.currentLanguage = localStorage.getItem('language') || 'fa';
         this.isAdminLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
         this.serverConnected = false;
         this.serverStatusChecked = false;
@@ -12,12 +13,18 @@ class RealEstateApp {
     }
 
     async init() {
+        // Set initial direction based on language
+        document.documentElement.setAttribute('dir', this.currentLanguage === 'fa' ? 'rtl' : 'ltr');
+
+        // Setup theme/language immediately before loading data to render correct UI state faster
+        this.setupTheme();
+        this.setupLanguageSwitching();
+
         // Check server connection status first
         await this.checkServerConnection();
+        // Load properties once
         await this.loadProperties();
-        await this.loadProperties();
-        this.setupLanguageSwitching();
-        this.setupTheme();
+
         this.setupNavigation();
         this.initializePage();
         this.setupAnimations();
@@ -176,9 +183,9 @@ class RealEstateApp {
         const sunIcon = document.getElementById('sun-icon');
         const moonIcon = document.getElementById('moon-icon');
 
-        // Initial check
+        // Initial check - Default to DARK if no preference
         const isDark = localStorage.getItem('theme') === 'dark' ||
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            (!localStorage.getItem('theme')); // Default to dark when clean slate
 
         if (isDark) {
             document.documentElement.classList.add('dark');
