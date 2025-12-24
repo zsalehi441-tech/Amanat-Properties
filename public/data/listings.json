@@ -1,0 +1,145 @@
+{
+    "properties": [
+        {
+            "id": 1,
+            "title": "Luxury Villa in Sangi-e-Masha",
+            "title_fa": "ویلای لوکس در سنگی مشا",
+            "type": "Villa",
+            "type_fa": "ویلا",
+            "price": 25000000,
+            "price_fa": "۲۵۰۰ لک افغانی",
+            "area": 450,
+            "bedrooms": 5,
+            "bathrooms": 4,
+            "location": "Sangi-e-Masha, Jaghuri, Ghazni",
+            "location_fa": "سنگی مشا، جاغوری، غزنی",
+            "description": "Magnificent luxury villa in Sangi-e-Masha, Jaghuri. Features modern architecture and premium finishes.",
+            "description_fa": "ویلای لوکس باشکوه در سنگی مشا، جاغوری. دارای معماری مدرن و امکانات باکیفیت.",
+            "status": "Available",
+            "images": [
+                "/images/hero_villa_optimized.webp"
+            ],
+            "features": [
+                "Swimming Pool",
+                "Private Garden",
+                "Modern Kitchen",
+                "Security System",
+                "Garage"
+            ],
+            "features_fa": [
+                "استخر",
+                "باغ خصوصی",
+                "آشپزخانه مدرن",
+                "سیستم امنیتی",
+                "گاراژ"
+            ],
+            "contact": "+93791606227",
+            "date_added": "2024-12-01",
+            "lat": 33.245,
+            "lng": 67.417,
+            "video_url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        },
+        {
+            "id": 2,
+            "title": "Modern Commercial Space",
+            "title_fa": "فضای تجاری مدرن",
+            "type": "Commercial",
+            "type_fa": "تجاری",
+            "price": 45000000,
+            "price_fa": "۴۵۰۰ لک افغانی",
+            "area": 1200,
+            "bedrooms": 0,
+            "bathrooms": 2,
+            "location": "Bazar-e-Jaghuri, Ghazni",
+            "location_fa": "بازار جاغوری، غزنی",
+            "description": "Prime commercial space located in the heart of Jaghuri bazaar. Ideal for offices or retail.",
+            "description_fa": "فضای تجاری عالی واقع در قلب بازار جاغوری. ایده آل برای دفاتر یا فروشگاه.",
+            "status": "Available",
+            "images": [
+                "/images/hero_commercial_optimized.webp"
+            ],
+            "features": [
+                "High Visibility",
+                "Parking",
+                "Security Guard",
+                "Central Heating"
+            ],
+            "features_fa": [
+                "دید عالی",
+                "پارکینگ",
+                "نگهبانی",
+                "گرمایش مرکزی"
+            ],
+            "contact": "+93791606227",
+            "date_added": "2024-12-05",
+            "lat": 33.230,
+            "lng": 67.410
+        },
+        {
+            "id": 3,
+            "title": "Cozy Apartment in City Center",
+            "title_fa": "آپارتمان راحت در مرکز شهر",
+            "type": "Apartment",
+            "type_fa": "آپارتمان",
+            "price": 8500000,
+            "price_fa": "۸۵۰ لک افغانی",
+            "area": 120,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "location": "Ghazni City Center",
+            "location_fa": "مرکز شهر غزنی",
+            "description": "Beautiful 3-bedroom apartment with city views and easy access to shops.",
+            "description_fa": "آپارتمان زیبای ۳ خوابه با نمای شهر و دسترسی آسان به فروشگاه‌ها.",
+            "status": "Sold",
+            "images": [
+                "/images/hero_apartment_optimized.webp"
+            ],
+            "features": [
+                "Balcony",
+                "Elevator",
+                "Storage Unit"
+            ],
+            "features_fa": [
+                "بالکن",
+                "آسانسور",
+                "انباری"
+            ],
+            "contact": "+93791606227",
+            "date_added": "2024-11-20",
+            "lat": 33.545,
+            "lng": 68.417
+        },
+        {
+            "id": 4,
+            "title": "Agricultural Land",
+            "title_fa": "زمین کشاورزی",
+            "type": "Land",
+            "type_fa": "زمین",
+            "price": 15000000,
+            "price_fa": "۱۵۰۰ لک افغانی",
+            "area": 5000,
+            "bedrooms": 0,
+            "bathrooms": 0,
+            "location": "Loman, Jaghuri",
+            "location_fa": "لومان، جاغوری",
+            "description": "Fertile agricultural land suitable for farming or orchard development.",
+            "description_fa": "زمین کشاورزی حاصلخیز مناسب برای کشاورزی یا احداث باغ.",
+            "status": "Available",
+            "images": [
+                "/images/village_optimized.webp"
+            ],
+            "features": [
+                "Water access",
+                "Road access"
+            ],
+            "features_fa": [
+                "دسترسی به آب",
+                "دسترسی به جاده"
+            ],
+            "contact": "+93791606227",
+            "date_added": "2024-12-10",
+            "lat": 33.200,
+            "lng": 67.350
+        }
+    ]
+}
