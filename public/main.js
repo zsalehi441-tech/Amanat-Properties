@@ -7,8 +7,7 @@ class RealEstateApp {
         // Default to 'fa' (Dari) if no preference saved
         this.currentLanguage = localStorage.getItem('language') || 'fa';
         this.isAdminLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
-        this.serverConnected = false;
-        this.serverStatusChecked = false;
+        this.isAdminLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
         this.init();
     }
 
@@ -28,26 +27,7 @@ class RealEstateApp {
         this.setupAnimations();
     }
 
-    // Fetch with timeout helper
-    async fetchWithTimeout(url, options = {}, timeout = 15000) { // Increased default to 15s
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), timeout);
 
-        try {
-            const response = await fetch(url, {
-                ...options,
-                signal: controller.signal
-            });
-            clearTimeout(timeoutId);
-            return response;
-        } catch (error) {
-            clearTimeout(timeoutId);
-            if (error.name === 'AbortError') {
-                throw new Error('Request timeout - server took too long to respond');
-            }
-            throw error;
-        }
-    }
 
     // Property Data Management
     // Property Data Management
@@ -1016,190 +996,30 @@ class RealEstateApp {
             date_added: new Date().toISOString().split('T')[0]
         };
 
-        // Try multipart/form-data POST with actual File objects if present
-        const tryPostMultipart = async () => {
-            try {
-                // First try to use preserved File objects from window.pendingUploadFiles
-                // If not available, fall back to reading from the input element
-                let files = [];
-                if (window.pendingUploadFiles && Array.isArray(window.pendingUploadFiles) && window.pendingUploadFiles.length > 0) {
-                    files = window.pendingUploadFiles.slice();
-                } else {
-                    const imageInput = document.getElementById('image-upload');
-                    files = imageInput ? Array.from(imageInput.files) : [];
+        // Local Storage Logic Only
+        const saveLocally = () => {
+            // Handle Images: if pending uploads exist, use them (as data URLs)
+            // Just for demo purposes, we can try to use the reader result from handleEditSlotFile
+            if (window.pendingUploadImages) {
+                const newImages = window.pendingUploadImages.filter(img => img !== null);
+                if (newImages.length > 0) {
+                    newProperty.images = newImages;
                 }
-
-                // If no files available, skip multipart upload
-                if (files.length === 0) {
-                    return false;
-                }
-
-                const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-                const MAX_FILES = 30;
-
-                // Client-side validation before uploading
-                if (files.length > MAX_FILES) {
-                    this.showNotification(`Too many files selected (max ${MAX_FILES}).`, 'error');
-                    return false;
-                }
-                for (const f of files) {
-                    if (!f.type || !f.type.startsWith('image/')) {
-                        this.showNotification('Only image files are allowed.', 'error');
-                        return false;
-                    }
-                    if (f.size > MAX_FILE_SIZE) {
-                        this.showNotification('One or more files exceed the 5MB size limit.', 'error');
-                        return false;
-                    }
-                }
-                const fd = new FormData();
-                fd.append('title', newProperty.title || '');
-                fd.append('type', newProperty.type || '');
-                fd.append('price', newProperty.price || 0);
-                fd.append('area', newProperty.area || 0);
-                fd.append('bedrooms', newProperty.bedrooms || 0);
-                fd.append('bathrooms', newProperty.bathrooms || 0);
-                fd.append('location', newProperty.location || '');
-                fd.append('description', newProperty.description || '');
-                fd.append('status', newProperty.status || 'Available');
-                fd.append('features', JSON.stringify(newProperty.features || []));
-                fd.append('contact', newProperty.contact || '');
-                fd.append('lat', newProperty.lat || 0);
-                fd.append('lng', newProperty.lng || 0);
-                fd.append('date_added', newProperty.date_added || new Date().toISOString().split('T')[0]);
-
-                files.forEach(f => fd.append('images', f));
-
-                console.log('[RealEstateApp] Uploading property with', files.length, 'files');
-                console.log('[RealEstateApp] FormData entries:', Array.from(fd.entries()).map(([k, v]) => [k, v instanceof File ? `File: ${v.name} (${v.size} bytes)` : v]));
-
-                const resp = await this.fetchWithTimeout('/api/properties', { method: 'POST', body: fd }, 30000); // Increased timeout for large files
-                if (resp.ok) {
-                    const body = await resp.json();
-                    const saved = body.property || newProperty;
-                    console.log('[RealEstateApp] Property saved successfully:', saved);
-                    console.log('[RealEstateApp] Image paths:', saved.images);
-
-                    // Verify image paths are accessible
-                    if (saved.images && saved.images.length > 0) {
-                        console.log('[RealEstateApp] Verifying image paths:', saved.images);
-                        saved.images.forEach((imgPath, idx) => {
-                            const img = new Image();
-                            img.onload = () => console.log(`[RealEstateApp] Image ${idx + 1} loaded successfully:`, imgPath);
-                            img.onerror = () => console.error(`[RealEstateApp] Image ${idx + 1} failed to load:`, imgPath);
-                            img.src = imgPath;
-                        });
-                    }
-
-                    this.properties.push(saved);
-
-                    // Clear pending uploads after saving
-                    try { window.pendingUploadImages = []; } catch (e) { /* ignore */ }
-                    try { window.pendingUploadFiles = []; } catch (e) { /* ignore */ }
-
-                    // Cache a copy locally for offline fallback
-                    try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { /* ignore */ }
-
-                    this.displayAdminProperties();
-                    this.serverConnected = true; // Mark as connected on success
-                    this.setupConnectionStatusIndicator(); // Update status indicator
-                    this.showNotification(`Property uploaded successfully! ${saved.images ? saved.images.length : 0} image(s) saved.`, 'success');
-                    form.reset();
-                    // Reset file upload area - trigger custom event for admin.html to handle
-                    const resetEvent = new CustomEvent('resetFileUpload');
-                    window.dispatchEvent(resetEvent);
-                    return true;
-                } else {
-                    const errorText = await resp.text();
-                    console.error('[RealEstateApp] Server error:', resp.status, errorText);
-                    let errorMessage = `Upload failed: ${resp.status} ${resp.statusText}`;
-                    try {
-                        const errorJson = JSON.parse(errorText);
-                        if (errorJson.error) {
-                            errorMessage = errorJson.error;
-                        }
-                    } catch (e) {
-                        // Not JSON, use text as-is
-                    }
-                    this.serverConnected = false; // Mark as disconnected on error
-                    this.setupConnectionStatusIndicator(); // Update status indicator
-                    this.showNotification(errorMessage, 'error');
-                }
-            } catch (e) {
-                console.error('[RealEstateApp] Multipart POST failed:', e);
-                console.error('[RealEstateApp] Error details:', {
-                    name: e.name,
-                    message: e.message,
-                    stack: e.stack
-                });
-                this.serverConnected = false; // Mark as disconnected on error
-                this.setupConnectionStatusIndicator(); // Update status indicator
-                let errorMsg = 'Upload error occurred';
-                if (e.message.includes('timeout')) {
-                    errorMsg = 'Upload timeout - files may be too large or server is slow. Try smaller files or check server connection.';
-                } else if (e.message.includes('Failed to fetch') || e.message.includes('NetworkError')) {
-                    errorMsg = 'Network error - server may be down. Check if server is running on port 3000.';
-                } else {
-                    errorMsg = `Upload error: ${e.message}`;
-                }
-                this.showNotification(errorMsg, 'error');
             }
-            return false;
+
+            this.properties.push(newProperty);
+            try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { console.warn('LocalStorage error:', e); }
+
+            this.displayAdminProperties();
+            this.showNotification('Property added locally.', 'success');
+            form.reset();
+            const resetEvent = new CustomEvent('resetFileUpload');
+            window.dispatchEvent(resetEvent);
+            window.pendingUploadImages = [];
+            window.pendingUploadFiles = [];
         };
 
-        // Attempt multipart first, fall back to JSON+dataURL POST (existing flow)
-        tryPostMultipart().then(ok => {
-            if (ok) return;
-
-            // Fallback: previous JSON POST logic
-            const tryPostJson = async () => {
-                try {
-                    const resp = await this.fetchWithTimeout('/api/properties', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(newProperty)
-                    }, 10000);
-                    if (resp.ok) {
-                        const body = await resp.json();
-                        const saved = body.property || newProperty;
-                        this.properties.push(saved);
-                        try { window.pendingUploadImages = []; } catch (e) { /* ignore */ }
-                        try { window.pendingUploadFiles = []; } catch (e) { /* ignore */ }
-                        try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { /* ignore */ }
-                        this.serverConnected = true; // Mark as connected on success
-                        this.setupConnectionStatusIndicator(); // Update status indicator
-                        this.displayAdminProperties();
-                        this.showNotification('Property added and saved to server (JSON).', 'success');
-                        form.reset();
-                        // Reset file upload area - trigger custom event for admin.html to handle
-                        const resetEvent = new CustomEvent('resetFileUpload');
-                        window.dispatchEvent(resetEvent);
-                        return true;
-                    }
-                } catch (e) {
-                    console.warn('[RealEstateApp] JSON POST to API failed:', e);
-                    this.serverConnected = false; // Mark as disconnected on error
-                    this.setupConnectionStatusIndicator(); // Update status indicator
-                }
-                return false;
-            };
-
-            tryPostJson().then(ok2 => {
-                if (ok2) return;
-
-                // Final fallback: persist locally
-                this.properties.push(newProperty);
-                try { window.pendingUploadImages = []; } catch (e) { /* ignore */ }
-                try { window.pendingUploadFiles = []; } catch (e) { /* ignore */ }
-                try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { console.warn('Could not persist properties to localStorage:', e); }
-                this.displayAdminProperties();
-                this.showNotification('Property added locally (server unavailable).', 'warning');
-                form.reset();
-                // Reset file upload area - trigger custom event for admin.html to handle
-                const resetEvent = new CustomEvent('resetFileUpload');
-                window.dispatchEvent(resetEvent);
-            });
-        });
+        saveLocally();
     }
 
     updateProperty(form) {
@@ -1233,75 +1053,16 @@ class RealEstateApp {
             features_fa: formData.get('features_fa').split(',').map(s => s.trim()).filter(Boolean)
         };
 
-        // Server-Side Update logic
-        const tryUpdateServer = async () => {
-            if (!this.serverConnected) return false;
-
-            try {
-                // Try multipart if there are new files
-                const files = (window.editPendingUploadFiles || []).filter(f => f !== null);
-
-                if (files.length > 0) {
-                    const fd = new FormData();
-                    Object.keys(updatedProperty).forEach(key => {
-                        if (key === 'images' || key === 'features' || key === 'features_fa') {
-                            fd.append(key, JSON.stringify(updatedProperty[key]));
-                        } else {
-                            fd.append(key, updatedProperty[key]);
-                        }
-                    });
-
-                    files.forEach(f => fd.append('images_new', f)); // Use a specific key for new images
-
-                    const resp = await this.fetchWithTimeout(`/api/properties/${id}`, {
-                        method: 'PUT',
-                        body: fd
-                    }, 30000);
-
-                    if (resp.ok) {
-                        const body = await resp.json();
-                        this.properties[index] = body.property || updatedProperty;
-                        this.finishUpdate();
-                        return true;
-                    }
-                } else {
-                    // Just JSON update if no new files
-                    const resp = await this.fetchWithTimeout(`/api/properties/${id}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(updatedProperty)
-                    }, 10000);
-
-                    if (resp.ok) {
-                        const body = await resp.json();
-                        this.properties[index] = body.property || updatedProperty;
-                        this.finishUpdate();
-                        return true;
-                    }
-                }
-            } catch (e) {
-                console.warn('[RealEstateApp] Server update failed:', e);
+        // Local Storage Update Only
+        if (window.editPendingUploadImages) {
+            const newImages = window.editPendingUploadImages.filter(img => img !== null);
+            if (newImages.length > 0) {
+                updatedProperty.images = [...(updatedProperty.images || []), ...newImages];
             }
-            return false;
-        };
+        }
 
-        tryUpdateServer().then(ok => {
-            if (!ok) {
-                // Local-only/fallback update
-                if (window.editPendingUploadImages) {
-                    const newImages = window.editPendingUploadImages.filter(img => img !== null);
-                    if (newImages.length > 0) {
-                        updatedProperty.images = [...(updatedProperty.images || []), ...newImages];
-                    }
-                }
-
-                this.properties[index] = updatedProperty;
-                this.finishUpdate();
-                if (this.serverConnected) {
-                    this.showNotification('Updated locally, but server sync failed.', 'warning');
-                }
-            }
-        });
+        this.properties[index] = updatedProperty;
+        this.finishUpdate();
     }
 
     finishUpdate() {
@@ -1467,38 +1228,16 @@ class RealEstateApp {
         if (confirm(confirmMsg)) {
             property.images = property.images.filter(img => img !== imagePath);
 
-            // Update on server
-            try {
-                const updatedProperty = { ...property };
-                const resp = await this.fetchWithTimeout(`/api/properties/${propertyId}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(updatedProperty)
-                }, 10000);
-
-                if (resp.ok) {
-                    const body = await resp.json();
-                    const saved = body.property || updatedProperty;
-
-                    // Update local properties array
-                    const index = this.properties.findIndex(p => p.id === propertyId);
-                    if (index !== -1) {
-                        this.properties[index] = saved;
-                    }
-
-                    try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { /* ignore */ }
-
-                    this.showNotification('Image removed successfully!', 'success');
-                    this.editProperty(propertyId); // Refresh the edit modal
-                } else {
-                    this.showNotification('Failed to remove image on server', 'error');
-                    this.editProperty(propertyId); // Refresh anyway
-                }
-            } catch (error) {
-                console.error('Error removing image:', error);
-                this.showNotification('Error removing image: ' + error.message, 'error');
-                this.editProperty(propertyId); // Refresh anyway
+            // Update local properties array
+            const index = this.properties.findIndex(p => p.id === propertyId);
+            if (index !== -1) {
+                this.properties[index] = property;
             }
+
+            try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { /* ignore */ }
+
+            this.showNotification('Image removed locally.', 'success');
+            this.editProperty(propertyId);
         }
     }
 
@@ -1508,35 +1247,10 @@ class RealEstateApp {
             : 'Are you sure you want to delete this property?';
 
         if (confirm(confirmMsg)) {
-            // Try server delete first
-            const tryDelete = async () => {
-                try {
-                    const resp = await this.fetchWithTimeout(`/api/properties/${id}`, { method: 'DELETE' }, 5000);
-                    if (resp.ok) {
-                        this.properties = this.properties.filter(p => p.id !== id);
-                        try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { /* ignore */ }
-                        this.displayAdminProperties();
-                        this.serverConnected = true; // Mark as connected on success
-                        this.setupConnectionStatusIndicator(); // Update status indicator
-                        this.showNotification('Property deleted from server!', 'success');
-                        return true;
-                    }
-                } catch (e) {
-                    console.warn('[RealEstateApp] Could not DELETE via API:', e);
-                    this.serverConnected = false; // Mark as disconnected on error
-                    this.setupConnectionStatusIndicator(); // Update status indicator
-                }
-                return false;
-            };
-
-            tryDelete().then(ok => {
-                if (ok) return;
-                // Fallback: delete locally
-                this.properties = this.properties.filter(p => p.id !== id);
-                try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { console.warn('Could not persist properties to localStorage:', e); }
-                this.displayAdminProperties();
-                this.showNotification('Property deleted locally (server unavailable).', 'warning');
-            });
+            this.properties = this.properties.filter(p => p.id !== id);
+            try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { console.warn('LocalStorage error:', e); }
+            this.displayAdminProperties();
+            this.showNotification('Property deleted locally.', 'success');
         }
     }
 
@@ -1557,9 +1271,7 @@ class RealEstateApp {
         }
 
         // Get first image or use fallback
-        const firstImage = (property.images && property.images.length > 0)
-            ? property.images[0]
-            : this.getDefaultImageForType(property.type);
+        const thumbnail = property.thumbnail || (property.images && property.images.length > 0 ? property.images[0] : null) || this.getDefaultImageForType(property.type);
 
         const fallbackImg = this.getDefaultImageForType(property.type);
 
@@ -1594,7 +1306,7 @@ class RealEstateApp {
         return `
             <div class="property-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform transition-transform hover:scale-105">
                 <div class="relative">
-                    <img src="${firstImage}" 
+                    <img src="${thumbnail}" 
                          alt="${title}" 
                          class="w-full h-48 object-cover property-image"
                          onerror="this.onerror=null; this.src='${fallbackImg}';"
@@ -1678,51 +1390,7 @@ class RealEstateApp {
     }
 
     // Setup connection status indicator
-    setupConnectionStatusIndicator() {
-        // Remove existing indicator if present
-        const existing = document.getElementById('server-status-indicator');
-        if (existing) {
-            existing.remove();
-        }
 
-        // Only show indicator if server status was checked
-        if (!this.serverStatusChecked) return;
-
-        // NEW: Hide for visitors (show only for logged in admins or on the admin page)
-        const isPageAdmin = window.location.pathname.includes('admin.html');
-        if (!this.isAdminLoggedIn && !isPageAdmin) return;
-
-        const indicator = document.createElement('div');
-        indicator.id = 'server-status-indicator';
-        indicator.className = `fixed bottom-4 right-4 p-3 rounded-lg shadow-lg z-50 flex items-center gap-2 ${this.serverConnected ? 'bg-green-500' : 'bg-yellow-500'
-            } text-white text-sm`;
-
-        const statusText = this.serverConnected
-            ? 'Server Connected'
-            : 'Server Offline - Using local data';
-
-        indicator.innerHTML = `
-            <span class="w-2 h-2 rounded-full ${this.serverConnected ? 'bg-white' : 'bg-red-200'} animate-pulse"></span>
-            <span>${statusText}</span>
-        `;
-
-        document.body.appendChild(indicator);
-
-        // Auto-hide after 5 seconds if connected, keep visible if disconnected
-        if (this.serverConnected) {
-            setTimeout(() => {
-                if (document.body.contains(indicator)) {
-                    indicator.style.opacity = '0';
-                    indicator.style.transition = 'opacity 0.5s';
-                    setTimeout(() => {
-                        if (document.body.contains(indicator)) {
-                            indicator.remove();
-                        }
-                    }, 500);
-                }
-            }, 5000);
-        }
-    }
 
     // Animation Setup
     setupAnimations() {
