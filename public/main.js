@@ -1024,8 +1024,8 @@ class RealEstateApp {
 
     updateProperty(form) {
         const formData = new FormData(form);
-        const id = parseInt(formData.get('id'));
-        const index = this.properties.findIndex(p => p.id === id);
+        const id = formData.get('id'); // Keep as string
+        const index = this.properties.findIndex(p => String(p.id) === String(id));
 
         if (index === -1) {
             this.showNotification('Property not found', 'error');
@@ -1075,7 +1075,7 @@ class RealEstateApp {
     }
 
     editProperty(id) {
-        const property = this.properties.find(p => p.id === id);
+        const property = this.properties.find(p => String(p.id) === String(id));
         if (!property) {
             this.showNotification('Property not found!', 'error');
             return;
@@ -1218,7 +1218,7 @@ class RealEstateApp {
     }
 
     async removeImageFromEdit(imagePath, propertyId) {
-        const property = this.properties.find(p => p.id === propertyId);
+        const property = this.properties.find(p => String(p.id) === String(propertyId));
         if (!property) return;
 
         const confirmMsg = this.currentLanguage === 'fa'
@@ -1247,7 +1247,7 @@ class RealEstateApp {
             : 'Are you sure you want to delete this property?';
 
         if (confirm(confirmMsg)) {
-            this.properties = this.properties.filter(p => p.id !== id);
+            this.properties = this.properties.filter(p => String(p.id) !== String(id));
             try { localStorage.setItem('properties', JSON.stringify(this.properties)); } catch (e) { console.warn('LocalStorage error:', e); }
             this.displayAdminProperties();
             this.showNotification('Property deleted locally.', 'success');
