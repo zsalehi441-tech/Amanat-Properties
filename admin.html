@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Amanat Properties</title>
+    <meta name="description" content="Property management admin panel for Amanat Properties.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#1a202c',
+                            card: '#2d3748',
+                            text: '#e2e8f0'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Google Maps API -->
+
+
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #34495E;
+            --accent-color: #E67E22;
+            --background-color: #FAFAFA;
+            --text-color: #2C3E50;
+            --card-bg: #ffffff;
+            --input-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        .dark {
+            --primary-color: #ECF0F1;
+            --secondary-color: #BDC3C7;
+            --accent-color: #F39C12;
+            --background-color: #1a202c;
+            --text-color: #ECF0F1;
+            --card-bg: #2d3748;
+            --input-bg: #2d3748;
+            --border-color: #4a5568;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #d35400);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .fade-in {
+            opacity: 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #2C3E50;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .admin-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            color: var(--text-color);
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stats-card.orange {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .stats-card.green {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .stats-card.purple {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+        }
+
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+
+        .table-row:hover {
+            background-color: #f8fafc;
+        }
+
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .file-upload-area {
+            border: 2px dashed #cbd5e0;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--accent-color);
+            background-color: rgba(230, 126, 34, 0.05);
+        }
+
+        .file-upload-area.dragover {
+            border-color: var(--accent-color);
+            background-color: rgba(230, 126, 34, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-display font-bold gradient-text">
+                        Amanat Properties
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <a href="listings.html"
+                        class="nav-link text-gray-700 hover:text-orange-600 font-medium">Properties</a>
+                    <a href="index.html#featured"
+                        class="nav-link text-gray-700 hover:text-orange-600 font-medium">Featured</a>
+                    <a href="index.html#contact"
+                        class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                    <a href="admin.html" class="nav-link text-orange-600 font-medium">Admin</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="logout-btn" class="text-gray-700 hover:text-orange-600 font-medium">Logout</button>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-300">
+                        <!-- Sun Icon -->
+                        <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden hamburger ml-4" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden">
+                <div class="px-2 pt-2 pb-4 space-y-1 border-t border-gray-200">
+                    <a href="index.html"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium">Home</a>
+                    <a href="listings.html"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium">Properties</a>
+                    <a href="index.html#featured"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium">Featured</a>
+                    <a href="index.html#contact"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium">Contact</a>
+                    <a href="admin.html"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium">Admin</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Content -->
+    <section class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Page Header -->
+            <div class="mb-12 fade-in">
+                <h1 class="text-4xl font-display font-bold mb-4 gradient-text">Admin Dashboard</h1>
+                <p class="text-xl text-gray-600">Manage your property listings and monitor performance</p>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="stats-card fade-in">
+                    <div class="text-3xl font-bold mb-2"><span id="stats-total-properties">0</span></div>
+                    <div class="text-lg opacity-90">Total Properties</div>
+                </div>
+                <div class="stats-card orange fade-in">
+                    <div class="text-3xl font-bold mb-2"><span id="stats-available-properties">0</span></div>
+                    <div class="text-lg opacity-90">Available</div>
+                </div>
+                <div class="stats-card green fade-in">
+                    <div class="text-3xl font-bold mb-2"><span id="stats-sold-properties">0</span></div>
+                    <div class="text-lg opacity-90">Sold</div>
+                </div>
+                <div class="stats-card purple fade-in">
+                    <div class="text-3xl font-bold mb-2"><span id="stats-revenue">؋0</span></div>
+                    <div class="text-lg opacity-90">Total Value</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Add Property Form -->
+                <div class="lg:col-span-1">
+                    <div class="admin-card fade-in">
+                        <h3 class="text-2xl font-bold mb-6 gradient-text">Add New Property</h3>
+
+                        <form id="add-property-form" class="space-y-4">
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Property Title
+                                        (English)</label>
+                                    <input type="text" name="title" required class="form-input"
+                                        placeholder="e.g., Luxury Villa in Sangi-e-Masha">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Property Title
+                                        (Dari)</label>
+                                    <input type="text" name="title_fa" required class="form-input"
+                                        placeholder="مثلاً ویلای لوکس در سنگی مشا">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Type (English)</label>
+                                    <select name="type" required class="form-input">
+                                        <option value="">Select Type</option>
+                                        <option value="Villa">Villa</option>
+                                        <option value="Apartment">Apartment</option>
+                                        <option value="House">House</option>
+                                        <option value="Commercial">Commercial</option>
+                                        <option value="Land">Land</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Type (Dari)</label>
+                                    <input type="text" name="type_fa" class="form-input"
+                                        placeholder="مثلاً ویلا / آپارتمان / تجاری / زمین / خانه">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Price (Afghani)</label>
+                                <input type="number" name="price" required class="form-input"
+                                    placeholder="e.g., 2100000 (21 لک)">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Area (m²)</label>
+                                    <input type="number" name="area" required class="form-input" placeholder="450">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Bedrooms</label>
+                                    <input type="number" name="bedrooms" class="form-input" placeholder="5">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Bathrooms</label>
+                                    <input type="number" name="bathrooms" class="form-input" placeholder="4">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Location
+                                        (English)</label>
+                                    <input type="text" name="location" required class="form-input"
+                                        placeholder="e.g., Sangi-e-Masha, Jaghuri, Ghazni">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Location
+                                        (Dari)</label>
+                                    <input type="text" name="location_fa" required class="form-input"
+                                        placeholder="مثلاً سنگی مشا، جاغوری، غزنی">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Location Map (Drag marker
+                                    to set position)</label>
+                                <div id="add-property-map" class="h-64 w-full rounded-lg border border-gray-300 z-0">
+                                </div>
+                                <input type="hidden" name="lat" id="add-lat">
+                                <input type="hidden" name="lng" id="add-lng">
+                                <div class="text-xs text-gray-500 mt-1">Coordinates: <span id="add-coords">Not
+                                        set</span></div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Contact Phone</label>
+                                    <input type="tel" name="contact" required class="form-input"
+                                        placeholder="+93791606227">
+                                </div>
+
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-700 mb-2">Description
+                                            (English)</label>
+                                        <textarea name="description" rows="4" required class="form-input"
+                                            placeholder="Property description..."></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-700 mb-2">Description
+                                            (Dari)</label>
+                                        <textarea name="description_fa" rows="4" required class="form-input"
+                                            placeholder="توضیحات ملک به زبان دری..."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-700 mb-2">Features (English,
+                                            comma-separated)</label>
+                                        <input type="text" name="features" class="form-input"
+                                            placeholder="Swimming Pool, Private Garden, Modern Kitchen">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-700 mb-2">Features (Dari,
+                                            comma-separated)</label>
+                                        <input type="text" name="features_fa" class="form-input"
+                                            placeholder="ویژگی‌ها به زبان دری، با کاما جدا کنید">
+                                    </div>
+                                </div>
+
+                                <!-- Image Upload -->
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Property Images (up to
+                                        30)</label>
+                                    <p class="text-sm text-gray-500 mb-3">Each slot accepts one image (max 5MB, image
+                                        files
+                                        only). Leave unused slots empty.</p>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="image-slots">
+                                        <!-- Slots will be generated by script -->
+                                    </div>
+                                    <p id="image-error" class="text-red-500 text-sm mt-2 hidden"></p>
+                                </div>
+
+                                <button type="submit"
+                                    class="w-full btn-primary text-white px-6 py-3 rounded-lg font-semibold">
+                                    Add Property
+                                </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Properties List -->
+                <div class="lg:col-span-2">
+                    <div class="admin-card fade-in">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold gradient-text">Property Listings</h3>
+                            <div class="flex items-center gap-2">
+                                <button id="refresh-btn" class="btn-secondary px-4 py-2 rounded-lg font-semibold">
+                                    Refresh
+                                </button>
+                                <button id="export-properties-btn"
+                                    class="btn-secondary px-4 py-2 rounded-lg font-semibold">
+                                    Export properties
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Properties Table -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-200">
+                                        <th class="text-left p-3 font-semibold">ID</th>
+                                        <th class="text-left p-3 font-semibold">Title</th>
+                                        <th class="text-left p-3 font-semibold">Type</th>
+                                        <th class="text-left p-3 font-semibold">Price</th>
+                                        <th class="text-left p-3 font-semibold">Status</th>
+                                        <th class="text-left p-3 font-semibold">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-properties">
+                                    <!-- Properties will be loaded dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Property Modal -->
+    <div id="edit-property-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto m-4">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold gradient-text">Edit Property</h3>
+                    <button id="close-edit-modal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                </div>
+
+                <form id="edit-property-form" class="space-y-4">
+                    <input type="hidden" id="edit-property-id" name="id">
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Property Title
+                                (English)</label>
+                            <input type="text" id="edit-title" name="title" required class="form-input"
+                                placeholder="e.g., Luxury Villa in Sangi-e-Masha">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Property Title (Dari)</label>
+                            <input type="text" id="edit-title-fa" name="title_fa" required class="form-input"
+                                placeholder="مثلاً ویلای لوکس در سنگی مشا">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Type (English)</label>
+                            <select id="edit-type" name="type" required class="form-input">
+                                <option value="">Select Type</option>
+                                <option value="Villa">Villa</option>
+                                <option value="Apartment">Apartment</option>
+                                <option value="House">House</option>
+                                <option value="Commercial">Commercial</option>
+                                <option value="Land">Land</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Type (Dari)</label>
+                            <input type="text" id="edit-type-fa" name="type_fa" class="form-input"
+                                placeholder="مثلاً ویلا / آپارتمان / تجاری / زمین / خانه">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Price (Afghani)</label>
+                        <input type="number" id="edit-price" name="price" required class="form-input"
+                            placeholder="e.g., 2100000 (21 لک)">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Area (m²)</label>
+                            <input type="number" id="edit-area" name="area" required class="form-input"
+                                placeholder="450">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Bedrooms</label>
+                            <input type="number" id="edit-bedrooms" name="bedrooms" class="form-input" placeholder="5">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Bathrooms</label>
+                            <input type="number" id="edit-bathrooms" name="bathrooms" class="form-input"
+                                placeholder="4">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Location (English)</label>
+                            <input type="text" id="edit-location" name="location" required class="form-input"
+                                placeholder="e.g., Sangi-e-Masha, Jaghuri, Ghazni">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Location (Dari)</label>
+                            <input type="text" id="edit-location-fa" name="location_fa" required class="form-input"
+                                placeholder="مثلاً سنگی مشا، جاغوری، غزنی">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Location Map</label>
+                        <div id="edit-property-map" class="h-64 w-full rounded-lg border border-gray-300 z-0"></div>
+                        <input type="hidden" id="edit-lat" name="lat">
+                        <input type="hidden" id="edit-lng" name="lng">
+                        <div class="text-xs text-gray-500 mt-1">Coordinates: <span id="edit-coords">Not set</span></div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Contact Phone</label>
+                        <input type="tel" id="edit-contact" name="contact" required class="form-input"
+                            placeholder="+93791606227">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Status</label>
+                        <select id="edit-status" name="status" required class="form-input">
+                            <option value="Available">Available</option>
+                            <option value="Sold">Sold</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Description (English)</label>
+                            <textarea id="edit-description" name="description" rows="4" required class="form-input"
+                                placeholder="Property description..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Description (Dari)</label>
+                            <textarea id="edit-description-fa" name="description_fa" rows="4" required
+                                class="form-input" placeholder="توضیحات ملک به زبان دری..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Features (English,
+                                comma-separated)</label>
+                            <input type="text" id="edit-features" name="features" class="form-input"
+                                placeholder="Swimming Pool, Private Garden, Modern Kitchen">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Features (Dari,
+                                comma-separated)</label>
+                            <input type="text" id="edit-features-fa" name="features_fa" class="form-input"
+                                placeholder="ویژگی‌ها به زبان دری، با کاما جدا کنید">
+                        </div>
+                    </div>
+
+                    <!-- Image Upload for Edit -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Property Images (up to 30)</label>
+                        <p class="text-sm text-gray-500 mb-3">Current images will be replaced if you upload new ones.
+                            Leave empty to keep existing images.</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="edit-image-slots">
+                            <!-- Slots will be generated by script -->
+                        </div>
+                        <p id="edit-image-error" class="text-red-500 text-sm mt-2 hidden"></p>
+                        <div id="current-images-preview" class="mt-4">
+                            <!-- Current images will be shown here -->
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <button type="submit" class="flex-1 btn-primary text-white px-6 py-3 rounded-lg font-semibold">
+                            Update Property
+                        </button>
+                        <button type="button" id="cancel-edit"
+                            class="flex-1 btn-secondary px-6 py-3 rounded-lg font-semibold">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-3xl font-display font-bold mb-4 gradient-text">Amanat Properties</div>
+                <p class="text-gray-400 mb-8">Your trusted partner in luxury real estate</p>
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400">&copy; 2024 Amanat Properties. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module" src="/main.js"></script>
+
+    <script>
+        // Admin-specific functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Logout functionality
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function () {
+                    localStorage.removeItem('adminLoggedIn');
+                    window.location.href = 'index.html';
+                });
+            }
+
+            // Image upload slots (30 fixed slots, each one file)
+            const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+            const MAX_FILES = 30;
+            const imageSlotsContainer = document.getElementById('image-slots');
+            const imageError = document.getElementById('image-error');
+
+            window.pendingUploadFiles = new Array(MAX_FILES).fill(null);
+            window.pendingUploadImages = new Array(MAX_FILES).fill(null);
+
+            function renderSlots() {
+                if (!imageSlotsContainer) return;
+                imageSlotsContainer.innerHTML = '';
+                for (let i = 0; i < MAX_FILES; i++) {
+                    const slot = document.createElement('div');
+                    slot.className = 'border-2 border-dashed border-gray-300 rounded-lg p-3 flex flex-col items-center justify-center text-center bg-gray-50';
+                    slot.innerHTML = `
+                        <div class="w-full h-24 bg-gray-100 rounded mb-2 flex items-center justify-center overflow-hidden" id="slot-preview-${i}">
+                            <span class="text-gray-400 text-sm">No image</span>
+                        </div>
+                        <input type="file" accept="image/*" class="hidden" id="image-slot-input-${i}">
+                        <button type="button" class="px-3 py-1 rounded bg-white border border-gray-300 text-sm hover:border-orange-400" data-slot="${i}">
+                            Select image ${i + 1}
+                        </button>
+                        <p class="text-xs text-gray-500 mt-1">Max 5MB</p>
+                    `;
+                    imageSlotsContainer.appendChild(slot);
+
+                    const btn = slot.querySelector('button');
+                    const input = slot.querySelector('input[type=\"file\"]');
+                    const preview = slot.querySelector(`#slot-preview-${i}`);
+
+                    btn.addEventListener('click', () => input.click());
+                    input.addEventListener('change', (e) => handleSlotFile(i, e.target.files ? e.target.files[0] : null, preview));
+                }
+            }
+
+            function handleSlotFile(index, file, previewEl) {
+                if (!previewEl) return;
+                clearError();
+
+                if (!file) {
+                    window.pendingUploadFiles[index] = null;
+                    window.pendingUploadImages[index] = null;
+                    previewEl.innerHTML = `<span class="text-gray-400 text-sm">No image</span>`;
+                    updateSubmitState();
+                    return;
+                }
+
+                // Validate type and size
+                if (!file.type || !file.type.startsWith('image/')) {
+                    showError('Only image files are allowed.');
+                    return;
+                }
+                if (file.size > MAX_FILE_SIZE) {
+                    showError('File too large (max 5MB).');
+                    return;
+                }
+
+                // Read for preview and local fallback storage
+                const reader = new FileReader();
+                reader.onload = () => {
+                    window.pendingUploadFiles[index] = file;
+                    window.pendingUploadImages[index] = reader.result;
+                    previewEl.innerHTML = `<img src=\"${reader.result}\" alt=\"Preview\" class=\"w-full h-24 object-cover rounded\">`;
+                    updateSubmitState();
+                };
+                reader.onerror = () => {
+                    showError('Error reading file.');
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function showError(msg) {
+                if (imageError) {
+                    imageError.textContent = msg;
+                    imageError.classList.remove('hidden');
+                }
+            }
+
+            function clearError() {
+                if (imageError) {
+                    imageError.textContent = '';
+                    imageError.classList.add('hidden');
+                }
+            }
+
+            function updateSubmitState() {
+                const addForm = document.getElementById('add-property-form');
+                const hasAtLeastOne = window.pendingUploadFiles.some(f => !!f);
+                if (addForm) {
+                    const submitBtn = addForm.querySelector('button[type=\"submit\"]');
+                    if (submitBtn) {
+                        submitBtn.disabled = !hasAtLeastOne;
+                        submitBtn.classList.toggle('opacity-50', !hasAtLeastOne);
+                        submitBtn.classList.toggle('cursor-not-allowed', !hasAtLeastOne);
+                    }
+                }
+            }
+
+            // Expose arrays for main.js
+            window.addEventListener('resetFileUpload', function () {
+                window.pendingUploadFiles = new Array(MAX_FILES).fill(null);
+                window.pendingUploadImages = new Array(MAX_FILES).fill(null);
+                renderSlots();
+                updateSubmitState();
+                clearError();
+            });
+
+            renderSlots();
+            updateSubmitState();
+
+            // Edit Property Modal handlers
+            const editModal = document.getElementById('edit-property-modal');
+            const closeEditModal = document.getElementById('close-edit-modal');
+            const cancelEditBtn = document.getElementById('cancel-edit');
+            const editForm = document.getElementById('edit-property-form');
+
+            function closeEditModalFunc() {
+                if (editModal) {
+                    editModal.classList.add('hidden');
+                }
+                // Reset edit upload arrays
+                if (window.editPendingUploadFiles) {
+                    window.editPendingUploadFiles = new Array(MAX_FILES).fill(null);
+                    window.editPendingUploadImages = new Array(MAX_FILES).fill(null);
+                }
+            }
+
+            if (closeEditModal) {
+                closeEditModal.addEventListener('click', closeEditModalFunc);
+            }
+
+            if (cancelEditBtn) {
+                cancelEditBtn.addEventListener('click', closeEditModalFunc);
+            }
+
+            // Close modal when clicking outside
+            if (editModal) {
+                editModal.addEventListener('click', function (e) {
+                    if (e.target === editModal) {
+                        closeEditModalFunc();
+                    }
+                });
+            }
+
+            // Edit form submission
+            if (editForm) {
+                editForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    if (!window.app) return;
+
+                    const formData = new FormData(editForm);
+                    const propertyId = parseInt(formData.get('id'));
+                    const property = window.app.properties.find(p => p.id === propertyId);
+
+                    if (!property) {
+                        window.app.showNotification('Property not found!', 'error');
+                        return;
+                    }
+
+                    const updatedProperty = {
+                        id: propertyId,
+                        title: formData.get('title'),
+                        title_fa: formData.get('title_fa'),
+                        type: formData.get('type'),
+                        type_fa: formData.get('type_fa') || formData.get('type'),
+                        price: parseInt(formData.get('price')),
+                        area: parseInt(formData.get('area')),
+                        bedrooms: parseInt(formData.get('bedrooms')) || 0,
+                        bathrooms: parseInt(formData.get('bathrooms')) || 0,
+                        location: formData.get('location'),
+                        location_fa: formData.get('location_fa'),
+                        description: formData.get('description'),
+                        description_fa: formData.get('description_fa'),
+                        status: formData.get('status'),
+                        features: formData.get('features') ? formData.get('features').split(',').map(f => f.trim()).filter(f => f) : [],
+                        features_fa: formData.get('features_fa') ? formData.get('features_fa').split(',').map(f => f.trim()).filter(f => f) : [],
+                        contact: formData.get('contact'),
+                        images: property.images || [] // Keep existing images unless new ones are uploaded
+                    };
+
+                    // Handle image uploads if any
+                    const files = window.editPendingUploadFiles ? window.editPendingUploadFiles.filter(f => !!f) : [];
+
+                    try {
+                        if (files.length > 0) {
+                            // Upload with new images
+                            const fd = new FormData();
+                            Object.keys(updatedProperty).forEach(key => {
+                                if (key !== 'images' && key !== 'id') {
+                                    if (Array.isArray(updatedProperty[key])) {
+                                        fd.append(key, JSON.stringify(updatedProperty[key]));
+                                    } else {
+                                        fd.append(key, updatedProperty[key] || '');
+                                    }
+                                }
+                            });
+                            files.forEach(f => fd.append('images', f));
+
+                            const resp = await window.app.fetchWithTimeout(`/api/properties/${propertyId}`, {
+                                method: 'PUT',
+                                body: fd
+                            }, 30000);
+
+                            if (resp.ok) {
+                                const body = await resp.json();
+                                const saved = body.property || updatedProperty;
+
+                                // Update local properties array
+                                const index = window.app.properties.findIndex(p => p.id === propertyId);
+                                if (index !== -1) {
+                                    window.app.properties[index] = saved;
+                                }
+
+                                try { localStorage.setItem('properties', JSON.stringify(window.app.properties)); } catch (e) { /* ignore */ }
+
+                                window.app.displayAdminProperties();
+                                window.app.showNotification('Property updated successfully!', 'success');
+                                closeEditModalFunc();
+                            } else {
+                                const errorText = await resp.text();
+                                let errorMessage = `Update failed: ${resp.status}`;
+                                try {
+                                    const errorJson = JSON.parse(errorText);
+                                    if (errorJson.error) errorMessage = errorJson.error;
+                                } catch (e) { }
+                                window.app.showNotification(errorMessage, 'error');
+                            }
+                        } else {
+                            // Update without new images (keep existing)
+                            const resp = await window.app.fetchWithTimeout(`/api/properties/${propertyId}`, {
+                                method: 'PUT',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(updatedProperty)
+                            }, 10000);
+
+                            if (resp.ok) {
+                                const body = await resp.json();
+                                const saved = body.property || updatedProperty;
+
+                                // Update local properties array
+                                const index = window.app.properties.findIndex(p => p.id === propertyId);
+                                if (index !== -1) {
+                                    window.app.properties[index] = saved;
+                                }
+
+                                try { localStorage.setItem('properties', JSON.stringify(window.app.properties)); } catch (e) { /* ignore */ }
+
+                                window.app.displayAdminProperties();
+                                window.app.showNotification('Property updated successfully!', 'success');
+                                closeEditModalFunc();
+                            } else {
+                                const errorText = await resp.text();
+                                let errorMessage = `Update failed: ${resp.status}`;
+                                try {
+                                    const errorJson = JSON.parse(errorText);
+                                    if (errorJson.error) errorMessage = errorJson.error;
+                                } catch (e) { }
+                                window.app.showNotification(errorMessage, 'error');
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error updating property:', error);
+                        window.app.showNotification('Error updating property: ' + error.message, 'error');
+                    }
+                });
+            }
+
+            // Refresh button
+            const refreshBtn = document.getElementById('refresh-btn');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', function () {
+                    if (window.app) {
+                        window.app.displayAdminProperties();
+                    }
+                    this.textContent = 'Refreshed!';
+                    setTimeout(() => {
+                        this.textContent = 'Refresh';
+                    }, 1000);
+                });
+            }
+
+            // Export properties button
+            const exportBtn = document.getElementById('export-properties-btn');
+            if (exportBtn) {
+                exportBtn.addEventListener('click', function () {
+                    const data = (window.app && window.app.properties) ? window.app.properties : (localStorage.getItem('properties') ? JSON.parse(localStorage.getItem('properties')) : []);
+
+                    // Create downloadable blob
+                    const payload = { properties: data };
+                    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+
+                    // Open a new window and render a human-friendly summary
+                    const summaryWindow = window.open('', '_blank');
+                    if (summaryWindow) {
+                        const count = data.length;
+                        const itemsHtml = data.map(p => {
+                            const imgPresent = Array.isArray(p.images) && p.images.length > 0;
+                            const title = p.title || 'Untitled';
+                            const id = p.id || 'n/a';
+                            const price = p.price || 0;
+                            return `
+                                <tr style="border-bottom:1px solid #eee">
+                                    <td style="padding:8px;vertical-align:top">${id}</td>
+                                    <td style="padding:8px;vertical-align:top">${title}</td>
+                                    <td style="padding:8px;vertical-align:top">${imgPresent ? 'Yes' : 'No'}</td>
+                                    <td style="padding:8px;vertical-align:top">${price}</td>
+                                </tr>`;
+                        }).join('');
+
+                        const html = `
+                            <!doctype html>
+                            <html>
+                            <head>
+                                <meta charset="utf-8">
+                                <title>Properties Export Summary</title>
+                                <style>body{font-family:Inter,Arial,Helvetica,sans-serif;padding:20px;color:#222}table{border-collapse:collapse;width:100%;max-width:900px}th,td{text-align:left}pre{background:#f7f7f7;padding:12px;overflow:auto;max-height:300px}</style>
+                            </head>
+                            <body>
+                                <h1>Properties Export Summary</h1>
+                                <p><strong>Total properties:</strong> ${count}</p>
+                                <p>
+                                    <a id="downloadLink" href="${url}" download="properties-export.json">Download JSON</a>
+                                </p>
+                                <h2>Listing Preview</h2>
+                                <table>
+                                    <thead>
+                                        <tr style="background:#fafafa"><th style="padding:8px">ID</th><th style="padding:8px">Title</th><th style="padding:8px">Images</th><th style="padding:8px">Price</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        ${itemsHtml}
+                                    </tbody>
+                                </table>
+                                <h2>Raw JSON</h2>
+                                <pre id="rawJson">${escapeHtml(JSON.stringify(payload, null, 2))}</pre>
+                            </body>
+                            </html>`;
+
+                        // Helper to escape HTML inlined JSON
+                        function escapeHtml(str) {
+                            return str.replace(/[&<>\"]/g, function (tag) {
+                                const charsToReplace = {
+                                    '&': '&amp;',
+                                    '<': '&lt;',
+                                    '>': '&gt;',
+                                    '"': '&quot;'
+                                };
+                                return charsToReplace[tag] || tag;
+                            });
+                        }
+
+                        // Write document
+                        summaryWindow.document.open();
+                        summaryWindow.document.write(html);
+                        summaryWindow.document.close();
+                    } else {
+                        // Fallback: trigger download if popups blocked
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'properties-export.json';
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                    }
+
+                    // Revoke object URL after a short delay to ensure download can complete
+                    setTimeout(() => URL.revokeObjectURL(url), 2000);
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('open');
+                mobileMenuBtn.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

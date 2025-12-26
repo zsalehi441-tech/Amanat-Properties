@@ -4,7 +4,11 @@
   "description": "Sophisticated bilingual real estate website",
   "main": "index.html",
   "scripts": {
-    "build": "echo 'Build complete'"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "vite": "^7.3.0"
+  }
 }

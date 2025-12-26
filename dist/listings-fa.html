@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="fa-AF" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لیست املاک - املاک امانت</title>
+    <meta name="description"
+        content="مجموعه کامل املاک لوکس، ویلاها، آپارتمان‌ها و املاک تجاری برتر در جاغوری، غزنی را مرور کنید.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#1a202c',
+                            card: '#2d3748',
+                            text: '#e2e8f0'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Persian Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #34495E;
+            --accent-color: #E67E22;
+            --background-color: #FAFAFA;
+            --text-color: #2C3E50;
+        }
+
+        .dark {
+            --primary-color: #ECF0F1;
+            --secondary-color: #BDC3C7;
+            --accent-color: #F39C12;
+            --background-color: #1a202c;
+            --text-color: #ECF0F1;
+            --card-bg: #2d3748;
+            --border-color: #4a5568;
+        }
+
+        /* Dark Mode Overrides */
+
+        .dark .bg-white {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color);
+        }
+
+        .dark .bg-gray-50 {
+            background-color: #111827 !important;
+            color: var(--text-color);
+        }
+
+        .dark .text-gray-700 {
+            color: #e2e8f0 !important;
+        }
+
+        .dark .text-gray-600 {
+            color: #cbd5e0 !important;
+        }
+
+        .dark .text-gray-500 {
+            color: #9ca3af !important;
+        }
+
+        .dark .border-gray-200,
+        .dark .border-gray-300 {
+            border-color: var(--border-color) !important;
+        }
+
+        .dark .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            direction: rtl;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .property-card {
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #d35400);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .fade-in {
+            opacity: 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Styles */
+
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #2C3E50;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .filter-sidebar {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .dark .filter-sidebar {
+            background: var(--card-bg);
+        }
+
+        .price-range-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .price-range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .price-range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* RTL Adjustments */
+
+        .space-x-4>*+* {
+            margin-right: 1rem;
+            margin-left: 0;
+        }
+
+        .space-x-8>*+* {
+            margin-right: 2rem;
+            margin-left: 0;
+        }
+
+        .text-left {
+            text-align: right !important;
+        }
+
+        .text-right {
+            text-align: left !important;
+        }
+
+        /* Persian text adjustments */
+
+        .persian-number {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 30px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .whatsapp-float svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/main-Ct0DOigo.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index-fa.html" class="text-2xl font-display font-bold gradient-text">
+                        املاک امانت
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index-fa.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">خانه</a>
+                    <a href="listings-fa.html" class="nav-link text-orange-600 font-medium">املاک</a>
+                    <a href="index-fa.html#featured"
+                        class="nav-link text-gray-700 hover:text-orange-600 font-medium">ویژه</a>
+                    <a href="index-fa.html#contact"
+                        class="nav-link text-gray-700 hover:text-orange-600 font-medium">تماس</a>
+                    <a href="admin.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium"
+                        data-nav="admin">مدیریت</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button data-lang="fa"
+                        class="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors">دری</button>
+                    <button data-lang="en"
+                        class="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">EN</button>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-300">
+                        <!-- Sun Icon -->
+                        <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden hamburger ml-4" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden">
+                <div class="px-2 pt-2 pb-4 space-y-1 border-t border-gray-200">
+                    <a href="index-fa.html"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium">خانه</a>
+                    <a href="listings-fa.html"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium">املاک</a>
+                    <a href="index-fa.html#featured"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium">ویژه</a>
+                    <a href="index-fa.html#contact"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium">تماس</a>
+                    <a href="admin.html"
+                        class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md font-medium"
+                        data-nav="admin">مدیریت</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-24 pb-12 bg-gradient-to-r from-gray-900 to-gray-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl md:text-5xl font-display font-bold mb-4">لیست املاک</h1>
+                <p class="text-xl text-gray-300">مجموعه کامل املاک برتر ما را کشف کنید</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Filters Sidebar -->
+                <div class="lg:w-1/4">
+                    <div class="filter-sidebar p-6 sticky top-24">
+                        <h3 class="text-xl font-bold mb-6 gradient-text">فیلتر املاک</h3>
+
+                        <!-- Property Type Filter -->
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3">نوع ملک</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" data-filter="type" value="Villa"
+                                        class="mr-2 text-orange-600 focus:ring-orange-500">
+                                    <span>ویلا</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" data-filter="type" value="Apartment"
+                                        class="mr-2 text-orange-600 focus:ring-orange-500">
+                                    <span>آپارتمان</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" data-filter="type" value="House"
+                                        class="mr-2 text-orange-600 focus:ring-orange-500">
+                                    <span>خانه</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" data-filter="type" value="Commercial"
+                                        class="mr-2 text-orange-600 focus:ring-orange-500">
+                                    <span>تجاری</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" data-filter="type" value="Land"
+                                        class="mr-2 text-orange-600 focus:ring-orange-500">
+                                    <span>زمین</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Price Range Filter -->
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3">محدوده قیمت</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">حداقل قیمت (افغانی)</label>
+                                    <input type="number" id="min-price" placeholder="۰" min="0" max="100000000"
+                                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">حداکثر قیمت (افغانی)</label>
+                                    <input type="number" id="max-price" placeholder="بدون محدودیت" min="0"
+                                        max="100000000"
+                                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bedrooms Filter -->
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3">اتاق خواب</h4>
+                            <div class="grid grid-cols-5 gap-2">
+                                <label class="text-center">
+                                    <input type="radio" name="bedrooms" value="0" class="sr-only">
+                                    <div
+                                        class="p-2 border border-gray-300 rounded cursor-pointer hover:bg-orange-50 hover:border-orange-300">
+                                        هر نوع</div>
+                                </label>
+                                <label class="text-center">
+                                    <input type="radio" name="bedrooms" value="1" class="sr-only">
+                                    <div
+                                        class="p-2 border border-gray-300 rounded cursor-pointer hover:bg-orange-50 hover:border-orange-300">
+                                        ۱</div>
+                                </label>
+                                <label class="text-center">
+                                    <input type="radio" name="bedrooms" value="2" class="sr-only">
+                                    <div
+                                        class="p-2 border border-gray-300 rounded cursor-pointer hover:bg-orange-50 hover:border-orange-300">
+                                        ۲</div>
+                                </label>
+                                <label class="text-center">
+                                    <input type="radio" name="bedrooms" value="3" class="sr-only">
+                                    <div
+                                        class="p-2 border border-gray-300 rounded cursor-pointer hover:bg-orange-50 hover:border-orange-300">
+                                        ۳</div>
+                                </label>
+                                <label class="text-center">
+                                    <input type="radio" name="bedrooms" value="4" class="sr-only">
+                                    <div
+                                        class="p-2 border border-gray-300 rounded cursor-pointer hover:bg-orange-50 hover:border-orange-300">
+                                        ۴+</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Apply Filters Button -->
+                        <button id="apply-filters"
+                            class="w-full btn-primary text-white px-4 py-3 rounded-lg font-semibold mb-4">
+                            اعمال فیلترها
+                        </button>
+
+                        <!-- Clear Filters Button -->
+                        <button id="clear-filters"
+                            class="w-full border border-gray-300 text-gray-700 px-4 py-3 rounded-lg font-semibold hover:bg-gray-50">
+                            پاک کردن همه فیلترها
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Properties Grid -->
+                <div class="lg:w-3/4">
+                    <!-- Sort and View Options -->
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+                        <div class="flex items-center gap-4">
+                            <label class="text-sm font-semibold">مرتب‌سازی بر اساس:</label>
+                            <select id="sort-select"
+                                class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                <option value="date-new">جدیدترین‌ها</option>
+                                <option value="price-low">قیمت: کم به زیاد</option>
+                                <option value="price-high">قیمت: زیاد به کم</option>
+                                <option value="area-large">مساحت: بزرگترین</option>
+                            </select>
+                        </div>
+
+                        <div class="flex flex-col sm:items-end gap-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm text-gray-600">املاک یافت شده:</span>
+                                <span id="properties-count"
+                                    class="text-sm font-semibold text-orange-600 persian-number">۰</span>
+                            </div>
+                            <div id="active-filters" class="text-xs text-gray-500"></div>
+                        </div>
+                    </div>
+
+                    <!-- Properties Grid -->
+                    <div id="properties-grid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+                        <!-- Skeleton cards shown until properties load -->
+                        <div class="animate-pulse bg-white rounded-lg shadow-lg overflow-hidden">
+                            <div class="w-full h-48 bg-gray-200"></div>
+                            <div class="p-4 space-y-2">
+                                <div class="h-4 bg-gray-200 rounded w-3/4"></div>
+                                <div class="h-3 bg-gray-200 rounded w-1/2"></div>
+                                <div class="h-5 bg-gray-200 rounded w-2/3"></div>
+                            </div>
+                        </div>
+                        <div class="animate-pulse bg-white rounded-lg shadow-lg overflow-hidden hidden md:block">
+                            <div class="w-full h-48 bg-gray-200"></div>
+                            <div class="p-4 space-y-2">
+                                <div class="h-4 bg-gray-200 rounded w-3/4"></div>
+                                <div class="h-3 bg-gray-200 rounded w-1/2"></div>
+                                <div class="h-5 bg-gray-200 rounded w-2/3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center mt-12">
+                        <button id="load-more" class="btn-primary text-white px-8 py-4 rounded-full font-semibold">
+                            بارگذاری املاک بیشتر
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-3xl font-display font-bold mb-4 gradient-text">املاک امانت</div>
+                <p class="text-gray-400 mb-8">شریک مورد اعتماد شما در املاک لوکس</p>
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400">&copy; ۲۰۲۴ املاک امانت. تمامی حقوق محفوظ است.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/93791606227" target="_blank" class="whatsapp-float" title="با ما در واتس‌اپ تماس بگیرید">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.335-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+        </svg>
+    </a>
+
+
+    <script>
+        // Persian functionality for listings page
+        document.addEventListener('DOMContentLoaded', function () {
+            // Filter functionality
+            const applyFiltersBtn = document.getElementById('apply-filters');
+            const clearFiltersBtn = document.getElementById('clear-filters');
+
+            if (applyFiltersBtn) {
+                applyFiltersBtn.addEventListener('click', function () {
+                    if (window.app) {
+                        window.app.applyFilters();
+                    }
+                });
+            }
+
+            if (clearFiltersBtn) {
+                clearFiltersBtn.addEventListener('click', function () {
+                    // Clear all filter inputs
+                    document.querySelectorAll('[data-filter="type"]').forEach(cb => cb.checked = false);
+                    document.getElementById('min-price').value = '';
+                    document.getElementById('max-price').value = '';
+                    document.querySelectorAll('[name="bedrooms"]').forEach(rb => rb.checked = false);
+
+                    // Reset properties display
+                    if (window.app) {
+                        window.app.displayProperties();
+                    }
+                });
+            }
+
+            // Load more functionality
+            const loadMoreBtn = document.getElementById('load-more');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function () {
+                    // Simulate loading more properties
+                    this.textContent = 'در حال بارگذاری...';
+                    setTimeout(() => {
+                        this.textContent = 'بارگذاری املاک بیشتر';
+                        // In a real app, this would load more properties from the server
+                    }, 1000);
+                });
+            }
+
+            // Update properties count with Persian numbers
+            function updatePropertiesCount() {
+                const countElement = document.getElementById('properties-count');
+                if (countElement && window.app && window.app.properties) {
+                    countElement.textContent = window.app.properties.length.toLocaleString('fa-AF');
+                }
+            }
+
+            // Update count when properties are loaded
+            setTimeout(updatePropertiesCount, 1000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('open');
+                mobileMenuBtn.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+        }
+    </script>
+    <!-- ElevenLabs ConvAI Widget -->
+    <div id="convai-widget" style="position: fixed; bottom: 16px; right: 16px; z-index: 9999;">
+        <elevenlabs-convai agent-id="agent_7101kch3xsxpfy4tjmnwhvb7zxk8"></elevenlabs-convai>
+    </div>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</body>
+
+</html>
