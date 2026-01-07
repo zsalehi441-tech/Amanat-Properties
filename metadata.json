@@ -1,0 +1,8 @@
+
+{
+  "name": "Amanat Real Estate",
+  "description": "A premium, trust-first real estate and property advisory platform for Afghanistan and the diaspora, focused on verification and institutional authority.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

@@ -1,0 +1,135 @@
+
+[
+  {
+    "id": "dsgn-001",
+    "category": "luxury",
+    "title": {
+      "dr": "شاهکار معماری مدرن",
+      "ps": "د عصري معمارۍ شاهکار",
+      "en": "Modern Architectural Masterpiece"
+    },
+    "description": {
+      "dr": "طراحی خیره کننده با دید پانوراما و امکانات لوکس برای زندگی اعیانی.",
+      "ps": "د پانوراما لید او د بډایه ژوند لپاره د آرایشي اسانتیاوو سره په زړه پورې ډیزاین.",
+      "en": "Stunning design with panoramic views and luxury amenities for upscale living."
+    },
+    "estPrice": 3200000,
+    "features": {
+      "beds": 5,
+      "baths": 4.5,
+      "area": 539,
+      "levels": 2
+    },
+    "images": ["https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800"]
+  },
+  {
+    "id": "dsgn-002",
+    "category": "family",
+    "title": {
+      "dr": "خانه خانوادگی معاصر",
+      "ps": "معاصر کورنۍ کور",
+      "en": "Contemporary Family Home"
+    },
+    "description": {
+      "dr": "ترکیبی از سنگ و کارایی برای زندگی خانوادگی مدرن و صمیمی.",
+      "ps": "د عصري او صمیمي کورنۍ ژوند لپاره د ډبرې او موثریت ترکیب.",
+      "en": "A blend of stone and efficiency for modern and intimate family living."
+    },
+    "estPrice": 1800000,
+    "features": {
+      "beds": 4,
+      "baths": 3,
+      "area": 334,
+      "levels": 2
+    },
+    "images": ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800"]
+  },
+  {
+    "id": "dsgn-003",
+    "category": "luxury",
+    "title": {
+      "dr": "عمارت لوکس مدرن",
+      "ps": "لوکس عصري ماڼۍ",
+      "en": "Modern Luxury Mansion"
+    },
+    "description": {
+      "dr": "طراحی معاصر با روکش‌های ممتاز و دید پانورامای شهری.",
+      "ps": "د غوره پوښونو او د ښار پانوراما لید سره معاصر ډیزاین.",
+      "en": "Contemporary design with premium finishes and panoramic urban views."
+    },
+    "estPrice": 2400000,
+    "features": {
+      "beds": 4,
+      "baths": 3.5,
+      "area": 390,
+      "levels": 3
+    },
+    "images": ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"]
+  },
+  {
+    "id": "dsgn-004",
+    "category": "luxury",
+    "title": {
+      "dr": "عمارت فوق لوکس",
+      "ps": "خورا لوکس ماڼۍ",
+      "en": "Ultra-Luxury Mansion"
+    },
+    "description": {
+      "dr": "عمارت استثنایی با امکانات تفریحی و منظره‌های خیره کننده.",
+      "ps": "د تفریحي اسانتیاوو او په زړه پورې لیدونو سره استثنایی ماڼۍ.",
+      "en": "Exceptional mansion with recreational facilities and breathtaking views."
+    },
+    "estPrice": 4500000,
+    "features": {
+      "beds": 6,
+      "baths": 5.5,
+      "area": 669,
+      "levels": 3
+    },
+    "images": ["https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&q=80&w=800"]
+  },
+  {
+    "id": "dsgn-005",
+    "category": "family",
+    "title": {
+      "dr": "خانه خانوادگی حومه‌ای",
+      "ps": "د ښار غاړې کورنۍ کور",
+      "en": "Suburban Family Home"
+    },
+    "description": {
+      "dr": "خانه خانوادگی جادار با روکش‌های ممتاز و حیاط بزرگ.",
+      "ps": "د غوره پوښونو او لوی انګړ سره پراخه کورنۍ کور.",
+      "en": "Spacious family home with premium finishes and a large yard."
+    },
+    "estPrice": 1650000,
+    "features": {
+      "beds": 4,
+      "baths": 2.5,
+      "area": 297,
+      "levels": 2
+    },
+    "images": ["https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&q=80&w=800"]
+  },
+  {
+    "id": "dsgn-006",
+    "category": "modern",
+    "title": {
+      "dr": "خانه ساحلی مدرن",
+      "ps": "عصري ساحلي کور",
+      "en": "Modern Beach House"
+    },
+    "description": {
+      "dr": "طراحی شیک با منظره اقیانوس و ویژگی‌های پایدار.",
+      "ps": "د سمندر لید او دوامداره ځانګړتیاوو سره سجیلا ډیزاین.",
+      "en": "Chic design with ocean views and sustainable features."
+    },
+    "estPrice": 2100000,
+    "features": {
+      "beds": 4,
+      "baths": 3.5,
+      "area": 362,
+      "levels": 2
+    },
+    "images": ["https://images.unsplash.com/photo-1449156001533-cb39c85049c3?auto=format&fit=crop&q=80&w=800"]
+  }
+]

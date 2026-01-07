@@ -1,0 +1,171 @@
+
+[
+  {
+    "id": "kbl-001",
+    "title": {
+      "dr": "ویلا لوکس در وزیر اکبرخان",
+      "ps": "په وزیر اکبرخان کې لوکس ویلا",
+      "en": "Luxury Villa in Wazir Akbar Khan"
+    },
+    "location": {
+      "city": "Kabul",
+      "district": "District 10",
+      "dr": "کابل، وزیر اکبرخان",
+      "ps": "کابل، وزیر اکبرخان",
+      "en": "Kabul, Wazir Akbar Khan"
+    },
+    "coordinates": {
+      "lat": 34.5369,
+      "lng": 69.1831
+    },
+    "price": 450000,
+    "currency": "USD",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 5,
+      "baths": 4,
+      "area": 450
+    },
+    "images": [
+      "https://picsum.photos/id/1018/800/600",
+      "https://picsum.photos/id/1019/800/600",
+      "https://picsum.photos/id/1020/800/600"
+    ],
+    "description": {
+      "dr": "این ملک دارای سند قباله شرعی بوده و توسط تیم حقوقی امانت به طور کامل تایید شده است. موقعیت عالی با امنیت بالا.",
+      "ps": "دا ملک شرعي قباله لري او د امانت د حقوقي ټیم لخوا په بشپړ ډول تایید شوی. د لوړ امنیت سره غوره ځای.",
+      "en": "This property features a verified Sharia deed and has been fully vetted by the Amanat legal team. Prime location with high security."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "kbl-002",
+    "title": {
+      "dr": "آپارتمان عصری در شهر نو",
+      "ps": "په شهر نو کې عصري آپارتمان",
+      "en": "Modern Apartment in Shahr-e-Naw"
+    },
+    "location": {
+      "city": "Kabul",
+      "district": "District 4",
+      "dr": "کابل، شهر نو",
+      "ps": "کابل، شهر نو",
+      "en": "Kabul, Shahr-e-Naw"
+    },
+    "coordinates": {
+      "lat": 34.5323,
+      "lng": 69.1654
+    },
+    "price": 85000,
+    "currency": "USD",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 3,
+      "baths": 2,
+      "area": 140
+    },
+    "images": [
+      "https://picsum.photos/id/1021/800/600",
+      "https://picsum.photos/id/1022/800/600"
+    ],
+    "description": {
+      "dr": "آپارتمان نوساز با تمام امکانات عصری، آفتاب‌رخ و دارای سیستم گرمایش مرکزی. امنیت تضمین شده.",
+      "ps": "نوی جوړ شوی آپارتمان د ټولو عصري اسانتیاوو سره، لمر لور ته او د مرکزي تودوخې سیسټم سره. تضمین شوی امنیت.",
+      "en": "Newly built apartment with all modern amenities, sun-facing with central heating system. Guaranteed security."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "hrat-001",
+    "title": {
+      "dr": "خانه حویلی‌دار در جاده بهزاد",
+      "ps": "په بهزاد جاده کې حویلی لرونکی کور",
+      "en": "Traditional House on Behzad Road"
+    },
+    "location": {
+      "city": "Herat",
+      "district": "District 5",
+      "dr": "هرات، جاده بهزاد",
+      "ps": "هرات، جاده بهزاد",
+      "en": "Herat, Behzad Road"
+    },
+    "coordinates": {
+      "lat": 34.3419,
+      "lng": 62.2031
+    },
+    "price": 120000,
+    "currency": "USD",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 4,
+      "baths": 2,
+      "area": 300
+    },
+    "images": [
+      "https://picsum.photos/id/1031/800/600",
+      "https://picsum.photos/id/1032/800/600"
+    ],
+    "description": {
+      "dr": "یک خانه کلاسیک با معماری هراتی، بازسازی شده و دارای قباله رسمی تایید شده توسط ریاست عدلیه هرات.",
+      "ps": "د هرات د معمارۍ سره یو کلاسیک کور، بیارغول شوی او د هرات د عدلیې ریاست لخوا تایید شوی رسمي قباله لري.",
+      "en": "A classic house with Herati architecture, renovated and featuring an official deed verified by the Herat Justice Department."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "blkh-001",
+    "title": {
+      "dr": "زمین تجارتی در مزار شریف",
+      "ps": "په مزار شریف کې تجارتي ځمکه",
+      "en": "Commercial Land in Mazar-e-Sharif"
+    },
+    "location": {
+      "city": "Balkh",
+      "district": "Commercial Zone",
+      "dr": "بلخ، مزار شریف",
+      "ps": "بلخ، مزار شریف",
+      "en": "Balkh, Mazar-e-Sharif"
+    },
+    "coordinates": {
+      "lat": 36.7022,
+      "lng": 67.1122
+    },
+    "price": 1200000,
+    "currency": "USD",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 0,
+      "baths": 0,
+      "area": 2000
+    },
+    "images": [
+      "https://picsum.photos/id/1041/800/600"
+    ],
+    "description": {
+      "dr": "فرصت استثنایی برای سرمایه‌گذاری تجاری. اسناد کاملاً تصفیه شده و آماده انتقال.",
+      "ps": "د سوداګریزې پانګونې لپاره استثنایی فرصت. اسناد په بشپړ ډول تصفیه شوي او لیږد ته چمتو دي.",
+      "en": "Exceptional opportunity for commercial investment. Documents fully cleared and ready for transfer."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  }
+]

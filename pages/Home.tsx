@@ -1,0 +1,271 @@
+
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Language, Property } from '../types';
+import { translations } from '../translations';
+import AmanatLogo from '../components/AmanatLogo';
+
+interface Props {
+  lang: Language;
+}
+
+const Home: React.FC<Props> = ({ lang }) => {
+  const t = translations[lang];
+  const [featuredProperties, setFeaturedProperties] = useState<Property[]>([]);
+
+  useEffect(() => {
+    fetch('/data/listings.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          setFeaturedProperties(data.slice(0, 4));
+        }
+      })
+      .catch(err => console.error("Error loading featured properties", err));
+  }, []);
+
+  return (
+    <div className="animate-fade-in">
+      {/* Hero Section */}
+      <section className="relative h-[85vh] flex items-center overflow-hidden bg-slate-100 dark:bg-brand-dark">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=2070" 
+            className="w-full h-full object-cover opacity-20 dark:opacity-30 grayscale hover:grayscale-0 transition-all duration-1000"
+            alt="Hero Background"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 dark:from-brand-dark dark:via-brand-dark/40 to-transparent" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-block px-5 py-2 border border-brand-gold/50 text-brand-gold text-[10px] font-bold tracking-[0.4em] uppercase mb-8">
+              {lang === Language.ENGLISH ? "Forensic Real Estate Verification" : "تایید تخصصی املاک و مستغلات"}
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-slate-900 dark:text-white tracking-tight uppercase">
+              {t.home.heroTitle}
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-12 leading-relaxed max-w-2xl mx-auto font-light">
+              {t.home.heroSubtitle}
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <Link 
+                to="/listings"
+                className="bg-brand-gold text-brand-dark px-12 py-5 font-bold text-xs uppercase tracking-[0.3em] hover:bg-brand-gold/90 transition-all shadow-xl"
+              >
+                {t.home.viewListings}
+              </Link>
+              <Link 
+                to="/services"
+                className="bg-transparent border border-slate-900 dark:border-white/10 text-slate-900 dark:text-white px-12 py-5 font-bold text-xs uppercase tracking-[0.3em] hover:border-brand-gold hover:text-brand-gold transition-all"
+              >
+                {t.nav.services}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Listings Grid Section */}
+      {featuredProperties.length > 0 && (
+        <section className="py-24 bg-slate-50 dark:bg-brand-navy/30 border-b border-slate-100 dark:border-brand-charcoal/30">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-4">
+              <div>
+                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-tight">{t.home.featuredTitle}</h2>
+                <p className="text-slate-400 dark:text-slate-500 text-sm tracking-wide uppercase">{lang === Language.ENGLISH ? "Curated Institutional Inventory" : "فهرست منتخب نهادی"}</p>
+              </div>
+              <Link to="/listings" className="hidden md:block text-brand-gold text-xs font-bold uppercase tracking-[0.3em] hover:underline underline-offset-8 transition-all">
+                {t.home.viewAllAssets} →
+              </Link>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
+              {featuredProperties.map((property) => (
+                <div key={property.id} className="bg-white dark:bg-brand-dark border border-slate-100 dark:border-brand-charcoal group shadow-xl dark:shadow-2xl transition-all hover:border-brand-gold/40">
+                  <div className="relative aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-brand-navy">
+                    <img 
+                      src={property.images[0]} 
+                      alt={property.title[lang]} 
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-4 left-4 bg-brand-emerald/90 backdrop-blur-sm text-white text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.15em] shadow-2xl flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
+                      {t.home.verificationBadge}
+                    </div>
+                    <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-brand-dark/80 backdrop-blur-md border border-slate-100 dark:border-brand-charcoal px-4 py-2 text-brand-gold font-bold text-lg">
+                      ${property.price.toLocaleString()}
+                    </div>
+                  </div>
+                  <div className="p-8">
+                    <div className="mb-6">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide group-hover:text-brand-gold transition-colors">{property.title[lang]}</h3>
+                      <p className="text-slate-400 dark:text-slate-500 text-sm font-light italic">{property.location[lang]}</p>
+                    </div>
+                    
+                    <div className="flex items-center gap-8 mb-8 border-y border-slate-100 dark:border-brand-charcoal/50 py-4">
+                      <div className="flex flex-col">
+                        <span className="text-slate-900 dark:text-white font-bold text-sm">{property.features.area} m²</span>
+                        <span className="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.details.area}</span>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-slate-900 dark:text-white font-bold text-sm">{property.features.beds}</span>
+                        <span className="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.details.beds}</span>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-slate-900 dark:text-white font-bold text-sm">{property.features.baths}</span>
+                        <span className="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.details.baths}</span>
+                      </div>
+                    </div>
+
+                    <Link 
+                      to={`/property/${property.id}`}
+                      className="inline-block w-full bg-slate-50 dark:bg-brand-navy border border-slate-200 dark:border-brand-charcoal text-slate-900 dark:text-white px-6 py-3.5 font-bold text-[10px] uppercase tracking-[0.25em] hover:bg-brand-gold hover:text-brand-dark hover:border-brand-gold transition-all text-center"
+                    >
+                      {lang === Language.ENGLISH ? "View Audit Details" : "مشاهده جزئیات حسابرسی"}
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-center">
+              <Link 
+                to="/listings"
+                className="bg-transparent border border-brand-gold text-brand-gold px-16 py-5 font-bold text-xs uppercase tracking-[0.4em] hover:bg-brand-gold hover:text-brand-dark transition-all shadow-xl"
+              >
+                {lang === Language.ENGLISH ? "View More Listings" : "مشاهده املاک بیشتر"}
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Verification Protocol Section */}
+      <section className="py-32 bg-white dark:bg-brand-dark border-y border-slate-100 dark:border-brand-charcoal/30">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="text-4xl font-bold mb-8 text-slate-900 dark:text-white uppercase tracking-tight">
+                {lang === Language.ENGLISH ? "The Verification Protocol" : "پروتکل تایید اسناد"}
+              </h2>
+              <p className="text-slate-600 dark:text-slate-400 mb-12 leading-relaxed text-lg font-light">
+                {lang === Language.ENGLISH 
+                  ? "Property transactions in Afghanistan are high-risk. Amanat operates an institutional protocol to ensure every listing is safe for capital deployment."
+                  : "معاملات ملکی در افغانستان با ریسک بالا همراه است. امانت یک پروتکل نهادی را برای اطمینان از امنیت هر ملک برای سرمایه‌گذاری اجرا می‌کند."}
+              </p>
+              
+              <div className="space-y-12">
+                <div className="flex gap-8 group">
+                  <div className="text-4xl font-bold text-brand-gold/20 group-hover:text-brand-gold transition-colors duration-500">01</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white uppercase tracking-wider">{lang === Language.ENGLISH ? "Archival Audit" : "حساب‌رسی آرشیف"}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed font-light">{lang === Language.ENGLISH ? "Direct verification with central makhzan archives to check for liens or disputes." : "تایید مستقیم با آرشیوهای مرکزی مخزن برای بررسی هرگونه مشکل حقوقی یا ادعا."}</p>
+                  </div>
+                </div>
+                <div className="flex gap-8 group">
+                  <div className="text-4xl font-bold text-brand-gold/20 group-hover:text-brand-gold transition-colors duration-500">02</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white uppercase tracking-wider">{lang === Language.ENGLISH ? "Chain of Custody" : "زنجیره مالکیت"}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed font-light">{lang === Language.ENGLISH ? "Analysis of previous ownership to ensure a legitimate transfer history." : "تجزیه و تحلیل مالکیت‌های قبلی برای اطمینان از تاریخچه انتقال قانونی."}</p>
+                  </div>
+                </div>
+                <div className="flex gap-8 group">
+                  <div className="text-4xl font-bold text-brand-gold/20 group-hover:text-brand-gold transition-colors duration-500">03</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white uppercase tracking-wider">{lang === Language.ENGLISH ? "Physical Survey" : "بررسی فزیکی"}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed font-light">{lang === Language.ENGLISH ? "On-ground site inspection to verify boundaries and structural health." : "بازرسی فزیکی در محل برای تایید مرزها و سلامت ساختاری ملک."}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square bg-slate-50 dark:bg-brand-navy border border-slate-200 dark:border-brand-charcoal p-12 flex flex-col items-center justify-center text-center shadow-xl dark:shadow-2xl">
+                <div className="w-48 h-48 border-4 border-brand-gold/10 rounded-full flex items-center justify-center mb-8 bg-white dark:bg-brand-dark/50 shadow-inner">
+                  <AmanatLogo size={120} hideText={true} />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white uppercase tracking-[0.2em]">{lang === Language.ENGLISH ? "Makhzan Verified" : "تایید شده مخزن"}</h3>
+                <p className="text-slate-500 text-sm tracking-wide font-light">
+                  {lang === Language.ENGLISH 
+                    ? "Institutional grade verification status for every Amanat listing."
+                    : "وضعیت تایید نهادی برای هر ملک در لست‌های امانت."}
+                </p>
+                <div className="mt-12 text-[10px] text-brand-gold/40 tracking-[0.5em] uppercase border-t border-slate-200 dark:border-brand-charcoal pt-8 w-full font-bold">
+                  Forensic Document Audit Active
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Pillars */}
+      <section className="py-32 bg-slate-50 dark:bg-brand-dark">
+        <div className="container mx-auto px-4 text-center mb-20">
+          <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white tracking-[0.4em] uppercase">{t.home.trustTitle}</h2>
+          <p className="text-slate-500 max-w-2xl mx-auto text-lg font-light leading-relaxed">{t.home.trustSubtitle}</p>
+        </div>
+        
+        <div className="container mx-auto px-4 grid md:grid-cols-3 gap-12">
+          {[
+            {
+              title: lang === Language.ENGLISH ? "Legal Sovereignty" : "حاکمیت قانونی",
+              desc: lang === Language.ENGLISH ? "Every listing is verified through official makhzan archives to eliminate deed fraud risk." : "هر ملک از طریق آرشیو رسمی مخزن بررسی می‌شود تا خطر جعل قباله از بین برود.",
+              icon: "⚖️"
+            },
+            {
+              title: lang === Language.ENGLISH ? "Institutional Guard" : "حفاظت نهادی",
+              desc: lang === Language.ENGLISH ? "We act as your verifier on the ground, providing 'proof of life' for every property." : "ما به عنوان تاییدکننده شما در محل عمل می‌کنیم و «ثبوت حیات» برای هر ملک ارائه می‌دهیم.",
+              icon: "🏛️"
+            },
+            {
+              title: lang === Language.ENGLISH ? "Diaspora Bridge" : "پل ارتباطی دیاسپورا",
+              desc: lang === Language.ENGLISH ? "Specialized remote management and secure transaction handling for the Afghan diaspora." : "مدیریت از راه دور تخصصی و انجام معاملات امن برای افغان‌های خارج از کشور.",
+              icon: "🌍"
+            }
+          ].map((pillar, i) => (
+            <div key={i} className="bg-white dark:bg-brand-navy p-12 border border-slate-100 dark:border-brand-charcoal hover:border-brand-gold/30 transition-all group shadow-sm dark:shadow-xl">
+              <div className="text-4xl mb-8 group-hover:scale-110 transition-transform">{pillar.icon}</div>
+              <h3 className="text-xl font-bold mb-6 text-brand-gold uppercase tracking-widest">{pillar.title}</h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light">{pillar.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Verification CTA */}
+      <section className="py-32 bg-slate-50 dark:bg-brand-navy relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="bg-white dark:bg-brand-dark border border-slate-200 dark:border-brand-gold/10 p-12 md:p-24 flex flex-col md:flex-row items-center justify-between gap-16 shadow-2xl">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-slate-900 dark:text-white leading-tight uppercase tracking-tight">
+                {lang === Language.ENGLISH ? "Have a property to verify?" : "ملکی برای تایید دارید؟"}
+              </h2>
+              <p className="text-slate-500 dark:text-slate-400 mb-12 leading-relaxed text-lg font-light">
+                {lang === Language.ENGLISH 
+                  ? "Don't risk high-value capital on unverified claims. Use our expert team to conduct due diligence, deed audits, and ownership verification."
+                  : "سرمایه باارزش خود را با ادعاهای تایید نشده به خطر نیندازید. از تیم متخصص ما برای انجام بررسی‌های لازم، حسابرسی قباله و تایید مالکیت استفاده کنید."}
+              </p>
+              <Link 
+                to="/contact"
+                className="inline-block bg-brand-gold text-brand-dark px-14 py-6 font-bold text-xs uppercase tracking-[0.4em] hover:scale-105 transition-all shadow-2xl"
+              >
+                {lang === Language.ENGLISH ? "Request Verification" : "درخواست تایید اسناد"}
+              </Link>
+            </div>
+            <div className="w-full md:w-1/3 aspect-square bg-slate-50 dark:bg-brand-navy border border-slate-200 dark:border-brand-charcoal flex flex-col items-center justify-center p-12 text-center relative overflow-hidden group">
+               <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+               <AmanatLogo size={200} hideText={true} className="mb-6 opacity-40 group-hover:opacity-100 transition-opacity duration-700" />
+               <p className="text-[10px] text-brand-gold/60 font-bold leading-loose tracking-[0.3em] uppercase italic relative z-10">
+                 {lang === Language.ENGLISH ? "Institutional integrity is the ultimate luxury." : "صداقت نهادی، نهایت تجمل است."}
+               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
