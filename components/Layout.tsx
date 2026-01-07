@@ -20,6 +20,17 @@ const Layout: React.FC<Props> = ({ children, lang, onLangChange, isDarkMode, onT
   const location = useLocation();
   const isRTL = lang !== Language.ENGLISH;
 
+  React.useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   const navLinks = [
     { path: '/', label: t.nav.home },
     { path: '/listings', label: t.nav.listings },
@@ -84,7 +95,8 @@ const Layout: React.FC<Props> = ({ children, lang, onLangChange, isDarkMode, onT
               </button>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 text-slate-600 dark:text-slate-300"
+                className={`p-2 transition-all duration-300 relative z-[100] ${isMenuOpen ? 'text-brand-gold scale-110' : 'text-slate-600 dark:text-slate-300'}`}
+                aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
               >
                 {isMenuOpen ? (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -97,7 +109,7 @@ const Layout: React.FC<Props> = ({ children, lang, onLangChange, isDarkMode, onT
 
           {/* Mobile Menu Overlay */}
           {isMenuOpen && (
-            <div className="lg:hidden fixed inset-0 z-50 bg-white dark:bg-brand-dark flex flex-col pt-24 px-6 animate-fade-in">
+            <div className="lg:hidden fixed inset-0 z-[90] bg-white dark:bg-brand-dark flex flex-col pt-32 px-10 animate-fade-in overflow-y-auto">
               <nav className="flex flex-col gap-6">
                 {navLinks.map((link) => (
                   <Link
