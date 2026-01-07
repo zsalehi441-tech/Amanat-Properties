@@ -178,9 +178,9 @@ const Contact = ({ lang }: { lang: Language }) => {
     setResponse("");
     setGroundingLinks([]);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
       const result = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview',
+        model: 'gemini-2.0-flash',
         contents: query,
         config: {
           tools: [{ googleSearch: {} }],
