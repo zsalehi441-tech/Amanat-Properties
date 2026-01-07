@@ -94,37 +94,44 @@ const Layout: React.FC<Props> = ({ children, lang, onLangChange, isDarkMode, onT
                 {isDarkMode ? <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg> : <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>}
               </button>
               <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`p-2 transition-all duration-300 relative z-[100] ${isMenuOpen ? 'text-brand-gold scale-110' : 'text-slate-600 dark:text-slate-300'}`}
-                aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+                onClick={() => setIsMenuOpen(true)}
+                className="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-gold transition-colors"
+                aria-label="Open Menu"
               >
-                {isMenuOpen ? (
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                ) : (
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8h16M4 16h16"></path></svg>
-                )}
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
               </button>
             </div>
           </div>
 
           {/* Mobile Menu Overlay */}
           {isMenuOpen && (
-            <div className="lg:hidden fixed inset-0 z-[90] bg-white dark:bg-brand-dark flex flex-col pt-32 px-10 animate-fade-in overflow-y-auto">
-              <nav className="flex flex-col gap-6">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`text-2xl uppercase tracking-widest font-bold ${location.pathname === link.path ? 'text-brand-gold' : 'text-slate-400 dark:text-slate-500'
-                      }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-              <div className="mt-auto pb-12">
-                <LanguageSwitcher current={lang} onChange={(l) => { onLangChange(l); setIsMenuOpen(false); }} />
+            <div className="lg:hidden fixed inset-0 z-[200] bg-white dark:bg-brand-dark flex flex-col animate-fade-in overflow-y-auto min-h-screen">
+              <div className="flex justify-end p-6 border-b border-slate-100 dark:border-brand-charcoal mb-8">
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2 text-slate-500 dark:text-slate-400 hover:text-brand-gold transition-colors transform hover:rotate-90 duration-300"
+                  aria-label="Close Menu"
+                >
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+              </div>
+              <div className="px-10 flex flex-col gap-6">
+                <nav className="flex flex-col gap-6">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`text-2xl uppercase tracking-widest font-bold ${location.pathname === link.path ? 'text-brand-gold' : 'text-slate-400 dark:text-slate-500'
+                        }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </nav>
+                <div className="mt-auto pb-12">
+                  <LanguageSwitcher current={lang} onChange={(l) => { onLangChange(l); setIsMenuOpen(false); }} />
+                </div>
               </div>
             </div>
           )}
