@@ -65,19 +65,18 @@ const Construction: React.FC<Props> = ({ lang }) => {
               <button
                 key={f.id}
                 onClick={() => setFilter(f.id)}
-                className={`px-6 py-2.5 text-[11px] font-bold uppercase tracking-widest transition-all rounded-full border ${
-                  filter === f.id 
-                    ? 'bg-brand-gold border-brand-gold text-brand-dark' 
+                className={`px-6 py-2.5 text-[11px] font-bold uppercase tracking-widest transition-all rounded-full border ${filter === f.id
+                    ? 'bg-brand-gold border-brand-gold text-brand-dark'
                     : 'bg-transparent border-slate-200 dark:border-brand-charcoal text-slate-500 hover:border-brand-gold hover:text-brand-gold'
-                }`}
+                  }`}
               >
                 {f.label}
               </button>
             ))}
           </div>
-          
+
           <div className="flex items-center gap-4">
-            <select 
+            <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
               className="bg-transparent border-b border-slate-300 dark:border-brand-charcoal py-2 text-xs font-bold uppercase tracking-widest focus:outline-none focus:border-brand-gold text-slate-600 dark:text-slate-300 cursor-pointer"
@@ -93,9 +92,9 @@ const Construction: React.FC<Props> = ({ lang }) => {
           {filteredDesigns.map((design) => (
             <div key={design.id} className="bg-white dark:bg-brand-navy border border-slate-200 dark:border-brand-charcoal group shadow-lg transition-all hover:border-brand-gold/40">
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-brand-dark">
-                <img 
-                  src={design.images[0]} 
-                  alt={design.title[lang]} 
+                <img
+                  src={design.images[0]}
+                  alt={design.title[lang]}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   loading="lazy"
                 />
@@ -106,7 +105,7 @@ const Construction: React.FC<Props> = ({ lang }) => {
                   ${(design.estPrice / 1000000).toFixed(1)}M+
                 </div>
               </div>
-              
+
               <div className="p-8">
                 <div className="mb-6">
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wide group-hover:text-brand-gold transition-colors">
@@ -116,7 +115,7 @@ const Construction: React.FC<Props> = ({ lang }) => {
                     {design.description[lang]}
                   </p>
                 </div>
-                
+
                 <div className="grid grid-cols-3 gap-4 mb-8 border-y border-slate-100 dark:border-brand-charcoal/50 py-5">
                   <div className="text-center">
                     <div className="text-slate-900 dark:text-white font-bold text-sm mb-1">{design.features.area} m²</div>
@@ -133,8 +132,8 @@ const Construction: React.FC<Props> = ({ lang }) => {
                 </div>
 
                 <div className="flex gap-4">
-                  <a 
-                    href={`https://wa.me/93000000000?text=Salam, I want to inquire about the build for Design ID: ${design.id}`}
+                  <a
+                    href={`https://wa.me/93791606227?text=Salam, I want to inquire about the build for Design ID: ${design.id}`}
                     className="flex-1 bg-brand-gold text-brand-dark py-3 font-bold text-[10px] uppercase tracking-widest text-center shadow-lg hover:scale-105 transition-all"
                   >
                     {t.details.requestBuild}
@@ -175,8 +174,8 @@ const Construction: React.FC<Props> = ({ lang }) => {
                   </div>
                 ))}
               </div>
-              <a 
-                href="https://wa.me/93000000000?text=I am interested in Amanat A-Z Construction services."
+              <a
+                href="https://wa.me/93791606227?text=I am interested in Amanat A-Z Construction services."
                 className="inline-block bg-brand-gold text-brand-dark px-14 py-5 font-bold text-xs uppercase tracking-[0.4em] hover:scale-105 transition-all shadow-2xl"
               >
                 {lang === Language.ENGLISH ? "Request Consultation" : "درخواست مشاوره رایگان"}

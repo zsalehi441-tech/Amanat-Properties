@@ -149,7 +149,7 @@ const Layout: React.FC<Props> = ({ children, lang, onLangChange, isDarkMode, onT
               <h3 className="text-slate-900 dark:text-white text-[10px] font-bold uppercase tracking-[0.4em] mb-8 opacity-70">{t.nav.contact}</h3>
               <p className="text-brand-gold text-xl font-bold mb-4 tracking-widest uppercase">info@amanat.af</p>
               <div className="flex justify-center gap-8 mt-10">
-                <a href="https://wa.me/93700000000" target="_blank" rel="noopener noreferrer" className="text-slate-400 dark:text-slate-500 hover:text-brand-gold transition-colors text-[10px] uppercase tracking-[0.2em] font-bold">WhatsApp</a>
+                <a href="https://wa.me/93791606227" target="_blank" rel="noopener noreferrer" className="text-slate-400 dark:text-slate-500 hover:text-brand-gold transition-colors text-[10px] uppercase tracking-[0.2em] font-bold">WhatsApp</a>
                 <a href="https://instagram.com/amanat.af" target="_blank" rel="noopener noreferrer" className="text-slate-400 dark:text-slate-500 hover:text-brand-gold transition-colors text-[10px] uppercase tracking-[0.2em] font-bold">Instagram</a>
               </div>
             </div>

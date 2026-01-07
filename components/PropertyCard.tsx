@@ -13,13 +13,13 @@ const PropertyCard: React.FC<Props> = ({ property, lang }) => {
   const t = translations[lang];
 
   return (
-    <Link 
+    <Link
       to={`/property/${property.id}`}
       className="group block bg-white dark:bg-brand-navy border border-slate-100 dark:border-brand-charcoal overflow-hidden hover:border-brand-gold transition-all duration-300 shadow-sm dark:shadow-none"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
-        <img 
-          src={property.images[0]} 
+        <img
+          src={property.images[0]}
           alt={property.title[lang]}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
@@ -35,21 +35,21 @@ const PropertyCard: React.FC<Props> = ({ property, lang }) => {
           )}
         </div>
       </div>
-      
+
       <div className="p-5">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-gold transition-colors">
+        <div className="flex justify-between items-start mb-2 gap-4">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-gold transition-colors line-clamp-2">
             {property.title[lang]}
           </h3>
-          <p className="text-brand-gold font-bold">
+          <p className="text-brand-gold font-bold whitespace-nowrap">
             ${property.price.toLocaleString()}
           </p>
         </div>
-        
+
         <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
           {property.location[lang]}
         </p>
-        
+
         <div className="flex items-center gap-6 border-t border-slate-100 dark:border-brand-charcoal pt-4 text-xs text-slate-500 dark:text-slate-300">
           <div className="flex items-center gap-2">
             <span className="text-slate-400 dark:text-slate-500">{t.details.beds}:</span>
