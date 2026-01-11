@@ -1,0 +1,14 @@
+{
+    "collectionName": "components_shared_image_urls",
+    "info": {
+        "displayName": "Image URL",
+        "icon": "image"
+    },
+    "options": {},
+    "attributes": {
+        "url": {
+            "type": "string",
+            "required": true
+        }
+    }
+}

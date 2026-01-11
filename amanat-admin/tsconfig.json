@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": [
+      "ES2020"
+    ],
+    "target": "ES2019",
+    "strict": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noEmitOnError": true,
+    "noImplicitThis": true,
+    "outDir": "dist",
+    "rootDir": "."
+  },
+  "include": [
+    // Root files
+    "src/index.ts",
+    "src/admin/**/*.ts",
+    "src/api/**/*.ts",
+    "src/common/**/*.ts",
+    "src/extensions/**/*.ts",
+    "src/middlewares/**/*.ts",
+    "src/policies/**/*.ts",
+    "src/services/**/*.ts",
+    "config/**/*.ts",
+    "types/**/*.ts",
+    "src/**/*.json",
+    // Explicitly include ONLY server-side plugin code
+    "src/plugins/media-intake/strapi-server.ts",
+    "src/plugins/media-intake/server/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/",
+    "build/",
+    "dist/",
+    ".cache/",
+    ".tmp/",
+    // Do not include admin files in the server compilation
+    "src/admin/",
+    // Do not include test files
+    "**/*.test.*",
+    // "src/plugins/**"
+    "src/plugins/media-intake/admin",
+    "src/plugins/media-intake/admin/**",
+    "src/plugins/media-intake/admin/**/*"
+  ]
+}

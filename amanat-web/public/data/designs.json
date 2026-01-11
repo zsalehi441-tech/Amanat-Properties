@@ -1,0 +1,146 @@
+[
+  {
+    "id": "dsgn-001",
+    "category": "luxury",
+    "title": {
+      "dr": "ویلا مدرن وزیراکبرخان",
+      "ps": "د وزیر اکبر خان عصري ویلا",
+      "en": "Wazir Akbar Khan Modern Villa"
+    },
+    "description": {
+      "dr": "طراحی مدرن با نمای سنگ مرمر سفید، پنجره‌های بزرگ و ساختار کانکریتی مستحکم.",
+      "ps": "عصري ډیزاین د سپین مرمرو مخ، لوی کړکۍ او قوي کانکریټ جوړښت سره.",
+      "en": "Modern design with white marble facade, large windows, and reinforced concrete structure."
+    },
+    "estPrice": 220000,
+    "features": {
+      "beds": 6,
+      "baths": 5,
+      "area": 550,
+      "levels": 3
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1600596542815-bfad4c1539a9?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "dsgn-002",
+    "category": "family",
+    "title": {
+      "dr": "خانه حویلی دار کلاسیک",
+      "ps": "کلاسیک انګړ لرونکی کور",
+      "en": "Classic Courtyard Home"
+    },
+    "description": {
+      "dr": "خانه‌ای جادار با حیاط مرکزی سنتی، باغچه کاری زیبا و دیوارهای محافظت شده.",
+      "ps": "پراخه کور د دودیز مرکزي انګړ، ښکلي باغ او خوندي دیوالونو سره.",
+      "en": "Spacious home with traditional central courtyard, landscaped garden, and secure perimeter."
+    },
+    "estPrice": 95000,
+    "features": {
+      "beds": 4,
+      "baths": 3,
+      "area": 320,
+      "levels": 2
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "dsgn-003",
+    "category": "luxury",
+    "title": {
+      "dr": "قصر کوچک کارته‌سه",
+      "ps": "د کارته سه کوچنی ماڼۍ",
+      "en": "Karte Seh Mini-Palace"
+    },
+    "description": {
+      "dr": "معماری نئوکلاسیک با ستون‌های رومی، نمای سنگی تراورتن و سالن‌های پذیرایی مجلل.",
+      "ps": "نیوکلاسیک معمارۍ د رومي ستنو، ټراورټین ډبرې مخ او آرایشي میلمستونونو سره.",
+      "en": "Neoclassical architecture with Roman columns, travertine stone facade, and grand reception halls."
+    },
+    "estPrice": 185000,
+    "features": {
+      "beds": 7,
+      "baths": 6,
+      "area": 480,
+      "levels": 3
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "dsgn-004",
+    "category": "family",
+    "title": {
+      "dr": "آپارتمان دوپلکس عصری",
+      "ps": "عصري ډوپلیکس اپارتمان",
+      "en": "Modern Duplex Residence"
+    },
+    "description": {
+      "dr": "طراحی اقتصادی و شیک مناسب برای زمین‌های کوچکتر در شهرک‌های جدید.",
+      "ps": "اقتصادي او سجیلا ډیزاین په نویو ښارګوټو کې د کوچنیو ځمکو لپاره مناسب.",
+      "en": "Efficient and stylish design suitable for smaller plots in new townships."
+    },
+    "estPrice": 65000,
+    "features": {
+      "beds": 3,
+      "baths": 2,
+      "area": 210,
+      "levels": 2
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "dsgn-005",
+    "category": "modern",
+    "title": {
+      "dr": "ویلا بتنی مینیمال",
+      "ps": "مینیمال کانکریټ ویلا",
+      "en": "Minimalist Concrete Villa"
+    },
+    "description": {
+      "dr": "ساختار مقاوم در برابر زلزله با طراحی ساده، پنجره‌های قدی و سیستم گرمایش مدرن.",
+      "ps": "د زلزلې په وړاندې مقاومت لرونکی جوړښت د ساده ډیزاین، اوږدو کړکیو او عصري تودوخې سیسټم سره.",
+      "en": "Earthquake-resistant structure with clean lines, floor-to-ceiling windows, and modern heating."
+    },
+    "estPrice": 130000,
+    "features": {
+      "beds": 4,
+      "baths": 3.5,
+      "area": 380,
+      "levels": 2
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "dsgn-006",
+    "category": "luxury",
+    "title": {
+      "dr": "عمارت سلطنتی دارالامان",
+      "ps": "د دارالامان شاهي ماڼۍ",
+      "en": "Darulaman Royal Mansion"
+    },
+    "description": {
+      "dr": "اوج تجمل با نمای کلاسیک افغان، گچ‌بری‌های هنری و فضای سبز اختصاصی.",
+      "ps": "د افغان کلاسیک مخ، هنري ګچ کارۍ او ځانګړي شنه ځای سره د آرایش اوج.",
+      "en": "Peak luxury with classic Afghan motifs, artisanal plasterwork, and private landscaped grounds."
+    },
+    "estPrice": 350000,
+    "features": {
+      "beds": 8,
+      "baths": 7,
+      "area": 750,
+      "levels": 4
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1623298317883-6b70254edf31?auto=format&fit=crop&q=80&w=800"
+    ]
+  }
+]

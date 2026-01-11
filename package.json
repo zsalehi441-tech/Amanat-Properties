@@ -1,23 +1,11 @@
 {
-  "name": "amanat-real-estate",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react-dom": "^19.2.3",
-    "react": "^19.2.3",
-    "react-router-dom": "^7.11.0",
-    "@google/genai": "^1.34.0"
-  },
-  "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
-  }
+    "name": "amanat-root",
+    "private": true,
+    "scripts": {
+        "dev:web": "npm --prefix amanat-web run dev",
+        "dev:admin": "npm --prefix amanat-admin run develop",
+        "dev": "echo \"Please run 'npm run dev:web' and 'npm run dev:admin' in separate terminals for best results.\"",
+        "build:web": "npm --prefix amanat-web run build",
+        "build:admin": "npm --prefix amanat-admin run build"
+    }
 }

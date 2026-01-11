@@ -1,0 +1,77 @@
+{
+    "kind": "collectionType",
+    "collectionName": "land_listings",
+    "info": {
+        "singularName": "land-listing",
+        "pluralName": "land-listings",
+        "displayName": "Land Listing",
+        "description": "Land property listings"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "city": {
+            "type": "enumeration",
+            "enum": [
+                "Kabul",
+                "Herat",
+                "Kandahar",
+                "Mazar-i-Sharif",
+                "Jalalabad",
+                "Bamyan",
+                "Ghazni",
+                "Khost",
+                "Kunduz"
+            ],
+            "required": true
+        },
+        "district": {
+            "type": "string",
+            "required": true
+        },
+        "land_size": {
+            "type": "integer",
+            "required": true
+        },
+        "zoning": {
+            "type": "string"
+        },
+        "description_dari": {
+            "type": "text",
+            "required": true
+        },
+        "description_pashto": {
+            "type": "text"
+        },
+        "description_english": {
+            "type": "text"
+        },
+        "images": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.image-url"
+        },
+        "gps_latitude": {
+            "type": "decimal"
+        },
+        "gps_longitude": {
+            "type": "decimal"
+        },
+        "status": {
+            "type": "enumeration",
+            "enum": [
+                "Draft",
+                "Verified",
+                "Published"
+            ],
+            "default": "Draft",
+            "required": true
+        },
+        "internal_notes": {
+            "type": "text",
+            "private": true
+        }
+    }
+}

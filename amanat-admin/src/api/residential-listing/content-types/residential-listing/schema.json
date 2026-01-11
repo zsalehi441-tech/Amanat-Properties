@@ -1,0 +1,102 @@
+{
+    "kind": "collectionType",
+    "collectionName": "residential_listings",
+    "info": {
+        "singularName": "residential-listing",
+        "pluralName": "residential-listings",
+        "displayName": "Residential Listing",
+        "description": "Residential property listings"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "city": {
+            "type": "enumeration",
+            "enum": [
+                "Kabul",
+                "Herat",
+                "Kandahar",
+                "Mazar-i-Sharif",
+                "Jalalabad",
+                "Bamyan",
+                "Ghazni",
+                "Khost",
+                "Kunduz"
+            ],
+            "required": true
+        },
+        "district": {
+            "type": "string",
+            "required": true
+        },
+        "price": {
+            "type": "biginteger",
+            "required": true
+        },
+        "currency": {
+            "type": "enumeration",
+            "enum": [
+                "USD",
+                "AFN"
+            ],
+            "required": true
+        },
+        "area_sqm": {
+            "type": "integer",
+            "required": true
+        },
+        "bedrooms": {
+            "type": "integer",
+            "required": true
+        },
+        "bathrooms": {
+            "type": "integer",
+            "required": true
+        },
+        "description_dari": {
+            "type": "text",
+            "required": true
+        },
+        "description_pashto": {
+            "type": "text"
+        },
+        "description_english": {
+            "type": "text"
+        },
+        "images": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.image-url"
+        },
+        "video_url": {
+            "type": "string"
+        },
+        "gps_latitude": {
+            "type": "decimal"
+        },
+        "gps_longitude": {
+            "type": "decimal"
+        },
+        "status": {
+            "type": "enumeration",
+            "enum": [
+                "Draft",
+                "Verified",
+                "Published"
+            ],
+            "default": "Draft",
+            "required": true
+        },
+        "internal_notes": {
+            "type": "text",
+            "private": true
+        },
+        "assigned_agent": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "admin::user"
+        }
+    }
+}
