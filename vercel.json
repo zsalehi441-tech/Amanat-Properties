@@ -1,18 +1,6 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "amanat-web/package.json",
-            "use": "@vercel/vite"
-        }
-    ],
-    "routes": [
-        {
-            "handle": "filesystem"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/amanat-web/$1"
-        }
-    ]
+    "buildCommand": "cd amanat-web && npm install && npm run build",
+    "outputDirectory": "amanat-web/dist",
+    "installCommand": "echo 'Skipping root install'",
+    "framework": null
 }
