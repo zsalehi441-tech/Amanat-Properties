@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, Loader, SingleSelect, SingleSelectOption, Field, Flex, Button } from '@strapi/design-system';
-import { useFetchClient } from '@strapi/strapi/admin';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { ArrowLeft, File, Plus } from '@strapi/icons';
-import { compressImage } from '../../utils/compression';
 
 // --- Components ---
 
@@ -74,7 +72,6 @@ const LandingPage = () => {
 
 const PropertyUpload = () => {
     const navigate = useNavigate();
-    const { post } = useFetchClient();
     const [uploading, setUploading] = useState(false);
     const [result, setResult] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
@@ -89,21 +86,22 @@ const PropertyUpload = () => {
 
         for (const file of files) {
             try {
-                // Compress Image if it's an image
-                let fileToUpload = file;
-                if (file.type.startsWith('image/')) {
-                    try {
-                        fileToUpload = await compressImage(file);
-                    } catch (compErr) {
-                        console.warn('Compression failed, trying original', compErr);
-                    }
+                // Upload directly - server handles optimization via sharp
+                const formData = new FormData();
+                formData.append('file', file);
+
+                const response = await fetch('/api/media-intake/property', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include',
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(errorText || `HTTP ${response.status}`);
                 }
 
-                const formData = new FormData();
-                formData.append('file', fileToUpload);
-
-                // Ensure the path matches the registered admin route
-                const { data } = await post('/media-intake/property', formData);
+                const data = await response.json();
                 results.push({ file: file.name, data: data });
             } catch (err: any) {
                 console.error('Upload Error:', err);
@@ -149,7 +147,7 @@ const PropertyUpload = () => {
                     />
                 </Box>
 
-                {uploading && <Box paddingTop={2}><Loader>Optimizing & Uploading...</Loader></Box>}
+                {uploading && <Box paddingTop={2}><Loader>Uploading...</Loader></Box>}
                 {error && (
                     <Box paddingTop={2} padding={4} background="danger100" borderColor="danger200" hasRadius>
                         <Typography textColor="danger600" fontWeight="bold">Upload Failed:</Typography>
@@ -166,10 +164,61 @@ const PropertyUpload = () => {
                         <Typography variant="delta" textColor="success600">
                             {result.count} Photo(s) Uploaded Successfully!
                         </Typography>
-                        <Box paddingTop={2}>
+                        <Box paddingTop={4}>
                             {result.uploads.map((u: any, i: number) => (
-                                <Box key={i} paddingTop={1}>
-                                    <Typography variant="omega" fontWeight="bold">ID: {u.data.id}</Typography>
+                                <Box key={i} paddingTop={3} padding={4} background="neutral100" hasRadius style={{ marginBottom: '12px' }}>
+                                    <Typography variant="omega" fontWeight="bold" style={{ marginBottom: '8px', display: 'block' }}>
+                                        📷 {u.file}
+                                    </Typography>
+                                    <Typography variant="pi" textColor="neutral600" style={{ display: 'block', marginBottom: '4px' }}>
+                                        <strong>ID:</strong> {u.data.id}
+                                    </Typography>
+                                    {u.data.variants && (
+                                        <Box paddingTop={2}>
+                                            <Typography variant="pi" fontWeight="bold" style={{ marginBottom: '8px', display: 'block' }}>
+                                                📎 Media URLs:
+                                            </Typography>
+                                            {Object.entries(u.data.variants).map(([variant, url]) => (
+                                                <Flex key={variant} gap={2} alignItems="center" style={{ marginBottom: '6px' }}>
+                                                    <Typography variant="pi" textColor="neutral600" style={{ minWidth: '50px' }}>
+                                                        {variant}:
+                                                    </Typography>
+                                                    <input
+                                                        type="text"
+                                                        readOnly
+                                                        value={url as string}
+                                                        style={{
+                                                            flex: 1,
+                                                            padding: '6px 10px',
+                                                            fontSize: '12px',
+                                                            border: '1px solid #dcdce4',
+                                                            borderRadius: '4px',
+                                                            background: '#fff',
+                                                            fontFamily: 'monospace'
+                                                        }}
+                                                        onClick={(e) => (e.target as HTMLInputElement).select()}
+                                                    />
+                                                    <Button
+                                                        variant="tertiary"
+                                                        size="S"
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(url as string);
+                                                        }}
+                                                    >
+                                                        Copy
+                                                    </Button>
+                                                </Flex>
+                                            ))}
+                                        </Box>
+                                    )}
+                                    {u.data.meta && (
+                                        <Box paddingTop={2}>
+                                            <Typography variant="pi" textColor="neutral500" style={{ fontSize: '11px' }}>
+                                                Size: {(u.data.meta.size / 1024).toFixed(1)} KB |
+                                                Dimensions: {u.data.meta.width}×{u.data.meta.height}
+                                            </Typography>
+                                        </Box>
+                                    )}
                                 </Box>
                             ))}
                         </Box>
@@ -182,7 +231,6 @@ const PropertyUpload = () => {
 
 const DocumentUpload = () => {
     const navigate = useNavigate();
-    const { post } = useFetchClient();
     const [uploading, setUploading] = useState(false);
     const [result, setResult] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
@@ -198,11 +246,23 @@ const DocumentUpload = () => {
         formData.append('docType', docType);
 
         try {
-            const { data } = await post('/media-intake/document', formData);
+            // Use custom API endpoint
+            const response = await fetch('/api/media-intake/document', {
+                method: 'POST',
+                body: formData,
+                credentials: 'include',
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(errorText || `HTTP ${response.status}`);
+            }
+
+            const data = await response.json();
             setResult({ data });
         } catch (err: any) {
             console.error('Document Upload Error:', err);
-            setError(err.response?.data?.error?.message || err.message || 'Upload Failed');
+            setError(err.message || 'Upload Failed');
         } finally {
             setUploading(false);
         }

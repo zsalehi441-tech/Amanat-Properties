@@ -4,6 +4,11 @@ import services from './services';
 
 export default {
     controllers,
-    routes,
+    routes: {
+        admin: {
+            type: 'admin',
+            routes,
+        },
+    },
     services,
 };

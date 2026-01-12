@@ -1,31 +1,29 @@
-export default {
-    'admin': {
-        type: 'admin',
-        routes: [
-            {
-                method: 'POST',
-                path: '/property',
-                handler: 'mediaIntake.uploadProperty',
-                config: {
-                    policies: [],
-                },
-            },
-            {
-                method: 'POST',
-                path: '/document',
-                handler: 'mediaIntake.uploadDocument',
-                config: {
-                    policies: [],
-                },
-            },
-            {
-                method: 'GET',
-                path: '/ping',
-                handler: 'mediaIntake.ping',
-                config: {
-                    auth: false,
-                },
-            },
-        ],
+export default [
+    {
+        method: 'POST',
+        path: '/property',
+        handler: 'mediaIntake.uploadProperty',
+        config: {
+            policies: [],
+            auth: false,
+        },
     },
-};
+    {
+        method: 'POST',
+        path: '/document',
+        handler: 'mediaIntake.uploadDocument',
+        config: {
+            policies: [],
+            auth: false,
+        },
+    },
+    {
+        method: 'GET',
+        path: '/ping',
+        handler: 'mediaIntake.ping',
+        config: {
+            auth: false,
+        },
+    },
+];
+
