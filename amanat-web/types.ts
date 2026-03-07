@@ -26,6 +26,7 @@ export interface Property {
     area: number; // sq meters
   };
   images: string[];
+  videoUrl?: string | null;
   description: Record<Language, string>;
   verificationData: {
     deedChecked: boolean;

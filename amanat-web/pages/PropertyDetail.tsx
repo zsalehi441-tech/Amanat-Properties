@@ -61,6 +61,22 @@ const PropertyDetail: React.FC<Props> = ({ lang }) => {
               ))}
             </div>
 
+            {property.videoUrl && (
+              <div className="mt-8 flex justify-center">
+                <a
+                  href={property.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-red-600 text-white px-6 py-3 font-bold uppercase tracking-widest text-sm hover:bg-red-700 transition"
+                >
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                  </svg>
+                  {lang === Language.ENGLISH ? "Watch Property Video" : "مشاهده ویدیوی ملک"}
+                </a>
+              </div>
+            )}
+
             <div className="mt-12">
               <h2 className="text-2xl font-bold mb-6 border-b border-slate-100 dark:border-brand-charcoal pb-4 text-slate-900 dark:text-white uppercase tracking-wider">
                 {lang === Language.ENGLISH ? "Description" : "جزئیات"}
@@ -131,7 +147,7 @@ const PropertyDetail: React.FC<Props> = ({ lang }) => {
               <p className="text-slate-500 text-sm mb-6 italic">{property.location[lang]}</p>
 
               <div className="text-4xl font-bold text-brand-gold mb-8">
-                ${property.price.toLocaleString()}
+                {property.currency === 'USD' ? '$' : 'AFN '}{property.price.toLocaleString()}
               </div>
 
               <div className="space-y-4 mb-8">

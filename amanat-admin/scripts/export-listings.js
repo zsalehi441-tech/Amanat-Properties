@@ -68,6 +68,7 @@ async function runExport() {
                     area: item.area_sqm || item.land_size || 0
                 },
                 images: item.images ? item.images.map(img => img.url) : [],
+                videoUrl: item.video_url || null,
                 description: {
                     dr: item.description_dari,
                     ps: item.description_pashto || '',
@@ -105,7 +106,7 @@ async function runExport() {
         ];
 
         // Write Outputs
-        const outputDir = path.resolve(appDir, '../public/data');
+        const outputDir = path.resolve(appDir, '../amanat-web/public/data');
 
         // 1. All Listings (for search/index)
         await fs.writeFile(path.join(outputDir, 'listings.json'), JSON.stringify(allListings, null, 2));

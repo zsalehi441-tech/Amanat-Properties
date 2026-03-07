@@ -47,7 +47,7 @@ const PropertyCard: React.FC<Props> = ({ property, lang }) => {
             {property.title[lang]}
           </h3>
           <p className="text-brand-gold font-bold whitespace-nowrap">
-            ${property.price.toLocaleString()}
+            {property.currency === 'USD' ? '$' : 'AFN '}{property.price.toLocaleString()}
           </p>
         </div>
 
