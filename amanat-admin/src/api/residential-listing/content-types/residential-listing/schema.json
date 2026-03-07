@@ -79,7 +79,7 @@
         "gps_longitude": {
             "type": "decimal"
         },
-        "status": {
+        "verification_status": {
             "type": "enumeration",
             "enum": [
                 "Draft",

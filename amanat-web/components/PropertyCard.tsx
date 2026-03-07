@@ -33,6 +33,11 @@ const PropertyCard: React.FC<Props> = ({ property, lang }) => {
               {t.status.verified}
             </div>
           )}
+          {property.status === 'placeholder' && (
+            <div className="backdrop-blur-md bg-white/20 border border-white/30 text-white px-4 py-1.5 rounded-sm text-[11px] font-bold tracking-widest shadow-xl uppercase z-10">
+              {t.status.placeholder}
+            </div>
+          )}
         </div>
       </div>
 

@@ -68,27 +68,6 @@ export default {
           await roleService.create(roleDef);
         }
       }
-
-      // Allow Public Access to Media Intake (since we use auth: false and call from client)
-      const publicRole = await strapi.query('plugin::users-permissions.role').findOne({ where: { type: 'public' } });
-      if (publicRole) {
-        const actions = [
-          'plugin::media-intake.media-intake.uploadProperty',
-          'plugin::media-intake.media-intake.uploadDocument'
-        ];
-
-        for (const action of actions) {
-          const permission = await strapi.query('plugin::users-permissions.permission').findOne({
-            where: { role: publicRole.id, action }
-          });
-          if (!permission) {
-            strapi.log.info(`Granting Public Permission: ${action}`);
-            await strapi.query('plugin::users-permissions.permission').create({
-              data: { action, role: publicRole.id }
-            });
-          }
-        }
-      }
     } catch (err) {
       strapi.log.error('Failed to bootstrap roles', err);
     }

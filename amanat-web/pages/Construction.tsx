@@ -201,68 +201,17 @@ const Construction: React.FC<Props> = ({ lang }) => {
             </div>
           </header>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {[
-              {
-                id: 1,
-                title: lang === Language.ENGLISH ? "Kabul Riverfront Tower" : "برج ساحلی کابل",
-                location: "Shahre Naw, Kabul",
-                progress: 75,
-                image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=2070",
-                status: lang === Language.ENGLISH ? "Interior Finishing" : "نازک‌کاری داخلی"
-              },
-              {
-                id: 2,
-                title: lang === Language.ENGLISH ? "Wazir Plaza Complex" : "مجتمع وزیر پلازا",
-                location: "Wazir Akbar Khan, Kabul",
-                progress: 45,
-                image: "https://images.unsplash.com/photo-1590644365885-af0cec5375a8?auto=format&fit=crop&q=80&w=1951",
-                status: lang === Language.ENGLISH ? "Structural Frame" : "اسکلت‌بندی"
-              },
-              {
-                id: 3,
-                title: lang === Language.ENGLISH ? "Darulaman Heights" : "ارتفاعات دارالامان",
-                location: "Darulaman, Kabul",
-                progress: 15,
-                image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=2031",
-                status: lang === Language.ENGLISH ? "Foundation Works" : "کار تهداب"
-              }
-            ].map((project) => (
-              <div key={project.id} className="bg-white dark:bg-brand-navy border border-slate-200 dark:border-brand-charcoal group hover:shadow-xl transition-all duration-500">
-                <div className="relative aspect-video overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/0 transition-colors"></div>
-                  <div className="absolute top-3 right-3 bg-brand-gold text-brand-dark text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
-                    {project.status}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">{project.title}</h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider mb-6">{project.location}</p>
-
-                  <div className="flex justify-between text-xs font-bold mb-2 text-slate-600 dark:text-slate-300">
-                    <span>{lang === Language.ENGLISH ? "Completion" : "تکمیل"}</span>
-                    <span>{project.progress}%</span>
-                  </div>
-                  <div className="w-full bg-slate-100 dark:bg-brand-charcoal h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-brand-gold h-full rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${project.progress}%` }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <button className="inline-block border border-slate-300 dark:border-brand-charcoal text-slate-500 dark:text-slate-400 px-10 py-3 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-dark hover:border-brand-gold transition-all duration-300">
-              {lang === Language.ENGLISH ? "View More Projects" : "مشاهده پروژه‌های بیشتر"}
-            </button>
+          <div className="text-center py-24 bg-white/50 dark:bg-brand-navy/20 border border-dashed border-slate-300 dark:border-brand-charcoal">
+            <p className="text-slate-500 uppercase tracking-[0.3em] font-bold text-xs mb-4">
+              {lang === Language.ENGLISH
+                ? "No ongoing projects currently listed."
+                : "در حال حاضر هیچ پروژه‌ای در حال اجرا ثبت نشده است."}
+            </p>
+            <p className="text-[10px] opacity-60 uppercase tracking-widest">
+              {lang === Language.ENGLISH
+                ? "Real-time verification and site tracking will appear here."
+                : "تایید لحظه‌ای و ردیابی سایت در اینجا ظاهر خواهد شد."}
+            </p>
           </div>
         </section>
 

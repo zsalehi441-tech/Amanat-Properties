@@ -83,15 +83,15 @@ async function runExport() {
 
         // Queries
         const residential = await strapi.entityService.findMany('api::residential-listing.residential-listing', {
-            filters: { status: 'Published' },
+            filters: { verification_status: 'Published' },
             populate: ['images']
         });
         const commercial = await strapi.entityService.findMany('api::commercial-listing.commercial-listing', {
-            filters: { status: 'Published' },
+            filters: { verification_status: 'Published' },
             populate: ['images']
         });
         const land = await strapi.entityService.findMany('api::land-listing.land-listing', {
-            filters: { status: 'Published' },
+            filters: { verification_status: 'Published' },
             populate: ['images']
         });
 

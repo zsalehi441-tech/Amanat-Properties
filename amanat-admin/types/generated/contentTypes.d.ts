@@ -488,12 +488,14 @@ export interface ApiCommercialListingCommercialListing
     > &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    status: Schema.Attribute.Enumeration<['Draft', 'Verified', 'Published']> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Draft'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    verification_status: Schema.Attribute.Enumeration<
+      ['Draft', 'Verified', 'Published']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Draft'>;
     video_url: Schema.Attribute.String;
   };
 }
@@ -543,12 +545,14 @@ export interface ApiLandListingLandListing extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    status: Schema.Attribute.Enumeration<['Draft', 'Verified', 'Published']> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Draft'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    verification_status: Schema.Attribute.Enumeration<
+      ['Draft', 'Verified', 'Published']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Draft'>;
     zoning: Schema.Attribute.String;
   };
 }
@@ -605,12 +609,14 @@ export interface ApiResidentialListingResidentialListing
       Schema.Attribute.Private;
     price: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    status: Schema.Attribute.Enumeration<['Draft', 'Verified', 'Published']> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Draft'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    verification_status: Schema.Attribute.Enumeration<
+      ['Draft', 'Verified', 'Published']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Draft'>;
     video_url: Schema.Attribute.String;
   };
 }

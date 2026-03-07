@@ -19,7 +19,7 @@ export interface Property {
   price: number;
   currency: 'USD' | 'AFN';
   type: 'sale' | 'rent';
-  status: 'verified' | 'pending';
+  status: 'verified' | 'pending' | 'placeholder';
   features: {
     beds: number;
     baths: number;
@@ -72,6 +72,7 @@ export interface TranslationSchema {
     verified: string;
     verifiedAgent: string;
     deedChecked: string;
+    placeholder: string;
   };
   details: {
     price: string;

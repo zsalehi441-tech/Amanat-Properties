@@ -31,20 +31,20 @@ async function validateWorkflow(event: any, action: string) {
         const entry = await strapi.entityService.findOne('api::land-listing.land-listing', event.params.where.id);
 
         if (isFieldAgent && !isVerifier && !isTrustOfficer) {
-            if (entry && entry.status !== 'Draft') {
+            if (entry && entry.verification_status !== 'Draft') {
                 throw new ForbiddenError('Field Agents can only edit listings in Draft status.');
             }
         }
 
         if (isVerifier && !isTrustOfficer) {
-            if (entry && entry.status === 'Published') {
+            if (entry && entry.verification_status === 'Published') {
                 throw new ForbiddenError('Verifiers cannot edit Published listings.');
             }
         }
     }
 
-    if (data.status) {
-        const newStatus = data.status;
+    if (data.verification_status) {
+        const newStatus = data.verification_status;
 
         if (isFieldAgent && !isVerifier && !isTrustOfficer) {
             if (newStatus !== 'Draft') {

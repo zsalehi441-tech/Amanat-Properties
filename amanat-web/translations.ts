@@ -24,7 +24,8 @@ export const translations: Record<Language, TranslationSchema> = {
     status: {
       verified: 'تایید شده',
       verifiedAgent: 'نماینده معتبر',
-      deedChecked: 'قباله بررسی شده'
+      deedChecked: 'قباله بررسی شده',
+      placeholder: 'نمونه'
     },
     details: {
       price: 'قیمت',
@@ -73,7 +74,8 @@ export const translations: Record<Language, TranslationSchema> = {
     status: {
       verified: 'تایید شوی',
       verifiedAgent: 'باوري استازی',
-      deedChecked: 'قباله چک شوې'
+      deedChecked: 'قباله چک شوې',
+      placeholder: 'نمونه'
     },
     details: {
       price: 'بیه',
@@ -122,7 +124,8 @@ export const translations: Record<Language, TranslationSchema> = {
     status: {
       verified: 'Verified',
       verifiedAgent: 'Verified Agent',
-      deedChecked: 'Deed Checked'
+      deedChecked: 'Deed Checked',
+      placeholder: 'Example'
     },
     details: {
       price: 'Price',
