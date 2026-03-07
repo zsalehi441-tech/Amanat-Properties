@@ -18,7 +18,7 @@ async function runExport() {
         // Filter status = 'Published'
 
         // Mapping helper
-        const mapToPublicSchema = (item, type) => {
+        const mapToPublicSchema = async (item, type) => {
             // Generate ID: {CityCode}-{ID}
             const cityCodes = {
                 'Kabul': 'kbl',
@@ -67,7 +67,12 @@ async function runExport() {
                     baths: item.bathrooms || 0,
                     area: item.area_sqm || item.land_size || 0
                 },
-                images: item.images ? item.images.map(img => img.url) : [],
+                images: item.images ? (await Promise.all(item.images.map(async img => {
+                    try {
+                        const res = await fetch(img.url, { method: 'HEAD' });
+                        return res.ok ? img.url : null;
+                    } catch { return null; }
+                }))).filter(Boolean) : [],
                 videoUrl: item.video_url || null,
                 description: {
                     dr: item.description_dari,
@@ -99,11 +104,11 @@ async function runExport() {
         console.log(`Found: ${residential.length} Res, ${commercial.length} Comm, ${land.length} Land`);
 
         // Merge and Map
-        const allListings = [
+        const allListings = await Promise.all([
             ...residential.map(i => mapToPublicSchema(i, 'residential')),
             ...commercial.map(i => mapToPublicSchema(i, 'commercial')),
             ...land.map(i => mapToPublicSchema(i, 'land'))
-        ];
+        ]);
 
         // Write Outputs
         const outputDir = path.resolve(appDir, '../amanat-web/public/data');
@@ -119,9 +124,9 @@ async function runExport() {
             grouped[prefix].push(data);
         };
 
-        residential.forEach(i => addToGroup(`${i.city.toLowerCase()}-residential`, mapToPublicSchema(i, 'residential')));
-        commercial.forEach(i => addToGroup(`${i.city.toLowerCase()}-commercial`, mapToPublicSchema(i, 'commercial')));
-        land.forEach(i => addToGroup(`${i.city.toLowerCase()}-land`, mapToPublicSchema(i, 'land')));
+        for (const i of residential) addToGroup(`${i.city.toLowerCase()}-residential`, await mapToPublicSchema(i, 'residential'));
+        for (const i of commercial) addToGroup(`${i.city.toLowerCase()}-commercial`, await mapToPublicSchema(i, 'commercial'));
+        for (const i of land) addToGroup(`${i.city.toLowerCase()}-land`, await mapToPublicSchema(i, 'land'));
 
         for (const [key, items] of Object.entries(grouped)) {
             const filename = `${key}.json`;
