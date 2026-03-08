@@ -50,5 +50,106 @@
       "identityVerified": true,
       "lawyerApproved": true
     }
+  },
+  {
+    "id": "afg-002",
+    "title": {
+      "dr": "این خانه با معماری اصیل افغانی و فضای آر...",
+      "ps": "این خانه با معماری اصیل افغانی و فضای آر...",
+      "en": "3 Bed Property in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 3000000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 3,
+      "baths": 1,
+      "area": 400
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325576/WhatsApp_Image_2025-12-18_at_12.25.30_ze0ois.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325577/WhatsApp_Image_2025-12-18_at_12.25.31_zo4xqi.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325576/WhatsApp_Image_2025-12-18_at_12.25.32_1_zb0agx.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325577/WhatsApp_Image_2025-12-18_at_12.25.32_jv3d1r.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325580/WhatsApp_Image_2025-12-18_at_12.25.33_l0a6xr.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325577/WhatsApp_Image_2025-12-18_at_12.25.33_1_u3e7oz.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325578/WhatsApp_Image_2025-12-18_at_12.25.33_2_u3i6ei.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325582/WhatsApp_Image_2025-12-18_at_12.25.34_xqckqz.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325581/WhatsApp_Image_2025-12-18_at_12.25.34_1_m21fq2.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325583/WhatsApp_Image_2025-12-18_at_12.25.35_ydfd1t.jpg"
+    ],
+    "videoUrl": "https://youtu.be/ZQE2DaM7zmI?si=i622PlnC23JFf8Sf",
+    "description": {
+      "dr": "این خانه با معماری اصیل افغانی و فضای آرام خانوادگی، ترکیبی از امنیت، دسترسی مناسب و ارزش آینده را فراهم می‌کند. ملک در نزدیکی بازار سنگماشه، شفاخانه، مکاتب، مسجد و سایر خدمات ضروری قرار دارد.",
+      "ps": "",
+      "en": "This house, with authentic Afghan architecture and a peaceful family atmosphere, offers a combination of security, convenient access, and future value. The property is located near the Sang-e-Masha market, hospital, schools, mosque, and other essential services.\n"
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "afg-004",
+    "title": {
+      "dr": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
+      "ps": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
+      "en": "3 Bed Property in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 140000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 3,
+      "baths": 1,
+      "area": 400
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1768205147/WhatsApp_Image_2025-12-18_at_12.24.06_1_msr0as.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1768205146/WhatsApp_Image_2025-12-18_at_12.24.05_1_jnomi4.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1768205146/WhatsApp_Image_2025-12-18_at_12.24.04_crdm3c.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1768205147/WhatsApp_Image_2025-12-18_at_12.24.05_uzqmbs.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1768205146/WhatsApp_Image_2025-12-18_at_12.24.03_yqp1c7.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1768205146/WhatsApp_Image_2025-12-18_at_12.24.04_1_oic74h.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1768205145/WhatsApp_Image_2025-12-18_at_12.24.03_1_hoj6kk.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1768205145/WhatsApp_Image_2025-12-18_at_12.24.02_iluyrg.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1768205145/WhatsApp_Image_2025-12-18_at_12.24.02_iluyrg.jpg"
+    ],
+    "videoUrl": "https://youtu.be/H-2RjuMlDio?si=2nUpnwCJXG1n5nvM",
+    "description": {
+      "dr": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت عالی برای خانواده\n\nمزایای موقعیت\n\n📍 نزدیک به بازار سنگماشه – دسترسی آسان به خرید و خدمات روزمره\n\n🏥 نزدیک به شفاخانه و مکاتب – مناسب برای خانواده‌ها\n\n🕌 نزدیک به مسجد و خدمات محلی – محیط اجتماعی مناسب\n\n🌿 محیط آرام و امن – مناسب زندگی راحت خانوادگی\n\n🚶 موقعیت مرکزی و قابل دسترس – دسترسی آسان به مکان‌های مهم\n\n📈 ارزش خوب برای سرمایه‌گذاری – ملک در این موقعیت آینده خوبی دارد",
+      "ps": "",
+      "en": "Beautiful Traditional House Near Sang-e-Masha | Prime Family Location\n\nBenefits of the Location\n\n📍 Near Sang-e-Masha Bazaar – easy access to shops and daily needs\n\n🏥 Close to hospital and schools – convenient for families\n\n🕌 Near mosque and community services – strong neighborhood connection\n\n🌿 Peaceful and safe environment – ideal for comfortable family living\n\n🚶 Central and accessible area – everything important within short distance\n\n📈 Good investment potential – properties in this location keep strong value"
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
   }
 ]
