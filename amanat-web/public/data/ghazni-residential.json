@@ -103,6 +103,67 @@
     }
   },
   {
+    "id": "afg-003",
+    "title": {
+      "dr": "ویلای زیبا نزدیک بازار سنگماشه | زندگی آ...",
+      "ps": "ویلای زیبا نزدیک بازار سنگماشه | زندگی آ...",
+      "en": "7 Bed Property in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 150000,
+    "currency": "USD",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 7,
+      "baths": 4,
+      "area": 500
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325779/WhatsApp_Image_2025-12-21_at_12.21.50_1_ujjwje.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325777/WhatsApp_Image_2025-12-21_at_12.21.49_fqr1q8.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325777/WhatsApp_Image_2025-12-21_at_12.21.49_2_q5ws2a.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325746/WhatsApp_Image_2025-12-21_at_12.21.38_1_bzpfrw.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325745/WhatsApp_Image_2025-12-21_at_12.21.36_esdovl.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325745/WhatsApp_Image_2025-12-21_at_12.21.37_bofklg.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325749/WhatsApp_Image_2025-12-21_at_12.21.38_orejtq.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325744/WhatsApp_Image_2025-12-21_at_12.21.37_1_vo0ev0.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325772/WhatsApp_Image_2025-12-21_at_12.21.47_kncnqi.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325774/WhatsApp_Image_2025-12-21_at_12.21.48_qzzcxf.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325765/WhatsApp_Image_2025-12-21_at_12.21.45_1_dfntdx.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325767/WhatsApp_Image_2025-12-21_at_12.21.45_opwhqn.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325760/WhatsApp_Image_2025-12-21_at_12.21.42_hr7zfl.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325756/WhatsApp_Image_2025-12-21_at_12.21.41_ih85cg.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325771/WhatsApp_Image_2025-12-21_at_12.21.47_1_fzp3xo.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325768/WhatsApp_Image_2025-12-21_at_12.21.46_2_xflhlb.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325763/WhatsApp_Image_2025-12-21_at_12.21.44_1_y7nsg9.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325755/WhatsApp_Image_2025-12-21_at_12.21.41_1_t5k6ps.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325767/WhatsApp_Image_2025-12-21_at_12.21.46_1_t5okqy.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1771325750/WhatsApp_Image_2025-12-21_at_12.21.39_1_lhvgxa.jpg"
+    ],
+    "videoUrl": null,
+    "description": {
+      "dr": "ویلای زیبا نزدیک بازار سنگماشه | زندگی آرام در جاغوری\n\n🔹 مزایای موقعیت و ویلا\n\n📍 نزدیک به بازار سنگماشه – دسترسی آسان به خرید و خدمات روزمره\n\n🏥 نزدیک به شفاخانه و مکاتب – مناسب برای زندگی خانوادگی\n\n🕌 دسترسی به مسجد و خدمات محلی – محیط اجتماعی مناسب\n\n🌿 محیط آرام و امن – مناسب برای زندگی راحت خانواده\n\n🏡 طراحی زیبا و سنتی ویلا – فضای مناسب و کاربردی\n\n🚶 موقعیت مرکزی – دسترسی آسان به مکان‌های مهم\n\n📈 ارزش سرمایه‌گذاری در آینده – موقعیت خوب برای افزایش ارزش ملک",
+      "ps": "",
+      "en": "Beautiful Villa Near Sang-e-Masha | Peaceful Living in Jaghori\n\n🔹 Benefits of the Location & Villa\n\n📍 Close to Sang-e-Masha Bazaar – easy access to shops and daily necessities\n\n🏥 Near hospital and schools – convenient for families\n\n🕌 Close to mosque and community services – strong neighborhood connection\n\n🌿 Peaceful environment – quiet area ideal for family living\n\n🏡 Traditional yet comfortable villa design – spacious and practical layout\n\n🚶 Central location – everything important within short distance\n\n📈 Good long-term value – strong location for future property investment"
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
     "id": "afg-004",
     "title": {
       "dr": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
@@ -120,7 +181,7 @@
       "lat": 0,
       "lng": 0
     },
-    "price": 140000,
+    "price": 1400000,
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
