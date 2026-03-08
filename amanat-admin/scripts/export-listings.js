@@ -67,12 +67,7 @@ async function runExport() {
                     baths: item.bathrooms || 0,
                     area: item.area_sqm || item.land_size || 0
                 },
-                images: item.images ? (await Promise.all(item.images.map(async img => {
-                    try {
-                        const res = await fetch(img.url, { method: 'HEAD' });
-                        return res.ok ? img.url : null;
-                    } catch { return null; }
-                }))).filter(Boolean) : [],
+                images: item.images ? item.images.map(img => img.url) : [],
                 videoUrl: item.video_url || null,
                 description: {
                     dr: item.description_dari,
