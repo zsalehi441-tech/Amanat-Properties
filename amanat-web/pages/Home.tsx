@@ -13,6 +13,7 @@ interface Props {
 const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
   const t = translations[lang];
   const [featuredProperties, setFeaturedProperties] = useState<Property[]>([]);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   useEffect(() => {
     fetch('/data/listings.json')
@@ -235,33 +236,50 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
         </div>
       </section>
 
-      {/* Verification CTA */}
+      {/* Office Map Section */}
       <section className="py-32 bg-slate-50 dark:bg-brand-navy relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="bg-white dark:bg-brand-dark border border-slate-200 dark:border-brand-gold/10 p-12 md:p-24 flex flex-col md:flex-row items-center justify-between gap-16 shadow-2xl">
-            <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-slate-900 dark:text-white leading-tight uppercase tracking-tight">
-                {lang === Language.ENGLISH ? "Have a property to verify?" : "ملکی برای تایید دارید؟"}
-              </h2>
-              <p className="text-slate-500 dark:text-slate-400 mb-12 leading-relaxed text-lg font-light">
-                {lang === Language.ENGLISH
-                  ? "Don't risk high-value capital on unverified claims. Use our expert team to conduct due diligence, deed audits, and ownership verification."
-                  : "سرمایه باارزش خود را با ادعاهای تایید نشده به خطر نیندازید. از تیم متخصص ما برای انجام بررسی‌های لازم، حسابرسی قباله و تایید مالکیت استفاده کنید."}
-              </p>
-              <Link
-                to="/contact"
-                className="inline-block bg-brand-gold text-brand-dark px-14 py-6 font-bold text-xs uppercase tracking-[0.4em] hover:scale-105 transition-all shadow-2xl"
-              >
-                {lang === Language.ENGLISH ? "Request Verification" : "درخواست تایید اسناد"}
-              </Link>
-            </div>
-            <div className="w-full md:w-1/3 aspect-square bg-slate-50 dark:bg-brand-navy border border-slate-200 dark:border-brand-charcoal flex flex-col items-center justify-center p-12 text-center relative overflow-hidden group">
-              <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <AmanatLogo size={200} hideText={true} className="mb-6 opacity-40 group-hover:opacity-100 transition-opacity duration-700" isDarkMode={isDarkMode} />
-              <p className="text-[10px] text-brand-gold/60 font-bold leading-loose tracking-[0.3em] uppercase italic relative z-10">
-                {lang === Language.ENGLISH ? "Institutional integrity is the ultimate luxury." : "صداقت نهادی، نهایت تجمل است."}
-              </p>
-            </div>
+          <div className="bg-white dark:bg-brand-dark border border-slate-200 dark:border-brand-gold/10 p-4 md:p-8 flex flex-col items-center justify-center shadow-2xl min-h-[500px] relative">
+            {!isMapLoaded ? (
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-slate-50 dark:bg-brand-navy group">
+                <div className="mb-8 relative">
+                  <div className="absolute inset-0 bg-brand-gold/20 blur-2xl rounded-full animate-pulse"></div>
+                  <div className="w-24 h-24 bg-white dark:bg-brand-dark rounded-full border border-slate-200 dark:border-brand-charcoal flex items-center justify-center shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-500">
+                    <svg className="w-10 h-10 text-brand-gold" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                  </div>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white uppercase tracking-tight">
+                  {lang === Language.ENGLISH ? "Visit Our Office" : "بازدید از دفتر ما"}
+                </h2>
+                <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto text-lg mb-8 font-light leading-relaxed">
+                  {lang === Language.ENGLISH 
+                    ? "Amanat Real Estate HQ - Sang-e-Masha, Jaghori, Ghazni" 
+                    : "دفتر مرکزی امانت املاک - سنگ‌ماشه، جاغوری، غزنی"}
+                </p>
+                <button 
+                  onClick={() => setIsMapLoaded(true)}
+                  className="bg-brand-gold text-brand-dark px-12 py-5 font-bold text-xs uppercase tracking-[0.3em] hover:bg-brand-gold/90 transition-all shadow-xl flex items-center gap-3"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                  </svg>
+                  {lang === Language.ENGLISH ? "Load Interactive Map" : "بارگیری نقشه تعاملی"}
+                </button>
+              </div>
+            ) : (
+              <iframe
+                title="Amanat Office Location"
+                width="100%"
+                height="500"
+                style={{ border: 0, filter: 'grayscale(0.8) contrast(1.2)' }}
+                loading="lazy"
+                allowFullScreen
+                src="https://maps.google.com/maps?q=33.13904,67.43980&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                className="opacity-90 grayscale hover:grayscale-0 transition-all duration-1000"
+              ></iframe>
+            )}
           </div>
         </div>
       </section>
