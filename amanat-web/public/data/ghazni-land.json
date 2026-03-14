@@ -17,7 +17,8 @@
       "lat": 0,
       "lng": 0
     },
-    "price": null,
+    "price": 0,
+    "currency": "AFN",
     "type": "sale",
     "status": "verified",
     "features": {
@@ -63,7 +64,8 @@
       "lat": 0,
       "lng": 0
     },
-    "price": null,
+    "price": 0,
+    "currency": "AFN",
     "type": "sale",
     "status": "verified",
     "features": {

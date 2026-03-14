@@ -96,7 +96,7 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
                       {t.home.verificationBadge}
                     </div>
                     <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-brand-dark/80 backdrop-blur-md border border-slate-100 dark:border-brand-charcoal px-4 py-2 text-brand-gold font-bold text-lg">
-                      {property.currency === 'USD' ? '$' : 'AFN '}{property.price.toLocaleString()}
+                      {property.price ? `${property.currency === 'USD' ? '$' : 'AFN '} ${property.price.toLocaleString()}` : (lang === Language.ENGLISH ? "Price on Request" : "تماس بگیرید")}
                     </div>
                   </div>
                   <div className="p-8">

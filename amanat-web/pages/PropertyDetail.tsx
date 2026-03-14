@@ -147,7 +147,7 @@ const PropertyDetail: React.FC<Props> = ({ lang }) => {
               <p className="text-slate-500 text-sm mb-6 italic">{property.location[lang]}</p>
 
               <div className="text-4xl font-bold text-brand-gold mb-8">
-                {property.currency === 'USD' ? '$' : 'AFN '}{property.price.toLocaleString()}
+                {property.price ? `${property.currency === 'USD' ? '$' : 'AFN '} ${property.price.toLocaleString()}` : (lang === Language.ENGLISH ? "Price on Request" : "تماس بگیرید")}
               </div>
 
               <div className="space-y-4 mb-8">

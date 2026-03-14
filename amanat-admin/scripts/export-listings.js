@@ -65,8 +65,8 @@ async function runExport() {
                     lat: Number(item.gps_latitude) || 0,
                     lng: Number(item.gps_longitude) || 0
                 },
-                price: Number(item.price), // Convert BigInt
-                currency: item.currency,
+                price: Number(item.price) || 0, // Convert BigInt
+                currency: item.currency || 'AFN',
                 type: "sale", // Default
                 status: "verified",
                 features: {
