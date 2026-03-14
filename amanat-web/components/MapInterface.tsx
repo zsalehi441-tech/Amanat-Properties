@@ -12,8 +12,8 @@ interface Props {
 }
 
 const MapInterface: React.FC<Props> = ({ lat: _lat, lng: _lng, address, lang, title, isStatic = false }) => {
-  const lat = 33.13904;
-  const lng = 67.43980;
+  const lat = 33.13892;
+  const lng = 67.43967;
   const query = `${lat},${lng}`;
   const embedUrl = `https://maps.google.com/maps?q=${query}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
   const externalUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;

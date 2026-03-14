@@ -276,7 +276,7 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
                 style={{ border: 0, filter: 'grayscale(0.8) contrast(1.2)' }}
                 loading="lazy"
                 allowFullScreen
-                src="https://maps.google.com/maps?q=33.13904,67.43980&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=33.13892,67.43967&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 className="opacity-90 grayscale hover:grayscale-0 transition-all duration-1000"
               ></iframe>
             )}
