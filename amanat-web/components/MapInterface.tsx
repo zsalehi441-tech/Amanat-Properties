@@ -11,14 +11,15 @@ interface Props {
   isStatic?: boolean;
 }
 
-const MapInterface: React.FC<Props> = ({ lat, lng, address, lang, title, isStatic = false }) => {
-  const query = lat && lng ? `${lat},${lng}` : encodeURIComponent(address || 'Kabul, Afghanistan');
-  const embedUrl = `https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_API_KEY || ''}&q=${query}&zoom=14&maptype=satellite`;
+const MapInterface: React.FC<Props> = ({ lat: _lat, lng: _lng, address, lang, title, isStatic = false }) => {
+  const lat = 33.13904;
+  const lng = 67.43980;
+  const query = `${lat},${lng}`;
+  const embedUrl = `https://maps.google.com/maps?q=${query}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
   const externalUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
 
-  // If no API key is present in environment, we fallback to a beautiful institutional placeholder 
-  // that links to the live map, respecting the "low bandwidth" and "static" requirements.
-  const hasKey = !!process.env.GOOGLE_MAPS_API_KEY;
+  // Since we use the free embed method, we can always render the map
+  const hasKey = true;
 
   return (
     <div className="relative w-full h-full min-h-[300px] bg-slate-100 dark:bg-brand-navy border border-slate-200 dark:border-brand-charcoal overflow-hidden group">
