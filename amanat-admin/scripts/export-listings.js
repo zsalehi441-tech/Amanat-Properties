@@ -25,10 +25,17 @@ async function runExport() {
                 'Herat': 'hrt',
                 'Mazar-i-Sharif': 'mzr',
                 'Kandahar': 'kdr',
-                'Jalalabad': 'jlb'
+                'Jalalabad': 'jlb',
+                'Ghazni': 'ghz'
             };
             const prefix = cityCodes[item.city] || 'afg';
-            const id = `${prefix}-${String(item.id).padStart(3, '0')}`;
+            const typeCodes = {
+                'residential': 'res',
+                'commercial': 'com',
+                'land': 'lnd'
+            };
+            const typePrefix = typeCodes[type] || 'unk';
+            const id = `${prefix}-${typePrefix}-${String(item.id).padStart(3, '0')}`;
 
             // Title Generation (since not in schema)
             const featuresTitle = [];
@@ -100,9 +107,9 @@ async function runExport() {
 
         // Merge and Map
         const allListings = await Promise.all([
-            ...residential.map(i => mapToPublicSchema(i, 'residential')),
             ...commercial.map(i => mapToPublicSchema(i, 'commercial')),
-            ...land.map(i => mapToPublicSchema(i, 'land'))
+            ...land.map(i => mapToPublicSchema(i, 'land')),
+            ...residential.map(i => mapToPublicSchema(i, 'residential'))
         ]);
 
         // Write Outputs

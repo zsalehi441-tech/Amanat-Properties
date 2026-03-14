@@ -1,6 +1,145 @@
 [
   {
-    "id": "afg-001",
+    "id": "ghz-com-001",
+    "title": {
+      "dr": "یک دکان بسیار بزرگ و نوساخت با موقعیت عا...",
+      "ps": "یو ډېر لوی او نوی جوړ شوی دوکان چې د سنګ...",
+      "en": "Shop in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 30000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 0,
+      "baths": 1,
+      "area": 24
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468715/p1_eqtal9.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468712/p2_elatq2.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468713/p3_oitwfg.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468714/p4_ieezpw.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468712/p5_nhblhe.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468711/p6_nrwyrg.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468717/p7_yzswmx.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468718/p8_x3nisq.jpg"
+    ],
+    "videoUrl": null,
+    "description": {
+      "dr": "یک دکان بسیار بزرگ و نوساخت با موقعیت عالی در بازار سنگماشه، واقع در سر چهارراه که یکی از بهترین نقاط تجارتی محسوب می‌شود. این دکان در منزل سوم موقعیت دارد و برای انواع فعالیت‌های تجارتی بسیار مناسب است.\nهمچنان این دکان دارای تشناب (سرویس صحی) بوده و به دلیل موقعیت بسیار خوب در چهارراه، از رفت‌وآمد زیاد مشتریان برخوردار است. گزینه‌ای بسیار مناسب برای سرمایه‌گذاری یا شروع یک کاروبار موفق.",
+      "ps": "یو ډېر لوی او نوی جوړ شوی دوکان چې د سنګماشه بازار په ډېر ښه موقعیت کې، د څلور لارې په سر کې موقعیت لري. دا ځای د سوداګرۍ لپاره له غوره ځایونو څخه ګڼل کېږي. دا دوکان په دریم منزل کې دی او د بېلابېلو کاروبارونو لپاره مناسب دی.\nدا دوکان تشناب (د صحت خونې) هم لري او د څلور لارې په سر د موقعیت له امله د مشتریانو ښه تګ راتګ لري. دا د پانګونې او یا د بریالي کاروبار د پیل لپاره یو ډېر ښه فرصت دی.",
+      "en": "A very large and newly built shop located in an excellent position in Sangmasha Market, right at the main crossroads, which is considered one of the best commercial locations. The shop is located on the third floor and is suitable for different types of businesses.\nThe shop also has a private restroom, and due to its prime location at the crossroads, it benefits from high customer traffic. It is a great opportunity for investment or starting a successful business. "
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "ghz-lnd-001",
+    "title": {
+      "dr": "یک حویلی مناسب و آرام در موقعیت خوب، واق...",
+      "ps": "یوه مناسبه او ارامه حویلي چې د سنګماشه ب...",
+      "en": "Land in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": null,
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 0,
+      "baths": 0,
+      "area": 930
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773467219/z1_bs5z9x.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773467228/z2_wc9tac.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773467217/z4_vlhwjy.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773467220/z5_wp5ff7.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773467219/z6_ubtdul.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773467219/z7_reof84.jpg"
+    ],
+    "videoUrl": null,
+    "description": {
+      "dr": "یک حویلی مناسب و آرام در موقعیت خوب، واقع در نزدیکی بازار سنگماشه. فاصله تا بازار فقط ۱۰ دقیقه پیاده‌روی می‌باشد که دسترسی آسان به خرید و خدمات روزمرّه را فراهم می‌کند. همچنان در این منطقه چاه‌های آب در عمق حدود ۱۵ متر به آب می‌رسند که نشان‌دهنده دسترسی خوب به آب است. محل مناسب برای زندگی آرام و مصون، با دسترسی مناسب به بازار و امکانات ضروری.",
+      "ps": "یوه مناسبه او ارامه حویلي چې د سنګماشه بازار ته نږدې موقعیت لري. تر بازاره پورې فاصله یوازې ۱۰ دقیقې پیاده مزل دی، چې ورځني پیرود او خدماتو ته اسانه لاسرسی برابروي. په دې سیمه کې د اوبو څاهونه شاوخوا په ۱۵ مترو کې اوبه ورکوي، چې د اوبو ښه لاسرسی ښيي. دا ځای د ارام او خوندي ژوند لپاره مناسب دی او بازار او ضروري اسانتیاوو ته ښه لاسرسی لري.",
+      "en": "A comfortable and peaceful house located near Sang-e-Masha Market. The distance to the market is only a 10-minute walk, providing easy access to daily shopping and services. In this area, water wells reach water at a depth of about 15 meters, which shows good access to water. It is a suitable place for a calm and secure living environment with convenient access to the market and essential facilities."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "ghz-lnd-002",
+    "title": {
+      "dr": "یک قطعه زمین با موقعیت بسیار عالی در نزد...",
+      "ps": "یوه د ځمکې ټوټه چې د سنګماشه بازار ته نږ...",
+      "en": "Land in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": null,
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 0,
+      "baths": 0,
+      "area": 900
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773469661/s21_x77bth.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773469661/s31_zxotbf.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773469661/s41_c3rzmn.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1773469660/s51_nwqofz.jpg"
+    ],
+    "videoUrl": null,
+    "description": {
+      "dr": "یک قطعه زمین با موقعیت بسیار عالی در نزدیکی بازار سنگماشه. فاصله تا بازار تنها ۱۰ دقیقه پیاده‌روی می‌باشد که دسترسی آسان به خرید و خدمات روزمره را فراهم می‌کند. این زمین در یک موقعیت مناسب و آرام قرار دارد و همچنان نزدیک به مکتب، مسجد و سایر امکانات ضروری می‌باشد.\nهمچنان یکی از ویژگی‌های مهم این زمین این است که سنگ مورد نیاز برای ساخت خانه یا حویلی از قبل آماده شده است که می‌تواند هزینه و زمان ساخت‌وساز را کاهش دهد. این زمین گزینه‌ای بسیار مناسب برای ساخت خانه یا سرمایه‌گذاری می‌باشد.",
+      "ps": "یوه د ځمکې ټوټه چې د سنګماشه بازار ته نږدې په ډېر ښه موقعیت کې موقعیت لري. تر بازاره پورې فاصله یوازې ۱۰ دقیقې پیاده مزل دی چې بازار او ورځنیو اړتیاوو ته اسانه لاسرسی برابروي. دا ځمکه په ښه او مناسب ځای کې ده او همدارنګه مکتب، مسجد او نورو ضروري اسانتیاوو ته نږدې ده.\nد دې ځمکې بله مهمه ځانګړنه دا ده چې د کور یا حویلي د جوړولو لپاره اړین سنګونه له مخکې چمتو شوي دي، چې د جوړولو وخت او لګښت کمولی شي. دا ځمکه د کور جوړولو یا پانګونې لپاره یو ډېر ښه انتخاب دی.",
+      "en": "A plot of land located in a very good location near Sangmasha Market. The distance to the market is only a 10-minute walk, providing easy access to shopping and daily services. The land is situated in a great and convenient area, and it is also close to schools, mosques, and other essential facilities.\nOne special feature of this land is that stones needed for building a house or compound are already prepared, which can reduce construction time and cost. This land is a great option for building a house or making an investment."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "ghz-res-001",
     "title": {
       "dr": "این خانه با معماری اصیل افغانی و فضای آر...",
       "ps": "این خانه با معماری اصیل افغانی و فضای آر...",
@@ -52,7 +191,7 @@
     }
   },
   {
-    "id": "afg-002",
+    "id": "ghz-res-002",
     "title": {
       "dr": "این خانه با معماری اصیل افغانی و فضای آر...",
       "ps": "این خانه با معماری اصیل افغانی و فضای آر...",
@@ -103,7 +242,7 @@
     }
   },
   {
-    "id": "afg-003",
+    "id": "ghz-res-003",
     "title": {
       "dr": "ویلای زیبا نزدیک بازار سنگماشه | زندگی آ...",
       "ps": "ویلای زیبا نزدیک بازار سنگماشه | زندگی آ...",
@@ -165,7 +304,7 @@
     }
   },
   {
-    "id": "afg-004",
+    "id": "ghz-res-004",
     "title": {
       "dr": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
       "ps": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
@@ -215,7 +354,7 @@
     }
   },
   {
-    "id": "afg-005",
+    "id": "ghz-res-005",
     "title": {
       "dr": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
       "ps": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
@@ -276,7 +415,7 @@
     }
   },
   {
-    "id": "afg-006",
+    "id": "ghz-res-006",
     "title": {
       "dr": "این خانه زیبا و سنتی در یکی از بهترین مو...",
       "ps": "این خانه زیبا و سنتی در یکی از بهترین مو...",
