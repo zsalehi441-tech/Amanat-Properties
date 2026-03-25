@@ -31,6 +31,22 @@
             "type": "string",
             "required": true
         },
+        "price": {
+            "type": "biginteger",
+            "required": true
+        },
+        "currency": {
+            "type": "enumeration",
+            "enum": [
+                "USD",
+                "AFN"
+            ],
+            "required": true
+        },
+        "is_negotiable": {
+            "type": "boolean",
+            "default": false
+        },
         "land_size": {
             "type": "integer",
             "required": true

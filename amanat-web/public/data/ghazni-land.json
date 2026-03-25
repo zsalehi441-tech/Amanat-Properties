@@ -90,5 +90,49 @@
       "identityVerified": true,
       "lawyerApproved": true
     }
+  },
+  {
+    "id": "ghz-lnd-003",
+    "title": {
+      "dr": "این زمین به مساحت ۲ جریب در منطقه جوی نو...",
+      "ps": "این زمین به مساحت ۲ جریب در منطقه جوی نو...",
+      "en": "Land in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 1400000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 0,
+      "baths": 0,
+      "area": 3200
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1774447943/ll1_qmzr5x.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1774447943/ll2_mbejdy.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1774447944/ll3_mjo8dp.jpg"
+    ],
+    "videoUrl": null,
+    "description": {
+      "dr": "این زمین به مساحت ۲ جریب در منطقه جوی نو (جاغوری) موقعیت دارد و یک فرصت مناسب برای سرمایه‌گذاری یا ساخت خانه محسوب می‌شود.\n\nاین زمین در یک منطقه آرام و در حال رشد قرار دارد و برای ساخت خانه مسکونی یا نگهداری به عنوان سرمایه‌گذاری درازمدت گزینه‌ای مناسب است.\n\n💰 قیمت:\nهر جریب ۷۰۰٬۰۰۰ افغانی (با جور آمد)\n\n📍 ویژگی‌ها:\nموقعیت مناسب در جوی نو، جاغوری\nمساحت خوب و قابل استفاده برای ساخت‌وساز\nمناسب برای استفاده مسکونی یا سرمایه‌گذاری\nمحیط آرام و قابل توسعه\nدسترسی مناسب به مناطق اطراف\n\nاین ملک برای کسانی که به دنبال زمین برای فروش در جاغوری با قیمت مناسب و آینده خوب هستند، یک انتخاب ارزشمند می‌باشد.",
+      "ps": "",
+      "en": "2 Girib Land for Sale in Joye Naw, Jaghori | 40m x 40m | Negotiable Price\n\nThis 2 Girib land (40m x 40m) is located in Joye Naw (جوی نو), Jaghori, offering a great opportunity for both residential and investment purposes.\n\nThe land is situated in a growing and accessible area, making it suitable for building a family home or holding as a long-term investment. Its size provides enough space for construction, courtyard, and future expansion.\n\n💰 Price:\nEach Girib is priced at 700,000 AFN (negotiable)\n\n📍 Key Features:\nTotal size: 2 Girib (40m x 40m)\nLocated in Joye Naw, Jaghori\nSuitable for residential or investment use\nGood access to nearby areas\nPeaceful and developing environment\n\nThis property is ideal for buyers looking for land for sale in Jaghori with flexible pricing and strong future potential."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
   }
 ]

@@ -47,5 +47,48 @@
       "identityVerified": true,
       "lawyerApproved": true
     }
+  },
+  {
+    "id": "ghz-com-002",
+    "title": {
+      "dr": "زمین دکانی برای فروش در بازار سنگ‌ماشه –...",
+      "ps": "زمین دکانی برای فروش در بازار سنگ‌ماشه –...",
+      "en": "Shop in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 650000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 0,
+      "baths": 0,
+      "area": 24
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1774446440/ShopA2_twndm1.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1774446440/ShopA_uhvyl1.jpg"
+    ],
+    "videoUrl": null,
+    "description": {
+      "dr": "زمین دکانی برای فروش در بازار سنگ‌ماشه – ۴ متر عرض و ۶ متر طول\n\nیک زمین دکانی در موقعیت مناسب در قلب بازار سنگ‌ماشه برای فروش موجود است. این ملک با عرض ۴ متر و طول ۶ متر، گزینه‌ای مناسب برای کسانی است که می‌خواهند یک دکان کوچک بسازند یا کاروبار خود را در یک ساحه پررفت‌وآمد و قابل دسترس آغاز کنند. موقعیت این زمین در بازار، ارزش تجارتی آن را بیشتر ساخته و برای آینده نیز پتانسیل خوب دارد. این ملک برای دکان، خدمات تجارتی و سایر فعالیت‌های کوچک مناسب می‌باشد.\n\n",
+      "ps": "",
+      "en": "Shop Land for Sale in Sang-e-Masha Bazar – 4m x 6m\n\nA commercial shop land is available for sale in the heart of Sang-e-Masha Bazar. With a width of 4 meters and a length of 6 meters, this property is a practical option for anyone looking to build a small shop or start a business in a busy and accessible market area. Its location in the bazar gives it strong commercial value and good future potential. Suitable for retail, service, or other small business use."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
   }
 ]

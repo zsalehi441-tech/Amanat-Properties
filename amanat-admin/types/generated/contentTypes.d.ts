@@ -529,6 +529,8 @@ export interface ApiLandListingLandListing extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    currency: Schema.Attribute.Enumeration<['USD', 'AFN']> &
+      Schema.Attribute.Required;
     description_dari: Schema.Attribute.Text & Schema.Attribute.Required;
     description_english: Schema.Attribute.Text;
     description_pashto: Schema.Attribute.Text;
@@ -537,6 +539,7 @@ export interface ApiLandListingLandListing extends Struct.CollectionTypeSchema {
     gps_longitude: Schema.Attribute.Decimal;
     images: Schema.Attribute.Component<'shared.image-url', true>;
     internal_notes: Schema.Attribute.Text & Schema.Attribute.Private;
+    is_negotiable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     land_size: Schema.Attribute.Integer & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -544,6 +547,7 @@ export interface ApiLandListingLandListing extends Struct.CollectionTypeSchema {
       'api::land-listing.land-listing'
     > &
       Schema.Attribute.Private;
+    price: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
