@@ -46,7 +46,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Rented"
   },
   {
     "id": "ghz-com-002",
@@ -89,7 +92,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available"
   },
   {
     "id": "ghz-lnd-001",
@@ -136,7 +142,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available"
   },
   {
     "id": "ghz-lnd-002",
@@ -181,7 +190,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available"
   },
   {
     "id": "ghz-lnd-003",
@@ -225,7 +237,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available"
   },
   {
     "id": "ghz-res-001",
@@ -277,7 +292,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available"
   },
   {
     "id": "ghz-res-002",
@@ -328,7 +346,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available"
   },
   {
     "id": "ghz-res-003",
@@ -390,7 +411,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available"
   },
   {
     "id": "ghz-res-004",
@@ -440,7 +464,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available"
   },
   {
     "id": "ghz-res-005",
@@ -501,7 +528,10 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available"
   },
   {
     "id": "ghz-res-006",
@@ -558,6 +588,9 @@
       "deedChecked": true,
       "identityVerified": true,
       "lawyerApproved": true
-    }
+    },
+    "negotiable": false,
+    "is_featured": true,
+    "active_status": "Available"
   }
 ]

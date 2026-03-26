@@ -443,10 +443,15 @@ export interface ApiCommercialListingCommercialListing
     draftAndPublish: false;
   };
   attributes: {
+    active_status: Schema.Attribute.Enumeration<
+      ['Available', 'In Negotiation', 'Sold', 'Rented']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Available'>;
     area_sqm: Schema.Attribute.Integer & Schema.Attribute.Required;
     assigned_agent: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
-    bathrooms: Schema.Attribute.Integer & Schema.Attribute.Required;
-    bedrooms: Schema.Attribute.Integer & Schema.Attribute.Required;
+    bathrooms: Schema.Attribute.Integer;
+    bedrooms: Schema.Attribute.Integer;
     city: Schema.Attribute.Enumeration<
       [
         'Kabul',
@@ -475,6 +480,11 @@ export interface ApiCommercialListingCommercialListing
     gps_longitude: Schema.Attribute.Decimal;
     images: Schema.Attribute.Component<'shared.image-url', true>;
     internal_notes: Schema.Attribute.Text & Schema.Attribute.Private;
+    is_featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    is_negotiable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    listing_type: Schema.Attribute.Enumeration<['Sale', 'Rent', 'Gerawi']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Sale'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -484,7 +494,7 @@ export interface ApiCommercialListingCommercialListing
     parking: Schema.Attribute.Boolean;
     price: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     property_type: Schema.Attribute.Enumeration<
-      ['Office', 'Shop', 'Warehouse']
+      ['Office', 'Shop', 'Warehouse', 'Commercial Land']
     > &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
@@ -512,6 +522,11 @@ export interface ApiLandListingLandListing extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    active_status: Schema.Attribute.Enumeration<
+      ['Available', 'In Negotiation', 'Sold', 'Rented']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Available'>;
     city: Schema.Attribute.Enumeration<
       [
         'Kabul',
@@ -539,8 +554,12 @@ export interface ApiLandListingLandListing extends Struct.CollectionTypeSchema {
     gps_longitude: Schema.Attribute.Decimal;
     images: Schema.Attribute.Component<'shared.image-url', true>;
     internal_notes: Schema.Attribute.Text & Schema.Attribute.Private;
+    is_featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     is_negotiable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     land_size: Schema.Attribute.Integer & Schema.Attribute.Required;
+    listing_type: Schema.Attribute.Enumeration<['Sale', 'Rent', 'Gerawi']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Sale'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -557,6 +576,7 @@ export interface ApiLandListingLandListing extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Draft'>;
+    video_url: Schema.Attribute.String;
     zoning: Schema.Attribute.String;
   };
 }
@@ -574,6 +594,11 @@ export interface ApiResidentialListingResidentialListing
     draftAndPublish: false;
   };
   attributes: {
+    active_status: Schema.Attribute.Enumeration<
+      ['Available', 'In Negotiation', 'Sold', 'Rented']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Available'>;
     area_sqm: Schema.Attribute.Integer & Schema.Attribute.Required;
     assigned_agent: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
     bathrooms: Schema.Attribute.Integer & Schema.Attribute.Required;
@@ -605,6 +630,11 @@ export interface ApiResidentialListingResidentialListing
     gps_longitude: Schema.Attribute.Decimal;
     images: Schema.Attribute.Component<'shared.image-url', true>;
     internal_notes: Schema.Attribute.Text & Schema.Attribute.Private;
+    is_featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    is_negotiable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    listing_type: Schema.Attribute.Enumeration<['Sale', 'Rent', 'Gerawi']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Sale'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

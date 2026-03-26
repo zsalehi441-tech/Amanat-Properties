@@ -18,8 +18,11 @@ export interface Property {
   };
   price: number;
   currency: 'USD' | 'AFN';
-  type: 'sale' | 'rent';
-  status: 'verified' | 'pending' | 'placeholder';
+  type: 'sale' | 'rent' | 'gerawi';
+  status: 'verified' | 'pending' | 'placeholder' | 'sold';
+  negotiable?: boolean;
+  is_featured?: boolean;
+  active_status?: 'Available' | 'In Negotiation' | 'Sold' | 'Rented';
   features: {
     beds: number;
     baths: number;
@@ -66,6 +69,9 @@ export interface TranslationSchema {
     trustTitle: string;
     trustSubtitle: string;
     featuredTitle: string;
+    saleSectionTitle: string;
+    rentSectionTitle: string;
+    gerawiSectionTitle: string;
     viewAllAssets: string;
     verificationBadge: string;
   };
@@ -74,6 +80,15 @@ export interface TranslationSchema {
     verifiedAgent: string;
     deedChecked: string;
     placeholder: string;
+    negotiable: string;
+    nonNegotiable: string;
+    sold: string;
+    saleType: string;
+    rentType: string;
+    gerawiType: string;
+    available: string;
+    inNegotiation: string;
+    rented: string;
   };
   details: {
     price: string;

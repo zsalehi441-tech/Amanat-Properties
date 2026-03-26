@@ -14,9 +14,7 @@ export default {
 
 async function validateWorkflow(event: any, action: string) {
     const ctx = strapi.requestContext.get();
-    if (!ctx || !ctx.state || !ctx.state.user) {
-        return;
-    }
+    if (!ctx || !ctx.state || !ctx.state.user) return;
 
     const user = ctx.state.user;
     const roles = user.roles.map((r: any) => r.name);
@@ -27,38 +25,36 @@ async function validateWorkflow(event: any, action: string) {
     const isVerifier = roles.includes('Verifier');
     const isFieldAgent = roles.includes('Field Agent');
 
-    if (isSuperAdmin) {
-        return;
-    }
+    if (isSuperAdmin) return;
 
+    let entry: any = null;
     if (action === 'update') {
-        const entry = await strapi.entityService.findOne('api::residential-listing.residential-listing', event.params.where.id);
-
+        const modelUid = event.model.uid; // e.g., 'api::residential-listing.residential-listing'
+        entry = await strapi.entityService.findOne(modelUid, event.params.where.id);
+        
         if (isFieldAgent && !isVerifier && !isTrustOfficer) {
             if (entry && entry.verification_status !== 'Draft') {
                 throw new ForbiddenError('Field Agents can only edit listings in Draft status.');
-            }
-        }
-
-        if (isVerifier && !isTrustOfficer) {
-            if (entry && entry.verification_status === 'Published') {
-                throw new ForbiddenError('Verifiers cannot edit Published listings.');
             }
         }
     }
 
     if (data.verification_status) {
         const newStatus = data.verification_status;
+        const oldStatus = entry ? entry.verification_status : null;
 
-        if (isFieldAgent && !isVerifier && !isTrustOfficer) {
-            if (newStatus !== 'Draft') {
-                throw new ForbiddenError('Field Agents cannot change status to Verified or Published.');
+        // Only enforce status change restrictions if the state is ACTUALLY changing
+        if (newStatus !== oldStatus) {
+            if (isFieldAgent && !isVerifier && !isTrustOfficer) {
+                if (newStatus !== 'Draft') {
+                    throw new ForbiddenError('Field Agents cannot change status to Verified or Published.');
+                }
             }
-        }
 
-        if (isVerifier && !isTrustOfficer) {
-            if (newStatus === 'Published') {
-                throw new ForbiddenError('Verifiers cannot Publish. Trust Officer approval required.');
+            if (isVerifier && !isTrustOfficer) {
+                if (newStatus === 'Published') {
+                    throw new ForbiddenError('Verifiers cannot Publish. Trust Officer approval required.');
+                }
             }
         }
     }

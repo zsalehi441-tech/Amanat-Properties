@@ -12,7 +12,9 @@ interface Props {
 
 const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
   const t = translations[lang];
-  const [featuredProperties, setFeaturedProperties] = useState<Property[]>([]);
+  const [saleProperties, setSaleProperties] = useState<Property[]>([]);
+  const [rentProperties, setRentProperties] = useState<Property[]>([]);
+  const [gerawiProperties, setGerawiProperties] = useState<Property[]>([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   useEffect(() => {
@@ -20,10 +22,12 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
-          setFeaturedProperties(data.slice(0, 4));
+          setSaleProperties(data.filter((p: Property) => p.type === 'sale' && p.is_featured).slice(0, 4));
+          setRentProperties(data.filter((p: Property) => p.type === 'rent' && p.is_featured).slice(0, 4));
+          setGerawiProperties(data.filter((p: Property) => p.type === 'gerawi' && p.is_featured).slice(0, 4));
         }
       })
-      .catch(err => console.error("Error loading featured properties", err));
+      .catch(err => console.error("Error loading properties", err));
   }, []);
 
   return (
@@ -68,13 +72,17 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
         </div>
       </section>
 
-      {/* Featured Listings Grid Section */}
-      {featuredProperties.length > 0 && (
-        <section className="py-24 bg-slate-50 dark:bg-brand-navy/30 border-b border-slate-100 dark:border-brand-charcoal/30">
+      {/* Properties Sections */}
+      {[
+        { title: t.home.saleSectionTitle, properties: saleProperties },
+        { title: t.home.rentSectionTitle, properties: rentProperties },
+        { title: t.home.gerawiSectionTitle, properties: gerawiProperties }
+      ].map((section, idx) => section.properties.length > 0 && (
+        <section key={idx} className={`py-24 ${idx % 2 === 0 ? 'bg-slate-50 dark:bg-brand-navy/30' : 'bg-white dark:bg-brand-dark'} border-b border-slate-100 dark:border-brand-charcoal/30`}>
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-4">
               <div>
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-tight">{t.home.featuredTitle}</h2>
+                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-tight">{section.title}</h2>
                 <p className="text-slate-400 dark:text-slate-500 text-sm tracking-wide uppercase">{lang === Language.ENGLISH ? "Curated Institutional Inventory" : "فهرست منتخب نهادی"}</p>
               </div>
               <Link to="/listings" className="hidden md:block text-brand-gold text-xs font-bold uppercase tracking-[0.3em] hover:underline underline-offset-8 transition-all">
@@ -83,7 +91,7 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
-              {featuredProperties.map((property) => (
+              {section.properties.map((property) => (
                 <div key={property.id} className="bg-white dark:bg-brand-dark border border-slate-100 dark:border-brand-charcoal group shadow-xl dark:shadow-2xl transition-all hover:border-brand-gold/40">
                   <div className="relative aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-brand-navy">
                     <img
@@ -92,9 +100,32 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute top-4 left-4 bg-brand-emerald/90 backdrop-blur-sm text-white text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.15em] shadow-2xl flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
-                      {t.home.verificationBadge}
+                    <div className="absolute top-4 left-4 flex gap-2">
+                      <div className="bg-brand-navy/90 backdrop-blur-sm border border-white/10 text-brand-gold px-3 py-1 rounded-sm text-[10px] font-bold shadow-lg tracking-widest uppercase">
+                        {property.type === 'sale' ? t.status.saleType : property.type === 'rent' ? t.status.rentType : t.status.gerawiType}
+                      </div>
+                    </div>
+                    <div className="absolute top-4 right-4 flex gap-2">
+                      {property.status !== 'placeholder' && (
+                        <div className="bg-brand-emerald text-white px-3 py-1 rounded-sm text-[10px] font-bold flex items-center gap-1 shadow-lg">
+                          {property.negotiable ? (
+                            <>
+                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                              {t.status.negotiable}
+                            </>
+                          ) : (
+                            <>
+                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                              {t.status.nonNegotiable}
+                            </>
+                          )}
+                        </div>
+                      )}
+                      {property.status === 'placeholder' && (
+                        <div className="backdrop-blur-md bg-white/20 border border-white/30 text-white px-4 py-1.5 rounded-sm text-[11px] font-bold tracking-widest shadow-xl uppercase z-10">
+                          {t.status.placeholder}
+                        </div>
+                      )}
                     </div>
                     <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-brand-dark/80 backdrop-blur-md border border-slate-100 dark:border-brand-charcoal px-4 py-2 text-brand-gold font-bold text-lg">
                       {property.price ? `${property.currency === 'USD' ? '$' : 'AFN '} ${property.price.toLocaleString()}` : (lang === Language.ENGLISH ? "Price on Request" : "تماس بگیرید")}
@@ -106,18 +137,31 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
                       <p className="text-slate-400 dark:text-slate-500 text-sm font-light italic">{property.location[lang]}</p>
                     </div>
 
-                    <div className="flex items-center gap-8 mb-8 border-y border-slate-100 dark:border-brand-charcoal/50 py-4">
-                      <div className="flex flex-col">
-                        <span className="text-slate-900 dark:text-white font-bold text-sm">{property.features.area} m²</span>
-                        <span className="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.details.area}</span>
+                    <div className="flex justify-between items-center mb-8 border-y border-slate-100 dark:border-brand-charcoal/50 py-4 text-xs md:text-sm">
+                      <div className="flex items-center gap-1.5 font-bold rtl:flex-row-reverse">
+                        <span className={`w-2 h-2 rounded-full animate-pulse ${property.active_status === 'Sold' || property.active_status === 'Rented' ? 'bg-red-500' : property.active_status === 'In Negotiation' ? 'bg-orange-500' : 'bg-green-500'}`}></span>
+                        <span className={`${property.active_status === 'Sold' || property.active_status === 'Rented' ? 'text-red-600 dark:text-red-500' : property.active_status === 'In Negotiation' ? 'text-orange-600 dark:text-orange-500' : 'text-green-600 dark:text-green-500'}`}>
+                          {property.active_status === 'Sold' ? t.status.sold : property.active_status === 'Rented' ? t.status.rented : property.active_status === 'In Negotiation' ? t.status.inNegotiation : t.status.available}
+                        </span>
                       </div>
-                      <div className="flex flex-col">
-                        <span className="text-slate-900 dark:text-white font-bold text-sm">{property.features.beds}</span>
-                        <span className="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.details.beds}</span>
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-slate-900 dark:text-white font-bold text-sm">{property.features.baths}</span>
-                        <span className="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.details.baths}</span>
+                      
+                      <div className="flex items-center gap-4 md:gap-8">
+                        <div className="flex flex-col">
+                          <span className="text-slate-900 dark:text-white font-bold text-sm">{property.features.area} m²</span>
+                          <span className="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.details.area}</span>
+                        </div>
+                        {property.features.beds > 0 && (
+                          <div className="flex flex-col">
+                            <span className="text-slate-900 dark:text-white font-bold text-sm">{property.features.beds}</span>
+                            <span className="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.details.beds}</span>
+                          </div>
+                        )}
+                        {property.features.baths > 0 && (
+                          <div className="flex flex-col">
+                            <span className="text-slate-900 dark:text-white font-bold text-sm">{property.features.baths}</span>
+                            <span className="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.details.baths}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -125,7 +169,7 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
                       to={`/property/${property.id}`}
                       className="inline-block w-full bg-slate-50 dark:bg-brand-navy border border-slate-200 dark:border-brand-charcoal text-slate-900 dark:text-white px-6 py-3.5 font-bold text-[10px] uppercase tracking-[0.25em] hover:bg-brand-gold hover:text-brand-dark hover:border-brand-gold transition-all text-center"
                     >
-                      {lang === Language.ENGLISH ? "View Audit Details" : "مشاهده جزئیات حسابرسی"}
+                      {lang === Language.ENGLISH ? "View Details" : "مشاهده جزئیات"}
                     </Link>
                   </div>
                 </div>
@@ -142,7 +186,7 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
             </div>
           </div>
         </section>
-      )}
+      ))}
 
       {/* Verification Protocol Section */}
       <section className="py-32 bg-white dark:bg-brand-dark border-y border-slate-100 dark:border-brand-charcoal/30">
@@ -154,8 +198,8 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
               </h2>
               <p className="text-slate-600 dark:text-slate-400 mb-12 leading-relaxed text-lg font-light">
                 {lang === Language.ENGLISH
-                  ? "Property transactions in Afghanistan are high-risk. Amanat operates an institutional protocol to ensure every listing is safe for capital deployment."
-                  : "معاملات ملکی در افغانستان با ریسک بالا همراه است. امانت یک پروتکل نهادی را برای اطمینان از امنیت هر ملک برای سرمایه‌گذاری اجرا می‌کند."}
+                  ? "Property transactions demand absolute certainty. Amanat operates an uncompromising institutional protocol to insulate your capital from market risks and guarantee legal sovereignty."
+                  : "معاملات ملکی نیازمند اطمینان مطلق است. امانت یک پروتکل نهادی سازش‌ناپذیر را برای محافظت از سرمایه شما در برابر خطرات بازار و تضمین حاکمیت قانونی اجرا می‌کند."}
               </p>
 
               <div className="space-y-12">
@@ -163,14 +207,14 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
                   <div className="text-4xl font-bold text-brand-gold/20 group-hover:text-brand-gold transition-colors duration-500">01</div>
                   <div>
                     <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white uppercase tracking-wider">{lang === Language.ENGLISH ? "Chain of Custody" : "زنجیره مالکیت"}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed font-light">{lang === Language.ENGLISH ? "Analysis of previous ownership to ensure a legitimate transfer history through the Qaryadar stamp." : "تجزیه و تحلیل مالکیت‌های قبلی برای اطمینان از تاریخچه انتقال قانونی از طریق مهر قریه‌دار."}</p>
+                    <p className="text-slate-500 text-sm leading-relaxed font-light">{lang === Language.ENGLISH ? "Rigorous forensic analysis of historical ownership and Qaryadar documentation to ensure a flawless, legitimate transfer history." : "تجزیه و تحلیل دقیق و تخصصی مالکیت‌های تاریخی و اسناد قریه‌دار برای اطمینان از تاریخچه انتقال بی‌نقص و قانونی."}</p>
                   </div>
                 </div>
                 <div className="flex gap-8 group">
                   <div className="text-4xl font-bold text-brand-gold/20 group-hover:text-brand-gold transition-colors duration-500">02</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white uppercase tracking-wider">{lang === Language.ENGLISH ? "Archival Audit" : "حساب‌رسی آرشیف"}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed font-light">{lang === Language.ENGLISH ? "Direct verification with current government to ensure the land is not designated for future governmental projects." : "تایید مستقیم با دولت فعلی برای اطمینان از اینکه زمین برای پروژه‌های دولتی آینده در نظر گرفته نشده است."}</p>
+                    <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white uppercase tracking-wider">{lang === Language.ENGLISH ? "Government Archival Audit" : "حساب‌رسی آرشیف دولتی"}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed font-light">{lang === Language.ENGLISH ? "Direct cross-referencing with municipal master plans to verify the land is cleared for private ownership and immune from state projects." : "تطبیق مستقیم با پلان‌های جامع شهری برای تایید اینکه زمین برای مالکیت خصوصی پاکسازی شده و از پروژه‌های دولتی مصون است."}</p>
                   </div>
                 </div>
                 <div className="flex gap-8 group">

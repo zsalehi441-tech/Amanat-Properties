@@ -12,6 +12,31 @@
     },
     "pluginOptions": {},
     "attributes": {
+        "active_status": {
+            "type": "enumeration",
+            "enum": [
+                "Available",
+                "In Negotiation",
+                "Sold",
+                "Rented"
+            ],
+            "default": "Available",
+            "required": true
+        },
+        "is_featured": {
+            "type": "boolean",
+            "default": false
+        },
+        "listing_type": {
+            "type": "enumeration",
+            "enum": [
+                "Sale",
+                "Rent",
+                "Gerawi"
+            ],
+            "default": "Sale",
+            "required": true
+        },
         "city": {
             "type": "enumeration",
             "enum": [
@@ -42,6 +67,10 @@
                 "AFN"
             ],
             "required": true
+        },
+        "is_negotiable": {
+            "type": "boolean",
+            "default": true
         },
         "area_sqm": {
             "type": "integer",

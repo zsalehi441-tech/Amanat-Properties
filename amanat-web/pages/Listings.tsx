@@ -15,6 +15,7 @@ const Listings: React.FC<Props> = ({ lang }) => {
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedProvince, setSelectedProvince] = useState<string>('all');
+  const [listingType, setListingType] = useState<'all' | 'sale' | 'rent' | 'gerawi'>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
 
   useEffect(() => {
@@ -30,9 +31,11 @@ const Listings: React.FC<Props> = ({ lang }) => {
       });
   }, []);
 
-  const filteredProperties = selectedProvince === 'all'
-    ? properties
-    : properties.filter(p => p.location.city.toLowerCase() === selectedProvince.toLowerCase());
+  const filteredProperties = properties.filter(p => {
+    const matchProvince = selectedProvince === 'all' || p.location.city.toLowerCase() === selectedProvince.toLowerCase();
+    const matchType = listingType === 'all' || p.type === listingType;
+    return matchProvince && matchType;
+  });
 
   if (loading) {
     return (
@@ -57,6 +60,34 @@ const Listings: React.FC<Props> = ({ lang }) => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              {/* Category Toggle */}
+              <div className="flex bg-slate-100 dark:bg-brand-navy p-1 border border-slate-200 dark:border-brand-charcoal">
+                <button
+                  onClick={() => setListingType('all')}
+                  className={`px-4 py-2 text-[10px] uppercase font-bold tracking-widest transition-all ${listingType === 'all' ? 'bg-brand-gold text-brand-dark shadow-lg' : 'text-slate-500 hover:text-brand-gold'}`}
+                >
+                  {lang === Language.ENGLISH ? "All" : "همه"}
+                </button>
+                <button
+                  onClick={() => setListingType('sale')}
+                  className={`px-4 py-2 text-[10px] uppercase font-bold tracking-widest transition-all ${listingType === 'sale' ? 'bg-brand-gold text-brand-dark shadow-lg' : 'text-slate-500 hover:text-brand-gold'}`}
+                >
+                  {lang === Language.ENGLISH ? "Buy" : "خرید"}
+                </button>
+                <button
+                  onClick={() => setListingType('rent')}
+                  className={`px-4 py-2 text-[10px] uppercase font-bold tracking-widest transition-all ${listingType === 'rent' ? 'bg-brand-gold text-brand-dark shadow-lg' : 'text-slate-500 hover:text-brand-gold'}`}
+                >
+                  {lang === Language.ENGLISH ? "Rent" : "کرایه"}
+                </button>
+                <button
+                  onClick={() => setListingType('gerawi')}
+                  className={`px-4 py-2 text-[10px] uppercase font-bold tracking-widest transition-all ${listingType === 'gerawi' ? 'bg-brand-gold text-brand-dark shadow-lg' : 'text-slate-500 hover:text-brand-gold'}`}
+                >
+                  {lang === Language.ENGLISH ? "Gerawi" : "گروی"}
+                </button>
+              </div>
+
               {/* View Toggle */}
               <div className="flex bg-slate-100 dark:bg-brand-navy p-1 border border-slate-200 dark:border-brand-charcoal">
                 <button

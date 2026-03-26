@@ -13,7 +13,7 @@ const AmanatLogo: React.FC<Props> = ({ className, size = "100%", isDarkMode = tr
       <img
         src={isDarkMode ? "/logo-dark.png" : "/logo-light.png"}
         alt="Amanat Real Estate"
-        className="w-full h-auto object-contain"
+        className="w-full h-auto max-h-16 object-contain"
       />
     </div>
   );
