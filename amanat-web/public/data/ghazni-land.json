@@ -64,7 +64,7 @@
       "lat": 0,
       "lng": 0
     },
-    "price": 0,
+    "price": 1100000,
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
