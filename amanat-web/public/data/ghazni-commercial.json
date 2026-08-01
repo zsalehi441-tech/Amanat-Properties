@@ -138,5 +138,149 @@
       "identityVerified": true,
       "lawyerApproved": true
     }
+  },
+  {
+    "id": "ghz-com-004",
+    "title": {
+      "dr": "این دکان برای فروش در بازار سنگماشه جاغو...",
+      "ps": "این دکان برای فروش در بازار سنگماشه جاغو...",
+      "en": "Shop in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 1700000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 0,
+      "baths": 0,
+      "area": 28
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166346/IMG-20260518-WA0000_bpzroe.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166355/IMG-20260518-WA0006_deuwvr.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166342/IMG-20260518-WA0002_cjhkvl.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166347/IMG-20260518-WA0001_ebpp8g.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166355/IMG-20260518-WA0004_hokeos.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166363/IMG-20260518-WA0005_zgjbr4.jpg"
+    ],
+    "videoUrl": "https://youtu.be/XW8Om5phxaM?si=MP5Tn_4xpdoAH3I3",
+    "description": {
+      "dr": "این دکان برای فروش در بازار سنگماشه جاغوری در یکی از بهترین و پررفت‌وآمدترین موقعیت‌های تجارتی قرار دارد و یک فرصت عالی برای راه‌اندازی کسب‌وکار یا سرمایه‌گذاری مطمئن می‌باشد.\n\nقرار داشتن این دکان در قلب بازار باعث شده که از رفت‌وآمد زیاد مشتریان، دید عالی تجارتی و دسترسی آسان برخوردار باشد؛ ویژگی‌هایی که برای موفقیت هر نوع تجارت بسیار مهم هستند.\n\n📍 ویژگی‌ها:\nبهترین موقعیت در بازار سنگماشه\nمنطقه پررفت‌وآمد و تجارتی\nمناسب برای انواع کسب‌وکار\nدسترسی آسان برای مشتریان\nپتانسیل خوب برای درآمدزایی و رشد آینده\n\nاین دکان برای کسانی که به دنبال دکان برای فروش در جاغوری یا یک فرصت عالی تجارتی در بازار سنگماشه هستند، گزینه‌ای بسیار ارزشمند می‌باشد.\n\nبرای معلومات بیشتر، قیمت و جزئیات، با ما در تماس شوید.",
+      "ps": "",
+      "en": "This shop for sale in Sang-e-Masha Bazaar, Jaghori, Afghanistan is located in one of the best and busiest commercial areas, making it an excellent opportunity for business use or long-term investment.\n\nSituated in the heart of the bazaar, the shop benefits from high customer traffic, strong commercial visibility, and easy access, which are essential for successful business operations.\n\n📍 Key Features:\nPrime location in Sang-e-Masha Bazaar\nBusy commercial area\nSuitable for various business types\nEasy customer access\nStrong potential for income and future growth\n\nThis shop is ideal for buyers looking for commercial property in Jaghori or a reliable business opportunity in Sang-e-Masha Bazaar.\n\nFor more information, pricing, and details, please contact us directly."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "ghz-com-005",
+    "title": {
+      "dr": "این ۴ جای دکان برای فروش در بازار سنگماش...",
+      "ps": "این ۴ جای دکان برای فروش در بازار سنگماش...",
+      "en": "Shop in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 2300000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 0,
+      "baths": 0,
+      "area": 112
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166398/IMG-20260518-WA0007_pkwxsq.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166376/IMG-20260518-WA0013_hd7pki.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166383/IMG-20260518-WA0012_ag9fhq.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166380/IMG-20260518-WA0008_gfddpb.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166376/IMG-20260518-WA0013_hd7pki.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1779166376/IMG-20260518-WA0013_hd7pki.jpg"
+    ],
+    "videoUrl": "https://youtu.be/TTvejSTvEDA?si=9rwuOM--U4O1L1XQ",
+    "description": {
+      "dr": "این ۴ جای دکان برای فروش در بازار سنگماشه جاغوری در یکی از بهترین و پررفت‌وآمدترین موقعیت‌های تجارتی قرار دارد و یک فرصت عالی برای سرمایه‌گذاری یا راه‌اندازی کسب‌وکار می‌باشد.\n\nاین دکان‌ها در قلب بازار سنگماشه موقعیت داشته و از رفت‌وآمد زیاد مشتریان، دید مناسب تجارتی و دسترسی آسان برخوردار هستند؛ ویژگی‌هایی که برای موفقیت هر نوع تجارت بسیار مهم می‌باشند.\n\n📍 ویژگی‌ها:\n۴ جای دکان در موقعیت عالی\nقرار گرفته در بازار سنگماشه\nمناسب برای انواع فعالیت‌های تجارتی\nدسترسی آسان برای مشتریان\nپتانسیل خوب برای درآمدزایی و رشد آینده\n\nاین ملک برای کسانی که به دنبال دکان برای فروش در جاغوری یا یک فرصت خوب تجارتی در بازار سنگماشه هستند، گزینه‌ای بسیار ارزشمند می‌باشد.\n\nبرای معلومات بیشتر، قیمت و جزئیات، با ما در تماس شوید.",
+      "ps": "",
+      "en": "These 4 shop spaces for sale in Sang-e-Masha Bazaar, Jaghori, Afghanistan are located in one of the best and busiest commercial areas, making them an excellent opportunity for business use or long-term investment.\n\nSituated in the heart of the bazaar, the shops benefit from high customer traffic, strong visibility, and easy access, which are essential for successful business operations.\n\n📍 Key Features:\n4 shop spaces in a prime location\nLocated in Sang-e-Masha Bazaar, Jaghori\nHigh-traffic commercial area\nSuitable for various business types\nEasy customer access\nStrong potential for income and future growth\n\nThese shops are ideal for buyers looking for commercial property in Jaghori or a reliable business opportunity in Sang-e-Masha Bazaar.\n\nFor more information, pricing, and details, please contact us directly."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "ghz-com-006",
+    "title": {
+      "dr": "این دکان دو منزله برای فروش در بازار سنگ...",
+      "ps": "این دکان دو منزله برای فروش در بازار سنگ...",
+      "en": "1 Bed Shop in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 30,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 1,
+      "baths": 1,
+      "area": 35
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222054/Screenshot_2026-07-28_095123_tabo5a.png",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222048/Screenshot_2026-07-28_094946_tqku5p.png",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222048/Screenshot_2026-07-28_094920_udtq9c.png",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222041/Screenshot_2026-07-28_095215_qqnryx.png",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222049/Screenshot_2026-07-28_095058_hreynp.png",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222041/Screenshot_2026-07-28_095225_nzqcpm.png",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222040/Screenshot_2026-07-28_095238_nbnc4f.png",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222040/Screenshot_2026-07-28_095256_bowuob.png",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222040/Screenshot_2026-07-28_095305_szz7ku.png"
+    ],
+    "videoUrl": "https://youtube.com/shorts/TiHFQtJUpt0?si=42THqZsbZaspNmtB",
+    "description": {
+      "dr": "این دکان دو منزله برای فروش در بازار سنگماشه جاغوری، در یکی از بهترین موقعیت‌های تجارتی بازار قرار دارد و گزینه‌ای عالی برای سرمایه‌گذاری یا راه‌اندازی انواع کسب‌وکار می‌باشد.\n\nقرار گرفتن این ملک در قلب بازار، رفت‌وآمد زیاد مشتریان و دسترسی آسان را فراهم کرده است. دو منزله بودن دکان، فضای بیشتری برای فروشگاه، دفتر کار، انبار یا سایر فعالیت‌های تجارتی در اختیار شما قرار می‌دهد.\n\nویژگی‌ها:\n\nدکان دو منزله\nموقعیت عالی در بازار سنگماشه\nمناسب برای انواع کسب‌وکار\nدسترسی آسان و رفت‌وآمد زیاد\nفرصت عالی برای سرمایه‌گذاری\nقیمت مناسب\n\nبرای معلومات بیشتر و بازدید، با دفتر امانت تماس بگیرید.",
+      "ps": "",
+      "en": "This two-story shop for sale in Sang-e-Masha Bazaar, Jaghori, Afghanistan is located in a prime commercial area, making it an excellent opportunity for business owners and investors.\n\nIts strategic location in the heart of the bazaar provides high customer traffic and easy access. The two-story layout offers additional space for retail, offices, storage, or other commercial activities.\n\nKey Features:\n\nTwo-story commercial shop\nPrime location in Sang-e-Masha Bazaar\nIdeal for retail or business use\nHigh customer traffic\nExcellent investment opportunity\nCompetitive price\n\nFor more information or to arrange a viewing, please contact Amanat Property."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
   }
 ]

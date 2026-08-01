@@ -331,5 +331,300 @@
       "identityVerified": true,
       "lawyerApproved": true
     }
+  },
+  {
+    "id": "ghz-res-007",
+    "title": {
+      "dr": "این خانه برای فروش در کهنه‌ده جاغوری در ...",
+      "ps": "این خانه برای فروش در کهنه‌ده جاغوری در ...",
+      "en": "Property in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 2800000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 0,
+      "baths": 0,
+      "area": 864
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452524/WhatsApp_Image_2026-04-29_at_11.10.45_rg51qg.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452524/WhatsApp_Image_2026-04-29_at_11.10.45_rg51qg.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452531/WhatsApp_Image_2026-04-29_at_11.10.47_3_clg912.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452529/WhatsApp_Image_2026-04-29_at_11.10.48_haptxu.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452526/WhatsApp_Image_2026-04-29_at_11.10.46_xju5n5.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452526/WhatsApp_Image_2026-04-29_at_11.10.46_xju5n5.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452526/WhatsApp_Image_2026-04-29_at_11.10.46_xju5n5.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452522/WhatsApp_Image_2026-04-29_at_11.10.47_uk63xa.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452522/WhatsApp_Image_2026-04-29_at_11.10.47_uk63xa.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452522/WhatsApp_Image_2026-04-29_at_11.10.47_uk63xa.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452518/WhatsApp_Image_2026-04-29_at_11.10.48_1_xbdaeq.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452512/WhatsApp_Image_2026-04-29_at_11.10.45_2_gbbjkw.jpg"
+    ],
+    "videoUrl": "https://youtu.be/hqPOZ2KUYgM?si=XHn9blPXFRbVxQ20",
+    "description": {
+      "dr": "این خانه برای فروش در کهنه‌ده جاغوری در نزدیکی بازار سنگماشه موقعیت دارد و با توجه به قیمت مناسب و موقعیت خوب، یک فرصت عالی برای زندگی خانوادگی یا سرمایه‌گذاری می‌باشد.\n\nاین ملک دسترسی آسان به بازار، دکان‌ها، مکاتب و سایر خدمات ضروری را فراهم می‌کند و زندگی روزمره را راحت‌تر می‌سازد. همچنان محیط آن آرام، امن و مناسب خانواده‌ها است.\n\n📍 ویژگی‌ها:\nموقعیت مناسب در کهنه‌ده جاغوری\nنزدیک به بازار سنگماشه\nقیمت بسیار مناسب\nدسترسی آسان به خدمات ضروری\nمحیط آرام و امن\nمناسب برای سکونت یا سرمایه‌گذاری\n\nاگر به دنبال خانه برای فروش در جاغوری نزدیک بازار با قیمت خوب هستید، این ملک می‌تواند یک انتخاب بسیار مناسب باشد.",
+      "ps": "",
+      "en": "This house for sale in Kohna Deh, Jaghori, Afghanistan is located near the Sang-e-Masha bazaar and offers an excellent opportunity with a great price and strong location.\n\nThe property provides easy access to the market, shops, schools, and essential services, making daily life convenient and practical. The area is peaceful, secure, and suitable for family living.\n\n📍 Key Features:\nGood location in Kohna Deh, Jaghori\nClose to Sang-e-Masha bazaar\nVery competitive price\nEasy access to essential services\nPeaceful and safe environment\nSuitable for living or investment\n\nThis home is ideal for buyers looking for a house near the market in Jaghori at a great price."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "ghz-res-008",
+    "title": {
+      "dr": "این خانه برای فروش در ممدگ جاغوری با داش...",
+      "ps": "این خانه برای فروش در ممدگ جاغوری با داش...",
+      "en": "4 Bed Property in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 3000000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 4,
+      "baths": 1,
+      "area": 2000
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452409/IMG-20260429-WA0043_hufebw.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452403/IMG-20260429-WA0023_sl2ttp.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452401/IMG-20260429-WA0042_pujqng.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452401/IMG-20260429-WA0024_o8asqy.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452399/IMG-20260429-WA0040_nrb3vi.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452390/IMG-20260429-WA0031_i4tl9e.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452383/IMG-20260429-WA0030_ixz1m9.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452390/IMG-20260429-WA0029_knvpkm.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452388/IMG-20260429-WA0032_caiwcm.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452399/IMG-20260429-WA0033_hzebpi.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452377/IMG-20260429-WA0036_bd9o29.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452387/IMG-20260429-WA0035_nx04cz.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452396/IMG-20260429-WA0034_sv9xm2.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777452384/IMG-20260429-WA0039_dde3mo.jpg"
+    ],
+    "videoUrl": "https://youtu.be/g3HFrxr_89M",
+    "description": {
+      "dr": "این خانه برای فروش در ممدگ جاغوری با داشتن بهترین امکانات و شرایط مناسب زندگی، یک گزینه عالی برای سکونت خانوادگی یا سرمایه‌گذاری مطمئن می‌باشد.\n\nاین ملک در یک موقعیت خوب قرار داشته و دارای فضای مناسب، طراحی عملی و امکانات لازم برای یک زندگی راحت و بدون دغدغه است.\n\n📍 ویژگی‌ها:\nموقعیت مناسب در ممدگ جاغوری\nدارای امکانات کامل و قابل استفاده\nمناسب برای زندگی خانوادگی\nمحیط آرام و امن\nدسترسی مناسب به مناطق اطراف\nپتانسیل خوب برای افزایش ارزش در آینده\n\nاین خانه برای کسانی که به دنبال خانه برای فروش در جاغوری با امکانات خوب هستند، یک انتخاب بسیار مناسب می‌باشد.\n\nبرای معلومات بیشتر، قیمت و جزئیات، با ما در تماس شوید.",
+      "ps": "",
+      "en": "This house for sale in Mammadak, Jaghori, Afghanistan comes with excellent amenities and comfortable living conditions, making it a great option for family living or long-term investment.\nThe property is well-designed with practical space and essential features that ensure a convenient and stress-free lifestyle.\n📍 Key Features:\n\n\nGood location in Mammadak, Jaghori\n\n\nFully equipped with essential amenities\n\n\nSuitable for family living\n\n\nPeaceful and secure environment\n\n\nEasy access to surrounding areas\n\n\nStrong potential for future value growth\n\n\nThis home is ideal for buyers looking for a well-equipped house for sale in Jaghori with comfort and long-term value.\nFor more information, pricing, and details, please contact us directly."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "ghz-res-009",
+    "title": {
+      "dr": "این خانه برای فروش در قلعهٔ جرنیل جاغوری...",
+      "ps": "این خانه برای فروش در قلعهٔ جرنیل جاغوری...",
+      "en": "3 Bed Property in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 2500000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 3,
+      "baths": 2,
+      "area": 740
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897089/IMG-20260429-WA0067_y7xyn0.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897098/IMG-20260429-WA0068_alsmgx.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897098/IMG-20260429-WA0069_j8hcxu.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897110/IMG-20260429-WA0071_rhnwew.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897114/IMG-20260429-WA0072_iwxz1x.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897117/IMG-20260429-WA0074_ieibka.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897121/IMG-20260429-WA0077_fegd0u.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897125/IMG-20260429-WA0078_vo8fhe.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897128/IMG-20260429-WA0079_p1nb47.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897128/IMG-20260429-WA0079_p1nb47.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897139/IMG-20260429-WA0081_pnq0n0.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897139/IMG-20260429-WA0081_pnq0n0.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897139/IMG-20260429-WA0081_pnq0n0.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897144/IMG-20260429-WA0082_cq3thf.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897149/IMG-20260429-WA0083_tp7tx3.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897155/IMG-20260429-WA0084_hccjbo.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897159/IMG-20260429-WA0085_m7h7nr.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897165/IMG-20260429-WA0086_nvvqxk.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897169/IMG-20260429-WA0080_nm7mzf.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897169/IMG-20260429-WA0080_nm7mzf.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897179/IMG-20260429-WA0087_urerdh.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897248/IMG-20260429-WA0076_r2ook8.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897249/IMG-20260429-WA0073_iu6mmt.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897249/IMG-20260429-WA0088_ci5zgj.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897278/IMG-20260429-WA0089_r4is3x.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897278/IMG-20260429-WA0090_icdmrw.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1777897279/IMG-20260429-WA0091_ltxw1r.jpg"
+    ],
+    "videoUrl": "https://youtu.be/U5sXfPbhU4Y",
+    "description": {
+      "dr": "این خانه برای فروش در قلعهٔ جرنیل جاغوری در یکی از بهترین موقعیت‌ها و نزدیک بازار سنگماشه قرار دارد و یک گزینه عالی برای زندگی خانوادگی یا سرمایه‌گذاری مطمئن می‌باشد.\n\nموقعیت این ملک دسترسی آسان به بازار، دکان‌ها، مکاتب، شفاخانه و سایر خدمات ضروری را فراهم می‌کند و زندگی روزمره را بسیار راحت می‌سازد. در عین حال، محیط آن آرام، امن و مناسب خانواده‌ها است.\n\n📍 ویژگی‌ها:\nموقعیت عالی در قلعهٔ جرنیل جاغوری\nنزدیک به بازار سنگماشه\nدسترسی آسان به خدمات ضروری\nمحیط آرام و امن\nمناسب برای سکونت یا سرمایه‌گذاری\nپتانسیل خوب برای افزایش ارزش در آینده\n\nاین خانه برای کسانی که به دنبال خانه برای فروش در جاغوری نزدیک بازار با موقعیت ممتاز هستند، یک انتخاب بسیار مناسب می‌باشد.\n\nبرای معلومات بیشتر، قیمت و جزئیات، با ما در تماس شوید",
+      "ps": "",
+      "en": "This house for sale in Qala-e-Jarnil, Jaghori, Afghanistan is located in a prime area near Sang-e-Masha Bazaar, making it an excellent option for family living or long-term investment.\nThe property offers easy access to markets, shops, schools, hospital, and essential services, ensuring a convenient and comfortable lifestyle. At the same time, the area remains peaceful, safe, and family-friendly.\n📍 Key Features:\n\n\nPrime location in Qala-e-Jarnil, Jaghori\n\n\nClose to Sang-e-Masha Bazaar\n\n\nEasy access to essential services\n\n\nPeaceful and secure environment\n\n\nSuitable for living or investment\n\n\nStrong potential for future value growth\n\n\nThis home is ideal for buyers looking for a house near the market in Jaghori with strong location value.\nFor more information, pricing, and details, please contact us directly."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "ghz-res-010",
+    "title": {
+      "dr": "این خانه برای فروش در سبزچوب سنگماشه جاغ...",
+      "ps": "این خانه برای فروش در سبزچوب سنگماشه جاغ...",
+      "en": "3 Bed Property in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 1500000,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 3,
+      "baths": 1,
+      "area": 16000
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222087/IMG-20260728-WA0006_bpgohf.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222087/IMG-20260728-WA0010_cu7v3n.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222085/IMG-20260728-WA0007_zprnym.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222088/IMG-20260728-WA0008_qrnabx.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222085/IMG-20260728-WA0011_fhuwmv.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222084/IMG-20260728-WA0012_sdcdv6.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222090/IMG-20260728-WA0009_fpj0eb.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222094/IMG-20260728-WA0015_odnkwg.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222098/IMG-20260728-WA0021_frzg1z.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222097/IMG-20260728-WA0023_zxprla.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222096/IMG-20260728-WA0022_scamsw.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222092/IMG-20260728-WA0018_mzwgqg.jpg"
+    ],
+    "videoUrl": "https://youtu.be/xctT6WWcIGU?si=FZFHU3vkwtFhVpko",
+    "description": {
+      "dr": "این خانه برای فروش در سبزچوب سنگماشه جاغوری با بهترین قیمت، گزینه‌ای عالی برای خانواده‌هایی است که به دنبال خانه‌ای در محیطی آرام و با دسترسی مناسب هستند.\n\nاین ملک در یکی از مناطق شناخته‌شده اطراف سنگماشه واقع شده و برای سکونت دائمی یا سرمایه‌گذاری، انتخابی ارزشمند محسوب می‌شود. سبزچوب در نزدیکی سنگماشه قرار دارد و دسترسی مناسبی به مرکز ولسوالی جاغوری دارد.\n\nویژگی‌ها:\n\nخانه مناسب برای سکونت\nموقعیت خوب در سبزچوب سنگماشه\nمحیط آرام و امن\nمناسب برای زندگی خانوادگی\nبهترین قیمت\nفرصت مناسب برای سرمایه‌گذاری\n\nبرای معلومات بیشتر و بازدید، با دفتر امانت تماس بگیرید.",
+      "ps": "",
+      "en": "This house for sale in Sabz Chob, Sang-e-Masha, Jaghori, Afghanistan is offered at an excellent price, making it a great opportunity for families and property investors.\n\nLocated in a peaceful area near Sang-e-Masha, the property offers a comfortable living environment with convenient access to the district center. Sabz Chob is one of the well-known localities near Sang-e-Masha in Jaghori District.\n\nKey Features:\n\nComfortable family house\nGreat location in Sabz Chob, Sang-e-Masha\nPeaceful and secure environment\nIdeal for family living\nBest price\nExcellent investment opportunity\n\nFor more information or to arrange a viewing, please contact Amanat Property."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
+  },
+  {
+    "id": "ghz-res-011",
+    "title": {
+      "dr": "این خانه برای فروش در شهرک مردای جاغوری ...",
+      "ps": "این خانه برای فروش در شهرک مردای جاغوری ...",
+      "en": "3 Bed Property in Sang-e-Masha"
+    },
+    "location": {
+      "city": "Ghazni",
+      "district": "Sang-e-Masha",
+      "dr": "Ghazni, Sang-e-Masha",
+      "ps": "Ghazni, Sang-e-Masha",
+      "en": "Ghazni, Sang-e-Masha"
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    },
+    "price": 25,
+    "currency": "AFN",
+    "type": "sale",
+    "status": "verified",
+    "features": {
+      "beds": 3,
+      "baths": 1,
+      "area": 500
+    },
+    "images": [
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222111/IMG-20260728-WA0026_irt0w5.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222109/IMG-20260728-WA0024_bxlllz.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222118/IMG-20260728-WA0029_fugr6b.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222113/IMG-20260728-WA0027_yd4oev.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222113/IMG-20260728-WA0027_yd4oev.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222115/IMG-20260728-WA0028_apl0b4.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222120/IMG-20260728-WA0030_ztdiqi.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222120/IMG-20260728-WA0032_bak91o.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222114/IMG-20260728-WA0033_vlbeud.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222111/IMG-20260728-WA0031_ziap7k.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222120/IMG-20260728-WA0032_bak91o.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222124/IMG-20260728-WA0034_iq3fge.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222115/IMG-20260728-WA0035_f8o7xa.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222117/IMG-20260728-WA0037_pytqto.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222118/IMG-20260728-WA0039_egoveq.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222123/IMG-20260728-WA0041_uoxl3l.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222125/IMG-20260728-WA0040_h3bnfl.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222126/IMG-20260728-WA0038_cq289g.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222129/IMG-20260728-WA0036_tvtb7d.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222131/IMG-20260728-WA0043_ou7sdr.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222130/IMG-20260728-WA0044_rragz8.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222132/IMG-20260728-WA0045_k2ye53.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222127/IMG-20260728-WA0047_dvqimm.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222122/IMG-20260728-WA0046_pgcjbc.jpg",
+      "https://res.cloudinary.com/dw3seymup/image/upload/v1785222127/IMG-20260728-WA0047_dvqimm.jpg"
+    ],
+    "videoUrl": "https://youtu.be/aH0aa_eipJ8?si=Q1VrYwlX_OqiP7vE",
+    "description": {
+      "dr": "این خانه برای فروش در شهرک مردای جاغوری با بهترین امکانات شهری و کم‌ترین قیمت، یک فرصت عالی برای خانواده‌هایی است که به دنبال خانه‌ای راحت، باکیفیت و مقرون‌به‌صرفه هستند.\n\nاین خانه در موقعیتی مناسب قرار داشته و به امکانات ضروری شهری دسترسی آسان دارد. طراحی مناسب، محیط آرام و قیمت استثنایی، این ملک را به گزینه‌ای ایده‌آل برای سکونت یا سرمایه‌گذاری تبدیل کرده است.\n\nویژگی‌ها:\n\nموقعیت عالی در شهرک مردای\nدسترسی آسان به امکانات شهری\nمناسب برای زندگی خانوادگی\nمحیط آرام و امن\nبهترین قیمت بازار\nفرصت عالی برای سرمایه‌گذاری\n\nبرای معلومات بیشتر و بازدید، با دفتر امانت تماس بگیرید.",
+      "ps": "",
+      "en": "This house for sale in Mardai Township, Jaghori, Afghanistan offers excellent urban amenities at an affordable price, making it an ideal choice for families and property investors.\n\nThe property is located in a convenient area with easy access to essential services and daily necessities. With its comfortable layout, peaceful surroundings, and competitive price, this home provides outstanding value for both living and long-term investment.\n\nKey Features:\n\nPrime location in Mardai Township\nEasy access to urban facilities\nIdeal for family living\nPeaceful and secure environment\nExcellent value for money\nGreat long-term investment opportunity\n\nFor more information or to arrange a viewing, please contact Amanat Property."
+    },
+    "verificationData": {
+      "deedChecked": true,
+      "identityVerified": true,
+      "lawyerApproved": true
+    }
   }
 ]
