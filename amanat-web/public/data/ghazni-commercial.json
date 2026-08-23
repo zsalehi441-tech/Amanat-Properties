@@ -1,59 +1,10 @@
 [
   {
-    "id": "ghz-com-001",
-    "title": {
-      "dr": "یک دکان بسیار بزرگ و نوساخت با موقعیت عا...",
-      "ps": "یو ډېر لوی او نوی جوړ شوی دوکان چې د سنګ...",
-      "en": "Shop in Sang-e-Masha"
-    },
-    "location": {
-      "city": "Ghazni",
-      "district": "Sang-e-Masha",
-      "dr": "Ghazni, Sang-e-Masha",
-      "ps": "Ghazni, Sang-e-Masha",
-      "en": "Ghazni, Sang-e-Masha"
-    },
-    "coordinates": {
-      "lat": 0,
-      "lng": 0
-    },
-    "price": 30000,
-    "currency": "AFN",
-    "type": "sale",
-    "status": "verified",
-    "features": {
-      "beds": 0,
-      "baths": 1,
-      "area": 24
-    },
-    "images": [
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468715/p1_eqtal9.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468712/p2_elatq2.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468713/p3_oitwfg.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468714/p4_ieezpw.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468712/p5_nhblhe.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468711/p6_nrwyrg.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468717/p7_yzswmx.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468718/p8_x3nisq.jpg"
-    ],
-    "videoUrl": null,
-    "description": {
-      "dr": "یک دکان بسیار بزرگ و نوساخت با موقعیت عالی در بازار سنگماشه، واقع در سر چهارراه که یکی از بهترین نقاط تجارتی محسوب می‌شود. این دکان در منزل سوم موقعیت دارد و برای انواع فعالیت‌های تجارتی بسیار مناسب است.\nهمچنان این دکان دارای تشناب (سرویس صحی) بوده و به دلیل موقعیت بسیار خوب در چهارراه، از رفت‌وآمد زیاد مشتریان برخوردار است. گزینه‌ای بسیار مناسب برای سرمایه‌گذاری یا شروع یک کاروبار موفق.",
-      "ps": "یو ډېر لوی او نوی جوړ شوی دوکان چې د سنګماشه بازار په ډېر ښه موقعیت کې، د څلور لارې په سر کې موقعیت لري. دا ځای د سوداګرۍ لپاره له غوره ځایونو څخه ګڼل کېږي. دا دوکان په دریم منزل کې دی او د بېلابېلو کاروبارونو لپاره مناسب دی.\nدا دوکان تشناب (د صحت خونې) هم لري او د څلور لارې په سر د موقعیت له امله د مشتریانو ښه تګ راتګ لري. دا د پانګونې او یا د بریالي کاروبار د پیل لپاره یو ډېر ښه فرصت دی.",
-      "en": "A very large and newly built shop located in an excellent position in Sangmasha Market, right at the main crossroads, which is considered one of the best commercial locations. The shop is located on the third floor and is suitable for different types of businesses.\nThe shop also has a private restroom, and due to its prime location at the crossroads, it benefits from high customer traffic. It is a great opportunity for investment or starting a successful business. "
-    },
-    "verificationData": {
-      "deedChecked": true,
-      "identityVerified": true,
-      "lawyerApproved": true
-    }
-  },
-  {
     "id": "ghz-com-002",
     "title": {
-      "dr": "زمین دکانی برای فروش در بازار سنگ‌ماشه –...",
-      "ps": "زمین دکانی برای فروش در بازار سنگ‌ماشه –...",
-      "en": "Commercial Land in Sang-e-Masha"
+      "dr": "زمین دکانی برای فروش در بازار سنگ‌ماشه – ۴ متر عرض و ۶ متر طول",
+      "ps": "زمین دکانی برای فروش در بازار سنگ‌ماشه – ۴ متر عرض و ۶ متر طول",
+      "en": "Shop Land for Sale in Sang-e-Masha Bazar – 4m x 6m"
     },
     "location": {
       "city": "Ghazni",
@@ -70,6 +21,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -94,8 +48,8 @@
   {
     "id": "ghz-com-003",
     "title": {
-      "dr": "این ۴ جای دکان برای فروش در بازار سنگماش...",
-      "ps": "این ۴ جای دکان برای فروش در بازار سنگماش...",
+      "dr": "Commercial Land در Sang-e-Masha",
+      "ps": "Commercial Land په Sang-e-Masha",
       "en": "Commercial Land in Sang-e-Masha"
     },
     "location": {
@@ -113,6 +67,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -142,8 +99,8 @@
   {
     "id": "ghz-com-004",
     "title": {
-      "dr": "این دکان برای فروش در بازار سنگماشه جاغو...",
-      "ps": "این دکان برای فروش در بازار سنگماشه جاغو...",
+      "dr": "Shop در Sang-e-Masha",
+      "ps": "Shop په Sang-e-Masha",
       "en": "Shop in Sang-e-Masha"
     },
     "location": {
@@ -161,6 +118,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -189,8 +149,8 @@
   {
     "id": "ghz-com-005",
     "title": {
-      "dr": "این ۴ جای دکان برای فروش در بازار سنگماش...",
-      "ps": "این ۴ جای دکان برای فروش در بازار سنگماش...",
+      "dr": "Shop در Sang-e-Masha",
+      "ps": "Shop په Sang-e-Masha",
       "en": "Shop in Sang-e-Masha"
     },
     "location": {
@@ -208,6 +168,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -236,8 +199,8 @@
   {
     "id": "ghz-com-006",
     "title": {
-      "dr": "این دکان دو منزله برای فروش در بازار سنگ...",
-      "ps": "این دکان دو منزله برای فروش در بازار سنگ...",
+      "dr": "Shop در Sang-e-Masha",
+      "ps": "Shop په Sang-e-Masha",
       "en": "1 Bed Shop in Sang-e-Masha"
     },
     "location": {
@@ -255,6 +218,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 1,
       "baths": 1,

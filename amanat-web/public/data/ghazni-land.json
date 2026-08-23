@@ -2,8 +2,8 @@
   {
     "id": "ghz-lnd-001",
     "title": {
-      "dr": "یک حویلی مناسب و آرام در موقعیت خوب، واق...",
-      "ps": "یوه مناسبه او ارامه حویلي چې د سنګماشه ب...",
+      "dr": "زمین 930 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 930 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -21,6 +21,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -49,8 +52,8 @@
   {
     "id": "ghz-lnd-002",
     "title": {
-      "dr": "یک قطعه زمین با موقعیت بسیار عالی در نزد...",
-      "ps": "یوه د ځمکې ټوټه چې د سنګماشه بازار ته نږ...",
+      "dr": "زمین 900 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 900 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -68,6 +71,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -94,9 +100,9 @@
   {
     "id": "ghz-lnd-003",
     "title": {
-      "dr": "این زمین به مساحت ۲ جریب در منطقه جوی نو...",
-      "ps": "این زمین به مساحت ۲ جریب در منطقه جوی نو...",
-      "en": "Land in Sang-e-Masha"
+      "dr": "زمین 3200 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 3200 متر مربع په Sang-e-Masha",
+      "en": "2 Girib Land for Sale in Joye Naw, Jaghori | 40m x 40m | Negotiable Price"
     },
     "location": {
       "city": "Ghazni",
@@ -113,6 +119,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -138,8 +147,8 @@
   {
     "id": "ghz-lnd-004",
     "title": {
-      "dr": "این زمین بسیار کلان برای فروش در سیابوم ...",
-      "ps": "این زمین بسیار کلان برای فروش در سیابوم ...",
+      "dr": "زمین 1080 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 1080 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -157,6 +166,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -188,8 +200,8 @@
   {
     "id": "ghz-lnd-005",
     "title": {
-      "dr": "این زمین برای فروش در سیابوم پایین جاغور...",
-      "ps": "این زمین برای فروش در سیابوم پایین جاغور...",
+      "dr": "زمین 575 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 575 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -207,6 +219,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -235,8 +250,8 @@
   {
     "id": "ghz-lnd-006",
     "title": {
-      "dr": "این زمین برای فروش در سیابوته جاغوری در ...",
-      "ps": "این زمین برای فروش در سیابوته جاغوری در ...",
+      "dr": "زمین 360 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 360 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -254,6 +269,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -280,8 +298,8 @@
   {
     "id": "ghz-lnd-007",
     "title": {
-      "dr": "این زمین برای فروش در توغی جاغوری در یک ...",
-      "ps": "این زمین برای فروش در توغی جاغوری در یک ...",
+      "dr": "زمین 500 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 500 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -299,6 +317,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -325,8 +346,8 @@
   {
     "id": "ghz-lnd-008",
     "title": {
-      "dr": "این زمین زراعتی برای فروش در سبزچوب جاغو...",
-      "ps": "این زمین زراعتی برای فروش در سبزچوب جاغو...",
+      "dr": "زمین 2670 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 2670 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -344,6 +365,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": false,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -376,8 +400,8 @@
   {
     "id": "ghz-lnd-009",
     "title": {
-      "dr": "این ۸ جریب زمین کشتی برای فروش در خرتیزک...",
-      "ps": "این ۸ جریب زمین کشتی برای فروش در خرتیزک...",
+      "dr": "زمین 16000 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 16000 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -395,6 +419,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": false,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -423,8 +450,8 @@
   {
     "id": "ghz-lnd-010",
     "title": {
-      "dr": "این قطعه زمین تجارتی با مساحت ۳۰×۶۰ متر ...",
-      "ps": "این قطعه زمین تجارتی با مساحت ۳۰×۶۰ متر ...",
+      "dr": "زمین 1800 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 1800 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -442,6 +469,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": false,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -468,8 +498,8 @@
   {
     "id": "ghz-lnd-011",
     "title": {
-      "dr": "این قطعه زمین برای فروش در کوشه جاغوری ب...",
-      "ps": "این قطعه زمین برای فروش در کوشه جاغوری ب...",
+      "dr": "زمین 1800 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 1800 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -487,6 +517,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": false,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,

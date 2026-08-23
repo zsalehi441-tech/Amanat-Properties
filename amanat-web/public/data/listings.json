@@ -1,59 +1,10 @@
 [
   {
-    "id": "ghz-com-001",
-    "title": {
-      "dr": "یک دکان بسیار بزرگ و نوساخت با موقعیت عا...",
-      "ps": "یو ډېر لوی او نوی جوړ شوی دوکان چې د سنګ...",
-      "en": "Shop in Sang-e-Masha"
-    },
-    "location": {
-      "city": "Ghazni",
-      "district": "Sang-e-Masha",
-      "dr": "Ghazni, Sang-e-Masha",
-      "ps": "Ghazni, Sang-e-Masha",
-      "en": "Ghazni, Sang-e-Masha"
-    },
-    "coordinates": {
-      "lat": 0,
-      "lng": 0
-    },
-    "price": 30000,
-    "currency": "AFN",
-    "type": "sale",
-    "status": "verified",
-    "features": {
-      "beds": 0,
-      "baths": 1,
-      "area": 24
-    },
-    "images": [
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468715/p1_eqtal9.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468712/p2_elatq2.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468713/p3_oitwfg.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468714/p4_ieezpw.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468712/p5_nhblhe.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468711/p6_nrwyrg.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468717/p7_yzswmx.jpg",
-      "https://res.cloudinary.com/dw3seymup/image/upload/v1773468718/p8_x3nisq.jpg"
-    ],
-    "videoUrl": null,
-    "description": {
-      "dr": "یک دکان بسیار بزرگ و نوساخت با موقعیت عالی در بازار سنگماشه، واقع در سر چهارراه که یکی از بهترین نقاط تجارتی محسوب می‌شود. این دکان در منزل سوم موقعیت دارد و برای انواع فعالیت‌های تجارتی بسیار مناسب است.\nهمچنان این دکان دارای تشناب (سرویس صحی) بوده و به دلیل موقعیت بسیار خوب در چهارراه، از رفت‌وآمد زیاد مشتریان برخوردار است. گزینه‌ای بسیار مناسب برای سرمایه‌گذاری یا شروع یک کاروبار موفق.",
-      "ps": "یو ډېر لوی او نوی جوړ شوی دوکان چې د سنګماشه بازار په ډېر ښه موقعیت کې، د څلور لارې په سر کې موقعیت لري. دا ځای د سوداګرۍ لپاره له غوره ځایونو څخه ګڼل کېږي. دا دوکان په دریم منزل کې دی او د بېلابېلو کاروبارونو لپاره مناسب دی.\nدا دوکان تشناب (د صحت خونې) هم لري او د څلور لارې په سر د موقعیت له امله د مشتریانو ښه تګ راتګ لري. دا د پانګونې او یا د بریالي کاروبار د پیل لپاره یو ډېر ښه فرصت دی.",
-      "en": "A very large and newly built shop located in an excellent position in Sangmasha Market, right at the main crossroads, which is considered one of the best commercial locations. The shop is located on the third floor and is suitable for different types of businesses.\nThe shop also has a private restroom, and due to its prime location at the crossroads, it benefits from high customer traffic. It is a great opportunity for investment or starting a successful business. "
-    },
-    "verificationData": {
-      "deedChecked": true,
-      "identityVerified": true,
-      "lawyerApproved": true
-    }
-  },
-  {
     "id": "ghz-com-002",
     "title": {
-      "dr": "زمین دکانی برای فروش در بازار سنگ‌ماشه –...",
-      "ps": "زمین دکانی برای فروش در بازار سنگ‌ماشه –...",
-      "en": "Commercial Land in Sang-e-Masha"
+      "dr": "زمین دکانی برای فروش در بازار سنگ‌ماشه – ۴ متر عرض و ۶ متر طول",
+      "ps": "زمین دکانی برای فروش در بازار سنگ‌ماشه – ۴ متر عرض و ۶ متر طول",
+      "en": "Shop Land for Sale in Sang-e-Masha Bazar – 4m x 6m"
     },
     "location": {
       "city": "Ghazni",
@@ -70,6 +21,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -94,8 +48,8 @@
   {
     "id": "ghz-com-003",
     "title": {
-      "dr": "این ۴ جای دکان برای فروش در بازار سنگماش...",
-      "ps": "این ۴ جای دکان برای فروش در بازار سنگماش...",
+      "dr": "Commercial Land در Sang-e-Masha",
+      "ps": "Commercial Land په Sang-e-Masha",
       "en": "Commercial Land in Sang-e-Masha"
     },
     "location": {
@@ -113,6 +67,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -142,8 +99,8 @@
   {
     "id": "ghz-com-004",
     "title": {
-      "dr": "این دکان برای فروش در بازار سنگماشه جاغو...",
-      "ps": "این دکان برای فروش در بازار سنگماشه جاغو...",
+      "dr": "Shop در Sang-e-Masha",
+      "ps": "Shop په Sang-e-Masha",
       "en": "Shop in Sang-e-Masha"
     },
     "location": {
@@ -161,6 +118,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -189,8 +149,8 @@
   {
     "id": "ghz-com-005",
     "title": {
-      "dr": "این ۴ جای دکان برای فروش در بازار سنگماش...",
-      "ps": "این ۴ جای دکان برای فروش در بازار سنگماش...",
+      "dr": "Shop در Sang-e-Masha",
+      "ps": "Shop په Sang-e-Masha",
       "en": "Shop in Sang-e-Masha"
     },
     "location": {
@@ -208,6 +168,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -236,8 +199,8 @@
   {
     "id": "ghz-com-006",
     "title": {
-      "dr": "این دکان دو منزله برای فروش در بازار سنگ...",
-      "ps": "این دکان دو منزله برای فروش در بازار سنگ...",
+      "dr": "Shop در Sang-e-Masha",
+      "ps": "Shop په Sang-e-Masha",
       "en": "1 Bed Shop in Sang-e-Masha"
     },
     "location": {
@@ -255,6 +218,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 1,
       "baths": 1,
@@ -286,8 +252,8 @@
   {
     "id": "ghz-lnd-001",
     "title": {
-      "dr": "یک حویلی مناسب و آرام در موقعیت خوب، واق...",
-      "ps": "یوه مناسبه او ارامه حویلي چې د سنګماشه ب...",
+      "dr": "زمین 930 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 930 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -305,6 +271,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -333,8 +302,8 @@
   {
     "id": "ghz-lnd-002",
     "title": {
-      "dr": "یک قطعه زمین با موقعیت بسیار عالی در نزد...",
-      "ps": "یوه د ځمکې ټوټه چې د سنګماشه بازار ته نږ...",
+      "dr": "زمین 900 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 900 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -352,6 +321,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -378,9 +350,9 @@
   {
     "id": "ghz-lnd-003",
     "title": {
-      "dr": "این زمین به مساحت ۲ جریب در منطقه جوی نو...",
-      "ps": "این زمین به مساحت ۲ جریب در منطقه جوی نو...",
-      "en": "Land in Sang-e-Masha"
+      "dr": "زمین 3200 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 3200 متر مربع په Sang-e-Masha",
+      "en": "2 Girib Land for Sale in Joye Naw, Jaghori | 40m x 40m | Negotiable Price"
     },
     "location": {
       "city": "Ghazni",
@@ -397,6 +369,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -422,8 +397,8 @@
   {
     "id": "ghz-lnd-004",
     "title": {
-      "dr": "این زمین بسیار کلان برای فروش در سیابوم ...",
-      "ps": "این زمین بسیار کلان برای فروش در سیابوم ...",
+      "dr": "زمین 1080 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 1080 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -441,6 +416,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -472,8 +450,8 @@
   {
     "id": "ghz-lnd-005",
     "title": {
-      "dr": "این زمین برای فروش در سیابوم پایین جاغور...",
-      "ps": "این زمین برای فروش در سیابوم پایین جاغور...",
+      "dr": "زمین 575 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 575 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -491,6 +469,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -519,8 +500,8 @@
   {
     "id": "ghz-lnd-006",
     "title": {
-      "dr": "این زمین برای فروش در سیابوته جاغوری در ...",
-      "ps": "این زمین برای فروش در سیابوته جاغوری در ...",
+      "dr": "زمین 360 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 360 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -538,6 +519,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -564,8 +548,8 @@
   {
     "id": "ghz-lnd-007",
     "title": {
-      "dr": "این زمین برای فروش در توغی جاغوری در یک ...",
-      "ps": "این زمین برای فروش در توغی جاغوری در یک ...",
+      "dr": "زمین 500 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 500 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -583,6 +567,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -609,8 +596,8 @@
   {
     "id": "ghz-lnd-008",
     "title": {
-      "dr": "این زمین زراعتی برای فروش در سبزچوب جاغو...",
-      "ps": "این زمین زراعتی برای فروش در سبزچوب جاغو...",
+      "dr": "زمین 2670 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 2670 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -628,6 +615,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": false,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -660,8 +650,8 @@
   {
     "id": "ghz-lnd-009",
     "title": {
-      "dr": "این ۸ جریب زمین کشتی برای فروش در خرتیزک...",
-      "ps": "این ۸ جریب زمین کشتی برای فروش در خرتیزک...",
+      "dr": "زمین 16000 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 16000 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -679,6 +669,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": false,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -707,8 +700,8 @@
   {
     "id": "ghz-lnd-010",
     "title": {
-      "dr": "این قطعه زمین تجارتی با مساحت ۳۰×۶۰ متر ...",
-      "ps": "این قطعه زمین تجارتی با مساحت ۳۰×۶۰ متر ...",
+      "dr": "زمین 1800 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 1800 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -726,6 +719,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": false,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -752,8 +748,8 @@
   {
     "id": "ghz-lnd-011",
     "title": {
-      "dr": "این قطعه زمین برای فروش در کوشه جاغوری ب...",
-      "ps": "این قطعه زمین برای فروش در کوشه جاغوری ب...",
+      "dr": "زمین 1800 متر مربع در Sang-e-Masha",
+      "ps": "ځمکه 1800 متر مربع په Sang-e-Masha",
       "en": "Land in Sang-e-Masha"
     },
     "location": {
@@ -771,6 +767,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": false,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -800,8 +799,8 @@
   {
     "id": "ghz-res-001",
     "title": {
-      "dr": "این خانه با معماری اصیل افغانی و فضای آر...",
-      "ps": "این خانه با معماری اصیل افغانی و فضای آر...",
+      "dr": "خانه 2 اتاق خوابه در Sang-e-Masha",
+      "ps": "2 کوټې کور په Sang-e-Masha",
       "en": "2 Bed Property in Sang-e-Masha"
     },
     "location": {
@@ -819,6 +818,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 2,
       "baths": 1,
@@ -852,8 +854,8 @@
   {
     "id": "ghz-res-002",
     "title": {
-      "dr": "این خانه با معماری اصیل افغانی و فضای آر...",
-      "ps": "این خانه با معماری اصیل افغانی و فضای آر...",
+      "dr": "خانه 3 اتاق خوابه در Sang-e-Masha",
+      "ps": "3 کوټې کور په Sang-e-Masha",
       "en": "3 Bed Property in Sang-e-Masha"
     },
     "location": {
@@ -871,6 +873,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 3,
       "baths": 1,
@@ -903,9 +908,9 @@
   {
     "id": "ghz-res-003",
     "title": {
-      "dr": "ویلای زیبا نزدیک بازار سنگماشه | زندگی آ...",
-      "ps": "ویلای زیبا نزدیک بازار سنگماشه | زندگی آ...",
-      "en": "7 Bed Property in Sang-e-Masha"
+      "dr": "ویلای زیبا نزدیک بازار سنگماشه | زندگی آرام در جاغوری",
+      "ps": "ویلای زیبا نزدیک بازار سنگماشه | زندگی آرام در جاغوری",
+      "en": "Beautiful Villa Near Sang-e-Masha | Peaceful Living in Jaghori"
     },
     "location": {
       "city": "Ghazni",
@@ -922,6 +927,9 @@
     "currency": "USD",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 7,
       "baths": 4,
@@ -965,9 +973,9 @@
   {
     "id": "ghz-res-004",
     "title": {
-      "dr": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
-      "ps": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
-      "en": "3 Bed Property in Sang-e-Masha"
+      "dr": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت عالی برای خانواده",
+      "ps": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت عالی برای خانواده",
+      "en": "Beautiful Traditional House Near Sang-e-Masha | Prime Family Location"
     },
     "location": {
       "city": "Ghazni",
@@ -984,6 +992,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 3,
       "baths": 1,
@@ -1015,9 +1026,9 @@
   {
     "id": "ghz-res-005",
     "title": {
-      "dr": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
-      "ps": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت ...",
-      "en": "3 Bed Property in Sang-e-Masha"
+      "dr": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت عالی برای خانواده",
+      "ps": "خانه زیبا و سنتی نزدیک سنگماشه | موقعیت عالی برای خانواده",
+      "en": "Beautiful Traditional House Near Sang-e-Masha | Prime Family Location"
     },
     "location": {
       "city": "Ghazni",
@@ -1034,6 +1045,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 3,
       "baths": 4,
@@ -1076,8 +1090,8 @@
   {
     "id": "ghz-res-006",
     "title": {
-      "dr": "این خانه زیبا و سنتی در یکی از بهترین مو...",
-      "ps": "این خانه زیبا و سنتی در یکی از بهترین مو...",
+      "dr": "خانه 3 اتاق خوابه در Sang-e-Masha",
+      "ps": "3 کوټې کور په Sang-e-Masha",
       "en": "3 Bed Property in Sang-e-Masha"
     },
     "location": {
@@ -1095,6 +1109,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": true,
+    "active_status": "Available",
     "features": {
       "beds": 3,
       "baths": 1,
@@ -1133,8 +1150,8 @@
   {
     "id": "ghz-res-007",
     "title": {
-      "dr": "این خانه برای فروش در کهنه‌ده جاغوری در ...",
-      "ps": "این خانه برای فروش در کهنه‌ده جاغوری در ...",
+      "dr": "خانه در Sang-e-Masha",
+      "ps": "کور په Sang-e-Masha",
       "en": "Property in Sang-e-Masha"
     },
     "location": {
@@ -1152,6 +1169,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 0,
       "baths": 0,
@@ -1186,8 +1206,8 @@
   {
     "id": "ghz-res-008",
     "title": {
-      "dr": "این خانه برای فروش در ممدگ جاغوری با داش...",
-      "ps": "این خانه برای فروش در ممدگ جاغوری با داش...",
+      "dr": "خانه 4 اتاق خوابه در Sang-e-Masha",
+      "ps": "4 کوټې کور په Sang-e-Masha",
       "en": "4 Bed Property in Sang-e-Masha"
     },
     "location": {
@@ -1205,6 +1225,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 4,
       "baths": 1,
@@ -1241,8 +1264,8 @@
   {
     "id": "ghz-res-009",
     "title": {
-      "dr": "این خانه برای فروش در قلعهٔ جرنیل جاغوری...",
-      "ps": "این خانه برای فروش در قلعهٔ جرنیل جاغوری...",
+      "dr": "خانه 3 اتاق خوابه در Sang-e-Masha",
+      "ps": "3 کوټې کور په Sang-e-Masha",
       "en": "3 Bed Property in Sang-e-Masha"
     },
     "location": {
@@ -1260,6 +1283,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 3,
       "baths": 2,
@@ -1309,8 +1335,8 @@
   {
     "id": "ghz-res-010",
     "title": {
-      "dr": "این خانه برای فروش در سبزچوب سنگماشه جاغ...",
-      "ps": "این خانه برای فروش در سبزچوب سنگماشه جاغ...",
+      "dr": "خانه 3 اتاق خوابه در Sang-e-Masha",
+      "ps": "3 کوټې کور په Sang-e-Masha",
       "en": "3 Bed Property in Sang-e-Masha"
     },
     "location": {
@@ -1328,6 +1354,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 3,
       "baths": 1,
@@ -1362,8 +1391,8 @@
   {
     "id": "ghz-res-011",
     "title": {
-      "dr": "این خانه برای فروش در شهرک مردای جاغوری ...",
-      "ps": "این خانه برای فروش در شهرک مردای جاغوری ...",
+      "dr": "خانه 3 اتاق خوابه در Sang-e-Masha",
+      "ps": "3 کوټې کور په Sang-e-Masha",
       "en": "3 Bed Property in Sang-e-Masha"
     },
     "location": {
@@ -1381,6 +1410,9 @@
     "currency": "AFN",
     "type": "sale",
     "status": "verified",
+    "negotiable": true,
+    "is_featured": false,
+    "active_status": "Available",
     "features": {
       "beds": 3,
       "baths": 1,

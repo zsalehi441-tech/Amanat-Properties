@@ -37,21 +37,43 @@ async function runExport() {
             const typePrefix = typeCodes[type] || 'unk';
             const id = `${prefix}-${typePrefix}-${String(item.id).padStart(3, '0')}`;
 
-            // Title Generation (since not in schema)
-            const featuresTitle = [];
-            if (item.bedrooms) featuresTitle.push(`${item.bedrooms} Bed`);
-            if (item.property_type) featuresTitle.push(item.property_type); // Commercial
-            else if (type === 'land') featuresTitle.push('Land');
-            else featuresTitle.push('Property'); // Residential fallback
+            // Title Generation (clean first line or structured fallback)
+            const getFirstLine = (text) => text ? text.split('\n').map(s => s.trim()).find(s => s.length > 0) || '' : '';
 
-            const titleEn = `${featuresTitle.join(' ')} in ${item.district}`;
-            const titleDr = item.description_dari ? item.description_dari.substring(0, 40) + '...' : titleEn;
+            const rawLineDr = getFirstLine(item.description_dari);
+            const rawLinePs = getFirstLine(item.description_pashto);
+            const rawLineEn = getFirstLine(item.description_english);
+
+            let titleDr = rawLineDr && rawLineDr.length <= 90 ? rawLineDr : '';
+            let titlePs = rawLinePs && rawLinePs.length <= 90 ? rawLinePs : (titleDr || '');
+            let titleEn = rawLineEn && rawLineEn.length <= 90 ? rawLineEn : '';
+
+            if (!titleDr) {
+                if (type === 'residential') titleDr = `خانه ${item.bedrooms ? item.bedrooms + ' اتاق خوابه ' : ''}در ${item.district}`;
+                else if (type === 'commercial') titleDr = `${item.property_type || 'ملک تجارتی'} در ${item.district}`;
+                else titleDr = `زمین ${item.area_sqm || item.land_size || ''} متر مربع در ${item.district}`;
+            }
+
+            if (!titlePs) {
+                if (type === 'residential') titlePs = `${item.bedrooms ? item.bedrooms + ' کوټې ' : ''}کور په ${item.district}`;
+                else if (type === 'commercial') titlePs = `${item.property_type || 'تجارتی ملکیت'} په ${item.district}`;
+                else titlePs = `ځمکه ${item.area_sqm || item.land_size || ''} متر مربع په ${item.district}`;
+            }
+
+            if (!titleEn) {
+                const featuresTitle = [];
+                if (item.bedrooms) featuresTitle.push(`${item.bedrooms} Bed`);
+                if (item.property_type) featuresTitle.push(item.property_type);
+                else if (type === 'land') featuresTitle.push('Land');
+                else featuresTitle.push('Property');
+                titleEn = `${featuresTitle.join(' ')} in ${item.district}`;
+            }
 
             return {
                 id: id,
                 title: {
                     dr: titleDr,
-                    ps: item.description_pashto ? item.description_pashto.substring(0, 40) + '...' : titleDr,
+                    ps: titlePs,
                     en: titleEn
                 },
                 location: {
@@ -67,8 +89,11 @@ async function runExport() {
                 },
                 price: Number(item.price) || 0, // Convert BigInt
                 currency: item.currency || 'AFN',
-                type: "sale", // Default
+                type: item.listing_type ? item.listing_type.toLowerCase() : 'sale',
                 status: "verified",
+                negotiable: item.is_negotiable ?? true,
+                is_featured: item.is_featured ?? true,
+                active_status: item.active_status || 'Available',
                 features: {
                     beds: item.bedrooms || 0,
                     baths: item.bathrooms || 0,
