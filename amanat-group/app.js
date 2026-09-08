@@ -41,3 +41,68 @@ document.querySelector('#partner-form')?.addEventListener('submit', (event) => {
   window.location.assign(`https://wa.me/93791606227?text=${encodeURIComponent(message)}`);
 });
 document.querySelector('#partner-form')?.addEventListener('input', (event) => { event.target.setCustomValidity?.(''); });
+
+// Progressive enhancement: the content and contact form work without animation.
+const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+let manualMotion = null;
+try { const saved = localStorage.getItem('amanat-group-motion'); if (saved) manualMotion = saved === 'reduce'; } catch {}
+const motionButton = document.querySelector('.motion-toggle');
+function applyMotion() {
+  const reduce = manualMotion ?? motionPreference.matches;
+  document.documentElement.classList.toggle('reduce-motion', reduce);
+  motionButton?.setAttribute('aria-pressed', String(reduce));
+  document.dispatchEvent(new Event('amanat-motion-change'));
+}
+motionButton?.addEventListener('click', () => {
+  manualMotion = !document.documentElement.classList.contains('reduce-motion');
+  try { localStorage.setItem('amanat-group-motion', manualMotion ? 'reduce' : 'full'); } catch {}
+  applyMotion();
+});
+motionPreference.addEventListener('change', applyMotion); applyMotion();
+
+const tabs = [...document.querySelectorAll('[data-panel]')];
+function selectPanel(tab, focus = false) {
+  tabs.forEach(button => {
+    const active = button === tab;
+    button.setAttribute('aria-selected', String(active));
+    button.tabIndex = active ? 0 : -1;
+    document.querySelector(`#panel-${button.dataset.panel}`).hidden = !active;
+  });
+  if (focus) tab.focus();
+}
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => selectPanel(tab));
+  tab.addEventListener('keydown', event => {
+    let index = tabs.indexOf(tab);
+    if (event.key === 'ArrowRight') index += document.documentElement.dir === 'rtl' ? -1 : 1;
+    else if (event.key === 'ArrowLeft') index += document.documentElement.dir === 'rtl' ? 1 : -1;
+    else if (event.key === 'Home') index = 0;
+    else if (event.key === 'End') index = tabs.length - 1;
+    else return;
+    event.preventDefault(); selectPanel(tabs[(index + tabs.length) % tabs.length], true);
+  });
+});
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+  }, { threshold: .08, rootMargin: '0px 0px -25px 0px' });
+  document.querySelectorAll('.section-heading, .about>div, .service-card, .workspace-showcase, .partner-aside, .partner-benefits article, .steps li, .contact>div, .contact form, .system-banner, .faq details').forEach((element) => {
+    element.classList.add('reveal'); revealObserver.observe(element);
+  });
+  document.documentElement.classList.add('motion-ready');
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) document.querySelectorAll('#navigation a').forEach(link => link.classList.toggle('current', link.hash === '#' + entry.target.id)); });
+  }, { rootMargin: '-15% 0px -60% 0px' });
+  document.querySelectorAll('section[id]').forEach(section => navObserver.observe(section));
+}
+let scrollFrame = false;
+function reflectScroll() {
+  scrollFrame = false;
+  const range = document.documentElement.scrollHeight - innerHeight;
+  const progress = document.querySelector('.reading-progress');
+  if (progress) progress.style.transform = `scaleX(${range > 0 ? Math.min(scrollY / range, 1) : 0})`;
+  document.querySelector('.header')?.classList.toggle('compact', scrollY > 50);
+}
+addEventListener('scroll', () => { if (!scrollFrame) { scrollFrame = true; requestAnimationFrame(reflectScroll); } }, { passive: true });
+addEventListener('resize', reflectScroll);reflectScroll();
