@@ -14,7 +14,13 @@ Contact information was copied from the current customer website: +93 791 606 22
 
 The architectural illustration uses CSS and does not depict an actual Amanat property or office.
 
-## GitHub and Vercel
+## Cloudflare Pages (preferred free hosting)
+
+Source: https://github.com/zsalehi441-tech/Amanat-Properties/tree/amanat-group-site/amanat-group
+
+Create a Cloudflare Pages project connected to this repository. Set production branch `amanat-group-site`, root directory `amanat-group`, build command `npm run build`, and output directory `dist`. The `_headers` file supplies security headers. Add `amanat-group.af` through the project's Custom Domains page after the preview deployment passes. This is a static site with no Functions or paid service dependencies.
+
+## GitHub and Vercel (alternative)
 
 Publish this directory as a separate GitHub repository, or add it as its own directory in the existing repository and set that directory as the Vercel project root. Do not change the existing amanat.af project's root or domain.
 
