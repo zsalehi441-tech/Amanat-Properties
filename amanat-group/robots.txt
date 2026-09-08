@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /login
+Sitemap: https://amanat-group.af/sitemap.xml
