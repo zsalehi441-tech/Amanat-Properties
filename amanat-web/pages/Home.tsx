@@ -1,3 +1,5 @@
+import {useCatalog} from '../catalog';
+import CatalogNotice from '../components/CatalogNotice';
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -17,21 +19,12 @@ const Home: React.FC<Props> = ({ lang, isDarkMode }) => {
   const [gerawiProperties, setGerawiProperties] = useState<Property[]>([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
-  useEffect(() => {
-    fetch('/data/listings.json')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.length > 0) {
-          setSaleProperties(data.filter((p: Property) => p.type === 'sale' && p.is_featured).slice(0, 4));
-          setRentProperties(data.filter((p: Property) => p.type === 'rent' && p.is_featured).slice(0, 4));
-          setGerawiProperties(data.filter((p: Property) => p.type === 'gerawi' && p.is_featured).slice(0, 4));
-        }
-      })
-      .catch(err => console.error("Error loading properties", err));
-  }, []);
+  const catalog=useCatalog();
+  useEffect(()=>{setSaleProperties(catalog.data.filter(p=>p.type==='sale'&&p.is_featured).slice(0,4));setRentProperties(catalog.data.filter(p=>p.type==='rent'&&p.is_featured).slice(0,4));setGerawiProperties(catalog.data.filter(p=>p.type==='gerawi'&&p.is_featured).slice(0,4));},[catalog.data]);
 
   return (
     <div className="animate-fade-in">
+      <CatalogNotice stale={catalog.stale} error={catalog.error} lang={lang}/>
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center overflow-hidden bg-slate-100 dark:bg-brand-dark">
         <div className="absolute inset-0 z-0">

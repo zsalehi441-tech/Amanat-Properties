@@ -1,3 +1,5 @@
+import {useCatalog} from '../catalog';
+import CatalogNotice from '../components/CatalogNotice';
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Language, Property } from '../types';
@@ -15,19 +17,14 @@ const PropertyDetail: React.FC<Props> = ({ lang }) => {
   const [property, setProperty] = useState<Property | null>(null);
   const [activeImage, setActiveImage] = useState(0);
 
-  useEffect(() => {
-    fetch('/data/listings.json')
-      .then(res => res.json())
-      .then((data: Property[]) => {
-        const found = data.find(p => p.id === id);
-        if (found) setProperty(found);
-      });
-  }, [id]);
+  const catalog=useCatalog();
+  useEffect(()=>{setProperty(catalog.data.find(p=>p.id===id)||null);setActiveImage(0);},[catalog.data,id]);
 
-  if (!property) return <div className="p-24 text-center">Loading...</div>;
+  if (!property) return <div className="p-24 text-center"><CatalogNotice stale={catalog.stale} error={catalog.error} lang={lang}/>{catalog.loading?'Loading...':lang==='en'?'This listing is not currently available.':'این ملک فعلاً در دسترس نیست.'}<Link to="/listings"> ← {t.nav.listings}</Link></div>;
 
   return (
     <div className="py-12 animate-fade-in bg-white dark:bg-brand-dark min-h-screen">
+      <CatalogNotice stale={catalog.stale} error={catalog.error} lang={lang}/>
       <div className="container mx-auto px-4">
         {/* Breadcrumbs */}
         <div className="flex gap-2 text-[10px] text-slate-400 dark:text-slate-500 mb-8 uppercase tracking-[0.3em] font-bold">
