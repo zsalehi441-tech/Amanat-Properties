@@ -1,3 +1,5 @@
+import {useCatalog} from '../catalog';
+import CatalogNotice from '../components/CatalogNotice';
 
 import React, { useState, useEffect } from 'react';
 import { Language, Property } from '../types';
@@ -18,18 +20,8 @@ const Listings: React.FC<Props> = ({ lang }) => {
   const [listingType, setListingType] = useState<'all' | 'sale' | 'rent' | 'gerawi'>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
 
-  useEffect(() => {
-    fetch('./data/listings.json')
-      .then(res => res.json())
-      .then(data => {
-        setProperties(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Failed to load listings", err);
-        setLoading(false);
-      });
-  }, []);
+  const catalog=useCatalog();
+  useEffect(()=>{setProperties(catalog.data);setLoading(catalog.loading);},[catalog.data,catalog.loading]);
 
   const filteredProperties = properties.filter(p => {
     const matchProvince = selectedProvince === 'all' || p.location.city.toLowerCase() === selectedProvince.toLowerCase();
@@ -40,13 +32,14 @@ const Listings: React.FC<Props> = ({ lang }) => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
+      <CatalogNotice stale={catalog.stale} error={catalog.error} lang={lang}/>
         <div className="w-12 h-12 border-4 border-brand-gold border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="py-20 animate-fade-in bg-white dark:bg-brand-dark min-h-screen">
+    <div className="py-20 animate-fade-in bg-white dark:bg-brand-dark min-h-screen"><CatalogNotice stale={catalog.stale} error={catalog.error} lang={lang}/>
       <div className="container mx-auto px-4">
         <header className="mb-12">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
@@ -166,3 +159,4 @@ const Listings: React.FC<Props> = ({ lang }) => {
 };
 
 export default Listings;
+
